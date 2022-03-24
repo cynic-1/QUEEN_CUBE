@@ -64,18 +64,30 @@
       <router-view />
     </q-page-container>
 
-    <q-footer>
-        <div class="flex justify-between q-py-xl">
-          <div class="row q-pl-xl">
-            <template v-for="x in 4">
+    <q-footer style="color: black">
+        <div class="flex justify-between q-py-lg">
+          <div class="row q-pl-xl gt-xs">
+            <template v-for="x in 2">
               <div class="q-pr-md">
                 <img alt="Official_Account_QR"  src="Official_Accounts_QR.jpg" width="50px">
               </div>
             </template>
           </div>
-          <div>
+
+          <div class="row q-pl-md xs">
+            <template v-for="x in 2">
+              <div class="q-pr-sm">
+                <img alt="Official_Account_QR"  src="Official_Accounts_QR.jpg" width="30px">
+              </div>
+            </template>
+          </div>
+          <div class="q-pr-xl gt-xs text-h6">
             公司地址：{{address}} <br>
-            Email: {{email}}
+            Email: <a :href="'mailto:'+email">{{email}}</a>
+          </div>
+          <div class="q-pr-sm xs" style="font-size: xx-small">
+            公司地址：{{address}} <br>
+            Email: <a :href="'mailto:'+email">{{email}}</a>
           </div>
         </div>
     </q-footer>
@@ -86,7 +98,7 @@
 import { defineComponent } from 'vue'
 import HeaderSearch from "components/HeaderSearch";
 import route from '../router/index'
-const $router = route()
+const router = route()
 export default defineComponent({
   name: 'MainLayout',
 
@@ -98,8 +110,8 @@ export default defineComponent({
     return {
       drawer: false,
       isChinese: true,
-      address: '',
-      email: '',
+      address: '上海市徐汇区田林路200号华鑫天地',
+      email: 'Info@queencube.cn',
       headers: [
         {
           chinese: '产品中心',
@@ -148,7 +160,7 @@ export default defineComponent({
     },
     search(){
       console.log(this.searchValue)
-      $router.push('/search');
+      router.push('/search');
       this.close()
     },
   }
