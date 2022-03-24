@@ -10,11 +10,11 @@
 
         <template v-for="item of headers">
           <div class="menu-item" :class="{hasChild: item.child.length}">
-            <q-btn stretch flat :label="item.chinese" :to="item.link" />
+            <q-btn stretch flat :label="item.chinese" :to="item.link"/>
             <div class="childMenu" v-if="item.child.length">
               <template v-for="it of item.child">
                 <div class="sub-menu">
-                  <q-btn stretch flat text-color="black" :label="it.chinese" :to="item.link"/>
+                  <q-btn stretch flat :label="it.chinese" :to="item.link"/>
                 </div>
               </template>
             </div>
@@ -23,6 +23,14 @@
 
         <q-toolbar-title/>
 
+        <div class="menu-item cursor-pointer" @click="langChange">
+          <template v-if="isChinese">
+            EN
+          </template>
+          <template v-else>
+            中
+          </template>
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -44,6 +52,7 @@ export default defineComponent({
 
   data() {
     return {
+      isChinese: true,
       headers: [
         {
           chinese: '产品中心',
@@ -77,26 +86,26 @@ export default defineComponent({
         }
       ]
       }
+    },
+  methods: {
+    langChange() {
+      this.isChinese = !this.isChinese
+      console.log(this.isChinese)
     }
+  }
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .menu-item {
   min-width: 60px;
   height: 50px;
   line-height: 50px;
   text-align: center;
   position: relative;
-a{
-  padding: 12px 10px;
-  color: #b9bec1;
-  font-weight: bold;
-  font-size: 16px;
-&:hover {
-   color: #ff6d6d;
- }
-}
+  &:hover {
+    color: #6df3ff;
+  }
 &:not(:last-child) {
    margin-right: 15px;
  }
@@ -121,6 +130,9 @@ a{
   -webkit-transition: .6s all ease;
   -moz-transition: .6s all linear;
   -o-transition: .6s all ease;
+  &:hover {
+    color: #6df3ff;
+  }
 &:before,&:after{
             content: '';
             position: absolute;
@@ -145,11 +157,14 @@ a{
    content: '';
    width: 50%;
    height: 1px;
-   color: #ff6d6d;
    bottom: 0;
    left: 25%;
    z-index: 99;
  }
 }
+  .router-link-active {
+    color: #1fcbc5;
+  }
 }
+
 </style>
