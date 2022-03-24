@@ -1,7 +1,7 @@
 <template>
   <div class="header-search">
-    <q-icon name="search" @click.stop="click"/>
-    <input ref="searchInput" :class="{'show':show}" v-model="searchValue" type="text" @click.stop="" @keyup.enter="search"/>
+    <q-icon name="search" @click.stop="search"/>
+    <input ref="searchInput" :class="{'show':show}" v-model="searchValue" type="text" @click.stop="click" @keyup.enter="search"/>
   </div>
 </template>
 

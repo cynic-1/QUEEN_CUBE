@@ -1,5 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
+
     <q-header elevated>
       <q-toolbar>
         <div class="q-pr-lg">
@@ -7,6 +8,8 @@
             <img alt="logo" src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
           </q-avatar>
         </div>
+        <template class="gt-xs">
+
 
         <template v-for="item of headers">
           <div class="menu-item" :class="{hasChild: item.child.length}">
@@ -14,17 +17,18 @@
             <div class="childMenu" v-if="item.child.length">
               <template v-for="it of item.child">
                 <div class="sub-menu">
-                  <q-btn stretch flat :label="it.chinese" :to="item.link"/>
+                  <q-btn stretch flat :label="getText(it)" :to="item.link"/>
                 </div>
               </template>
             </div>
           </div>
         </template>
+        </template>
 
         <q-toolbar-title/>
 
         <div class="menu-item header-search"><header-search/></div>
-        <div class="menu-item cursor-pointer" @click="langChange">
+        <div class="menu-item cursor-pointer" @click="langChange" style="min-width: unset;">
           <template v-if="isChinese">
             EN
           </template>
@@ -97,7 +101,6 @@ export default defineComponent({
   methods: {
     langChange() {
       this.isChinese = !this.isChinese
-      console.log(this.isChinese)
     },
     getText(a) {
       return this.isChinese ? a.chinese : a.english
@@ -174,7 +177,7 @@ export default defineComponent({
  }
 }
   .router-link-active {
-    color: #7e1fcb;
+    text-decoration: underline;
   }
 }
 
