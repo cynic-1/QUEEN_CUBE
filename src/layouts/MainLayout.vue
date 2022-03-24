@@ -23,6 +23,7 @@
 
         <q-toolbar-title/>
 
+        <div class="menu-item header-search"><header-search/></div>
         <div class="menu-item cursor-pointer" @click="langChange">
           <template v-if="isChinese">
             EN
@@ -42,12 +43,13 @@
 
 <script>
 import { defineComponent } from 'vue'
+import HeaderSearch from "components/HeaderSearch";
 
 export default defineComponent({
   name: 'MainLayout',
 
   components: {
-
+    HeaderSearch
   },
 
   data() {
