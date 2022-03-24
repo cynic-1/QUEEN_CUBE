@@ -10,7 +10,7 @@
 
         <template v-for="item of headers">
           <div class="menu-item" :class="{hasChild: item.child.length}">
-            <q-btn stretch flat :label="item.chinese" :to="item.link"/>
+            <q-btn stretch flat :label="getText(item)" :to="item.link"/>
             <div class="childMenu" v-if="item.child.length">
               <template v-for="it of item.child">
                 <div class="sub-menu">
@@ -58,6 +58,7 @@ export default defineComponent({
       headers: [
         {
           chinese: '产品中心',
+          english: 'Product Center',
           link: '',
           child: [
             {
@@ -68,21 +69,25 @@ export default defineComponent({
       },
         {
           chinese: '解决方案',
+          english: 'Solution',
           link: '',
           child: []
         },
         {
           chinese: '新闻资讯',
+          english: 'News',
           link: '',
           child: []
         },
         {
           chinese: '资料下载',
+          english: 'Downloads',
           link: '',
           child: []
         },
         {
           chinese: '关于我们',
+          english: 'About',
           link: '',
           child: []
         }
@@ -93,6 +98,9 @@ export default defineComponent({
     langChange() {
       this.isChinese = !this.isChinese
       console.log(this.isChinese)
+    },
+    getText(a) {
+      return this.isChinese ? a.chinese : a.english
     }
   }
 })
@@ -108,10 +116,10 @@ export default defineComponent({
   &:hover {
     color: #6df3ff;
   }
-&:not(:last-child) {
+  &:not(:last-child) {
    margin-right: 15px;
  }
-&.hasChild:hover .childMenu{
+  &.hasChild:hover .childMenu{
    opacity:1;
    visibility: visible;
    transform: translateY(-5px);
@@ -132,6 +140,7 @@ export default defineComponent({
   -webkit-transition: .6s all ease;
   -moz-transition: .6s all linear;
   -o-transition: .6s all ease;
+  color: gray;
   &:hover {
     color: #6df3ff;
   }
@@ -165,7 +174,7 @@ export default defineComponent({
  }
 }
   .router-link-active {
-    color: #1fcbc5;
+    color: #7e1fcb;
   }
 }
 
