@@ -3,32 +3,31 @@
 
     <q-header elevated>
       <q-toolbar>
+        <q-btn class="lt-sm" flat @click="drawer = !drawer" round dense icon="menu" />
         <div class="q-pr-lg">
           <q-avatar>
             <img alt="logo" src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
           </q-avatar>
         </div>
-        <template class="gt-xs">
-
-
-        <template v-for="item of headers">
-          <div class="menu-item" :class="{hasChild: item.child.length}">
-            <q-btn stretch flat :label="getText(item)" :to="item.link"/>
-            <div class="childMenu" v-if="item.child.length">
-              <template v-for="it of item.child">
-                <div class="sub-menu">
-                  <q-btn stretch flat :label="getText(it)" :to="item.link"/>
-                </div>
-              </template>
+          <template v-for="item of headers">
+            <div class="menu-item gt-xs" :class="{hasChild: item.child.length}">
+              <q-btn stretch flat :label="getText(item)" :to="item.link"/>
+              <div class="childMenu" v-if="item.child.length">
+                <template v-for="it of item.child">
+                  <div class="sub-menu">
+                    <q-btn stretch flat :label="getText(it)" :to="item.link"/>
+                  </div>
+                </template>
+              </div>
             </div>
-          </div>
-        </template>
-        </template>
+          </template>
 
         <q-toolbar-title/>
 
-        <div class="menu-item header-search"><header-search/></div>
-        <div class="menu-item cursor-pointer" @click="langChange" style="min-width: unset;">
+        <div class="menu-item header-search" style="margin-right: unset; min-width: unset;">
+          <q-icon name="search" size="xs" class="cursor-pointer" @click.stop="search"/>
+        </div>
+        <div class="menu-item cursor-pointer" @click="langChange">
           <template v-if="isChinese">
             EN
           </template>
@@ -39,6 +38,28 @@
       </q-toolbar>
     </q-header>
 
+    <q-drawer
+      v-model="drawer"
+      :width="200"
+      :breakpoint="600"
+      bordered
+      content-class="bg-grey-3"
+    >
+      <q-scroll-area class="fit">
+        <q-list>
+
+          <template v-for="(menuItem, index) in headers" :key="index">
+            <q-item  clickable v-ripple>
+              <q-item-section>
+                {{ getText(menuItem) }}
+              </q-item-section>
+            </q-item>
+          </template>
+
+        </q-list>
+      </q-scroll-area>
+    </q-drawer>
+
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -48,7 +69,8 @@
 <script>
 import { defineComponent } from 'vue'
 import HeaderSearch from "components/HeaderSearch";
-
+import route from '../router/index'
+const $router = route()
 export default defineComponent({
   name: 'MainLayout',
 
@@ -58,6 +80,7 @@ export default defineComponent({
 
   data() {
     return {
+      drawer: false,
       isChinese: true,
       headers: [
         {
@@ -104,7 +127,12 @@ export default defineComponent({
     },
     getText(a) {
       return this.isChinese ? a.chinese : a.english
-    }
+    },
+    search(){
+      console.log(this.searchValue)
+      $router.push('/search');
+      this.close()
+    },
   }
 })
 </script>
