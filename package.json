@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "description": "A Quasar Project",
   "productName": "Quasar App",
-  "author": "song <songyx2001@126.com>",
+  "author": "cynic cynic2001@gmail.com",
   "private": true,
   "scripts": {
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "dev": "quasar dev -m ssr"
   },
   "dependencies": {
     "axios": "^0.21.1",
