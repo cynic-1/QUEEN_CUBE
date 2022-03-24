@@ -1,12 +1,12 @@
 <template>
   <q-layout view="lHh Lpr lFf">
 
-    <q-header elevated>
+    <q-header elevated style="color: black">
       <q-toolbar>
         <q-btn class="lt-sm" flat @click="drawer = !drawer" round dense icon="menu" />
         <div class="q-pr-lg">
           <q-avatar>
-            <img alt="logo" src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
+            <img alt="logo" src="https://cdn.quasar.dev/logo-v2/svg/logo.svg">
           </q-avatar>
         </div>
           <template v-for="item of headers">
@@ -63,6 +63,22 @@
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <q-footer>
+        <div class="flex justify-between q-py-xl">
+          <div class="row q-pl-xl">
+            <template v-for="x in 4">
+              <div class="q-pr-md">
+                <img alt="Official_Account_QR"  src="Official_Accounts_QR.jpg" width="50px">
+              </div>
+            </template>
+          </div>
+          <div>
+            公司地址：{{address}} <br>
+            Email: {{email}}
+          </div>
+        </div>
+    </q-footer>
   </q-layout>
 </template>
 
@@ -82,6 +98,8 @@ export default defineComponent({
     return {
       drawer: false,
       isChinese: true,
+      address: '',
+      email: '',
       headers: [
         {
           chinese: '产品中心',
@@ -171,7 +189,7 @@ export default defineComponent({
   -webkit-transition: .6s all ease;
   -moz-transition: .6s all linear;
   -o-transition: .6s all ease;
-  color: gray;
+  color: black;
   &:hover {
     color: #6df3ff;
   }
@@ -194,7 +212,7 @@ export default defineComponent({
   height: 40px;
   line-height: 40px;
   position: relative;
-&:not(:last-child):after{
+&:not(:last-child):after {
    /*position: absolute;*/
    content: '';
    width: 50%;
