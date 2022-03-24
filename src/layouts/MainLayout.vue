@@ -2,42 +2,29 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+        <div class="q-pr-lg">
+          <q-avatar>
+            <img alt="logo" src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
+          </q-avatar>
+        </div>
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
+        <template v-for="item of headers">
+          <div class="menu-item" :class="{hasChild: item.child.length}">
+            <q-btn stretch flat :label="item.chinese" :to="item.link" />
+            <div class="childMenu" v-if="item.child.length">
+              <template v-for="it of item.child">
+                <div class="sub-menu">
+                  <q-btn stretch flat text-color="black" :label="it.chinese" :to="item.link"/>
+                </div>
+              </template>
+            </div>
+          </div>
+        </template>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-toolbar-title/>
+
       </q-toolbar>
     </q-header>
-
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
 
     <q-page-container>
       <router-view />
@@ -46,71 +33,123 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
-
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-]
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'MainLayout',
 
   components: {
-    EssentialLink
+
   },
 
-  setup () {
-    const leftDrawerOpen = ref(false)
-
+  data() {
     return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
+      headers: [
+        {
+          chinese: '产品中心',
+          link: '',
+          child: [
+            {
+              chinese: 'KNX_CN',
+              english: 'KNX'
+            }
+          ]
+      },
+        {
+          chinese: '解决方案',
+          link: '',
+          child: []
+        },
+        {
+          chinese: '新闻资讯',
+          link: '',
+          child: []
+        },
+        {
+          chinese: '资料下载',
+          link: '',
+          child: []
+        },
+        {
+          chinese: '关于我们',
+          link: '',
+          child: []
+        }
+      ]
       }
     }
-  }
 })
 </script>
+
+<style lang="scss">
+.menu-item {
+  min-width: 60px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  position: relative;
+a{
+  padding: 12px 10px;
+  color: #b9bec1;
+  font-weight: bold;
+  font-size: 16px;
+&:hover {
+   color: #ff6d6d;
+ }
+}
+&:not(:last-child) {
+   margin-right: 15px;
+ }
+&.hasChild:hover .childMenu{
+   opacity:1;
+   visibility: visible;
+   transform: translateY(-5px);
+ }
+}
+.childMenu{
+  width: 130px;
+  background-color: #FDFDFD;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 55px;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: .7s all ease;
+  -webkit-transition: .6s all ease;
+  -moz-transition: .6s all linear;
+  -o-transition: .6s all ease;
+&:before,&:after{
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 8px solid white;
+            top: -8px;
+            left: 20px;
+          }
+&:before {
+   top: -9px;
+   border-bottom: 8px solid #ddd;
+ }
+.sub-menu{
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+&:not(:last-child):after{
+   /*position: absolute;*/
+   content: '';
+   width: 50%;
+   height: 1px;
+   color: #ff6d6d;
+   bottom: 0;
+   left: 25%;
+   z-index: 99;
+ }
+}
+}
+</style>
