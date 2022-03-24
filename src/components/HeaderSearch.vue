@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import route from '../router/index'
+const $router = route()
 export default {
   name: "header-search",
   data(){
@@ -25,8 +27,8 @@ export default {
   },
   methods:{
     search(){
-      // console.log(this.searchValue)
-      this.$router.push({name:'search',params:{words:this.searchValue, type: 'global'}});
+      console.log(this.searchValue)
+      $router.push('/search');
       this.close()
     },
     click(){
