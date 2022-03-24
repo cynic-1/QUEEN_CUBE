@@ -1,6 +1,6 @@
 <template>
   <div class="header-search">
-    <i class="iconfont iconsearch" @click.stop="click"></i>
+    <q-icon name="search" @click.stop="click"/>
     <input ref="searchInput" :class="{'show':show}" v-model="searchValue" type="text" @click.stop="" @keyup.enter="search"/>
   </div>
 </template>
@@ -49,7 +49,7 @@ export default {
   display: inline-block;
   position: relative;
   i{
-    color: red;
+    color: white;
     font-size: 18px;
     position: relative;
     top: 3px;
