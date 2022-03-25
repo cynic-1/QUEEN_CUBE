@@ -69,7 +69,7 @@
           <div class="row q-pl-xl gt-xs">
             <template v-for="x in 2">
               <div class="q-pr-md">
-                <img alt="Official_Account_QR"  src="Official_Accounts_QR.jpg" width="50px">
+                <img alt="Official_Account_QR"  src="Official_Accounts_QR.jpg" width="80px">
               </div>
             </template>
           </div>
@@ -111,7 +111,7 @@
         </div>
         <div class="gt-xs q-pt-md q-pb-xl">
           <template v-for="coop of cooperators">
-            <img :alt="coop.name" :src="coop.logo" width="100px" style="padding-left: 20px;">
+            <img :alt="coop.name" :src="coop.logo" width="120px" style="padding-left: 20px;">
           </template>
         </div>
       </div>
@@ -152,7 +152,7 @@ export default defineComponent({
         },
         {
           name: '金地集团',
-          logo: 'GEMDALE_LOGO.png',
+          logo: 'GEMDALE_LOGO_CUT.png',
         },
         {
           name: '金科集团',
