@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
 
-    <q-header elevated style="color: black">
+    <q-header reveal elevated style="color: black">
       <q-toolbar>
         <q-btn class="lt-sm" flat @click="drawer = !drawer" round dense icon="menu" />
         <div class="q-pr-lg">
@@ -64,7 +64,7 @@
       <router-view />
     </q-page-container>
 
-    <q-footer style="color: black">
+    <q-footer style="color: black" elevated>
       <div class="flex justify-between q-py-lg">
           <div class="row q-pl-xl gt-xs">
             <template v-for="x in 2">
@@ -104,12 +104,12 @@
         </div>
       </div>
       <div class="flex justify-center">
-        <div class="xs q-py-md">
+        <div class="xs q-py-sm">
           <template v-for="coop of cooperators">
             <img :alt="coop.name" :src="coop.logo" width="40px" style="padding-left: 10px;">
           </template>
         </div>
-        <div class="gt-xs q-py-xl">
+        <div class="gt-xs q-pt-md q-pb-xl">
           <template v-for="coop of cooperators">
             <img :alt="coop.name" :src="coop.logo" width="100px" style="padding-left: 20px;">
           </template>
