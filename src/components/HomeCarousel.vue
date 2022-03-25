@@ -18,6 +18,12 @@
         <div class="q-pt-md text-white text-h5">
           副标题
         </div>
+        <div class="q-pt-lg text-white q-gutter-md">
+          <template v-for="x of 4">
+            <q-btn outline label="btn1" icon-right="man"/>
+          </template>
+        </div>
+
       </div>
 
     </q-carousel-slide>
@@ -26,6 +32,7 @@
     <q-carousel-slide :name="3" img-src="https://cdn.quasar.dev/img/parallax2.jpg" />
     <q-carousel-slide :name="4" img-src="https://cdn.quasar.dev/img/quasar.jpg" />
   </q-carousel>
+
   <q-carousel
     animated
     v-model="slide"
@@ -45,6 +52,14 @@
         </div>
         <div class="text-white text-h6">
           副标题
+        </div>
+        <div class="q-pt-md text-white q-gutter-md">
+          <template v-for="x of 4">
+            <q-btn outline size="xs" label="btn1" icon-right="man"/>
+            <template v-if="x % 2 === 0">
+              <br>
+            </template>
+          </template>
         </div>
       </div>
     </q-carousel-slide>
@@ -70,7 +85,7 @@ export default {
 <style scoped>
 .carousel-block {
   position: absolute;
-  bottom: 40%;
+  bottom: 30%;
   left: 10%;
 }
 </style>
