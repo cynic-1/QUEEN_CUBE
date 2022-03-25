@@ -193,7 +193,7 @@ export default defineComponent({
         },
         {
           chinese: '资料下载',
-          english: 'Downloads',
+          english: 'Download',
           link: '',
           child: []
         },
