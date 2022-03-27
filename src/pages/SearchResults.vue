@@ -2,38 +2,27 @@
   <div class="gt-xs q-pt-xl col text-center">
     <SearchBox/>
   </div>
-  <div class="q-pa-xl q-gutter-y-md">
-    <q-option-group
-      v-model="panel"
-      inline
-      :options="[
-          { label: '所有', value: 'all' },
-          { label: '产品', value: 'products' },
-          { label: '案例', value: 'examples' },
-          { label: '新闻', value: 'news' }
-        ]"
-    />
-
-    <q-tab-panels v-model="panel" animated class="shadow-2 rounded-borders">
-      <q-tab-panel name="all">
-        <div class="text-h6">Mails</div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      </q-tab-panel>
-      <q-tab-panel name="products">
-        <div class="text-h6">Mails</div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      </q-tab-panel>
-
-      <q-tab-panel name="examples">
-        <div class="text-h6">Alarms</div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      </q-tab-panel>
-
-      <q-tab-panel name="news">
-        <div class="text-h6">Movies</div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      </q-tab-panel>
-    </q-tab-panels>
+  <div style="display: flex; justify-content: center">
+    <div class="q-pa-xl q-gutter-y-xl" style="max-width: 1600px;">
+      <q-btn-toggle
+        v-model="panel"
+        inline
+        rounded
+        toggle-color="black"
+        toggle-text-color="white"
+        :options="[
+            { label: '所有', value: 'all' },
+            { label: '产品', value: 'products' },
+            { label: '案例', value: 'examples' },
+            { label: '新闻', value: 'news' }
+          ]"
+      />
+      <div class="row q-gutter-xl">
+        <template v-for="x in 8">
+          <ProductLCard/>
+        </template>
+      </div>
+    </div>
   </div>
 </template>
 
