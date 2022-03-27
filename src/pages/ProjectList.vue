@@ -16,7 +16,7 @@
 <script>
 import projectListCardRight from "components/ProjectListCardRight"
 import projectListCardLeft from "components/ProjectListCardLeft"
-import productLCard from "components/productLCard"
+import productLCard from "components/ProductLCard"
 export default {
   name: "ProjectList",
   data() {

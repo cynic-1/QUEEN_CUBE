@@ -171,7 +171,7 @@ export default defineComponent({
         {
           chinese: '产品中心',
           english: 'Product Center',
-          link: '',
+          link: 'productCenter',
           child: [
             {
               chinese: 'KNX_CN',
@@ -181,26 +181,26 @@ export default defineComponent({
       },
         {
           chinese: '解决方案',
-          english: 'Solution',
-          link: '',
+          english: 'Solutions',
+          link: 'solutions',
           child: []
         },
         {
           chinese: '新闻资讯',
           english: 'News',
-          link: '',
+          link: 'news',
           child: []
         },
         {
           chinese: '资料下载',
           english: 'Download',
-          link: '',
+          link: 'download',
           child: []
         },
         {
           chinese: '关于我们',
           english: 'About',
-          link: '',
+          link: 'about',
           child: []
         }
       ]
@@ -215,8 +215,7 @@ export default defineComponent({
     },
     search(){
       console.log(this.searchValue)
-      router.push('/search');
-      this.close()
+      router.push('/searchResults');
     },
   }
 })
