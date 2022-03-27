@@ -122,8 +122,6 @@
 <script>
 import { defineComponent } from 'vue'
 import HeaderSearch from "components/HeaderSearch";
-import route from '../router/index'
-const router = route()
 export default defineComponent({
   name: 'MainLayout',
 
@@ -215,7 +213,7 @@ export default defineComponent({
     },
     search(){
       console.log(this.searchValue)
-      router.push('/searchResults');
+      this.$router.push('searchResults')
     },
   }
 })

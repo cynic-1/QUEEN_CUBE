@@ -1,7 +1,8 @@
 <template>
-  <div class="gt-xs q-pt-xl col text-center">
+  <div class="q-pt-xl col text-center">
     <SearchBox/>
   </div>
+
   <div style="display: flex; justify-content: center">
     <div class="q-pa-xl q-gutter-y-xl" style="max-width: 1400px;">
       <q-btn-toggle
@@ -17,7 +18,12 @@
             { label: '新闻', value: 'news' }
           ]"
       />
-      <div class="row q-gutter-xl">
+      <div class="gt-xs q-gutter-xl row">
+        <template v-for="x in 8">
+          <ProductLCard/>
+        </template>
+      </div>
+      <div class="xs q-gutter-xl">
         <template v-for="x in 8">
           <ProductLCard/>
         </template>
