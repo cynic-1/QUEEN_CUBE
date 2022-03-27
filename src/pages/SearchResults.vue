@@ -3,7 +3,7 @@
     <SearchBox/>
   </div>
   <div style="display: flex; justify-content: center">
-    <div class="q-pa-xl q-gutter-y-xl" style="max-width: 1600px;">
+    <div class="q-pa-xl q-gutter-y-xl" style="max-width: 1400px;">
       <q-btn-toggle
         v-model="panel"
         inline
@@ -22,6 +22,15 @@
           <ProductLCard/>
         </template>
       </div>
+      <div class="q-pa-lg flex flex-center">
+        <q-pagination
+          v-model="current"
+          color="black"
+          :max="10"
+          :max-pages="3"
+          :boundary-numbers="true"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -38,6 +47,7 @@ export default {
   data() {
     return {
       panel: 'all',
+      current: '',
     }
   }
 }
