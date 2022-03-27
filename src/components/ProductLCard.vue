@@ -4,6 +4,7 @@
         class="col"
         :src="image"
         style="border-radius: 5% 5% 5% 5%"
+        img-class="img-hover"
       />
       <q-responsive :ratio="1">
       <q-card-section class="items-center">
@@ -11,7 +12,7 @@
         <div class="flex flex-center">
 <!--          {{ content }}-->
           <q-chip outline :label="content" style="width: 90%"/>
-          <q-btn class="justify-center q-px-xl q-py-md q-mt-md text-weight-bold" label="了 解 详 情" outline push style="width: 90%"/>
+          <q-btn class="justify-center text-weight-bold" label="了 解 详 情" outline push style="width: 90%"/>
         </div>
       </q-card-section>
       </q-responsive>
@@ -33,7 +34,10 @@ export default {
 
 <style lang="sass" scoped>
 .my-card
-  width: 100%
-  max-width: 300px
+  width: 270px
   border-radius: 5% 5% 5% 5%
+.test
+  animation-duration: 1.5s
+  visibility: visible
+  animation-name: fadeInUp
 </style>

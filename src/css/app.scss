@@ -1,1 +1,7 @@
 // app global css in SCSS form
+.img-hover {
+  transition: all 3s ease 0s;
+  &:hover {
+    transform: scale(1.3, 1.3);
+  }
+}
