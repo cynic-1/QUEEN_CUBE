@@ -1,4 +1,9 @@
 <template>
+  <div>
+    <video>
+      <source src="../assets/video_1646475288583.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="gt-xs q-gutter-y-xl">
     <SolutionCard/>
     <SolutionCard :left="false"/>
@@ -27,5 +32,9 @@ export default {
 </script>
 
 <style scoped>
-
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
 </style>
