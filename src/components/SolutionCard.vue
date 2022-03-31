@@ -11,14 +11,14 @@
             />
           </template>
           <q-card-section class="col">
-            <div class="gt-xs q-px-xl q-gutter-y-lg absolute-center" >
+            <div class="gt-xs q-px-xl q-gutter-y-lg absolute-center" style="width: 100%;">
               <div class="text-h5">{{ title }}</div>
-              <div class="txt">
+              <div class="txt" style="font-size: 1rem;">
                {{ content }}
               </div>
               <q-btn color="black" push>了 解 更 多</q-btn>
             </div>
-            <div class="xs q-px-xs q-gutter-y-xs" >
+            <div class="xs q-px-xs q-gutter-y-xs" style="width: 100%;">
               <div>{{ title }}</div>
               <div class="txt">{{ content }}</div>
               <q-btn color="black" push size="xs">了 解 更 多</q-btn>
