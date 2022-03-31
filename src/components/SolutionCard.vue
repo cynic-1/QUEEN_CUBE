@@ -11,10 +11,17 @@
             />
           </template>
           <q-card-section class="col">
-            <div class="q-gutter-xl" >
+            <div class="gt-xs q-px-xl q-gutter-y-lg absolute-center" >
               <div class="text-h5">{{ title }}</div>
-              <div style="width:60%">{{ content }}</div>
-              <q-btn color="black" push class="">了 解 更 多</q-btn>
+              <div class="txt">
+               {{ content }}
+              </div>
+              <q-btn color="black" push>了 解 更 多</q-btn>
+            </div>
+            <div class="xs q-px-xs q-gutter-y-xs" >
+              <div>{{ title }}</div>
+              <div class="txt">{{ content }}</div>
+              <q-btn color="black" push size="xs">了 解 更 多</q-btn>
             </div>
           </q-card-section>
           <template v-if="!left">
@@ -27,15 +34,6 @@
         </q-card-section>
       </q-responsive>
     </q-card>
-    <!--          <q-responsive :ratio="16/9" class="raw">-->
-    <!--            <q-card class="column">-->
-    <!--              <q-img class="col" src="https://cdn.quasar.dev/img/parallax2.jpg" />-->
-
-    <!--              <q-card-section>-->
-    <!--                <div>Ratio 16:9</div>-->
-    <!--              </q-card-section>-->
-    <!--            </q-card>-->
-    <!--          </q-responsive>-->
   </div>
 </template>
 
@@ -51,9 +49,8 @@ export default {
   data () {
     return {
       title : "智能",
-      content : "副标题副标题副标题副标题副标题副标题副标题" +
-        "副标题副标题副标题副标题副标题副标题副标题" +
-        "副标题副标题副标题副标题副标题副标题副标题" ,
+      content : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
+        "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
       image: "https://cdn.quasar.dev/img/parallax2.jpg",
     }
   }
@@ -65,4 +62,14 @@ export default {
   margin-right: 10%
   margin-left: 10%
   height: 70%
+
+.txt
+  overflow: hidden
+  text-overflow: ellipsis
+  display: -webkit-box
+  -webkit-line-clamp: 2
+  -webkit-box-orient: vertical
+  font-size: 10px
+
+
 </style>
