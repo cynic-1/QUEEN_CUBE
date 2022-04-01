@@ -9,7 +9,7 @@
       />
       <q-responsive :ratio="1">
       <q-card-section class="items-center">
-        <div class="text-h6 text-center q-py-xl">{{ title }}</div>
+        <div class="text-center my-y-pad">{{ title }}</div>
         <div class="flex flex-center">
 <!--          {{ content }}-->
           <q-chip outline :label="content" style="width: 90%"/>
@@ -41,6 +41,11 @@ export default {
 
 <style lang="sass" scoped>
 .my-card
-  width: 270px
+  width: 100px
   border-radius: 5% 5% 5% 5%
+.my-y-pad
+  padding-top: 10%
+  padding-bottom: 10%
+  font-size: 1em
+
 </style>

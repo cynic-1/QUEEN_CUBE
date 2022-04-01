@@ -2,6 +2,10 @@
   <q-page class="flex">
     <div class="col">
       <HomeCarousel/>
+      <div class="q-gutter-y-xl q-py-xl">
+        <ProductCard :left="false"/>
+        <ProductCard/>
+      </div>
       <HomeSearch/>
     </div>
   </q-page>
@@ -11,12 +15,14 @@
 import { defineComponent } from 'vue'
 import HomeCarousel from "components/HomeCarousel";
 import HomeSearch from "components/HomeSearch";
+import ProductCard from "components/ProductCard";
 
 export default defineComponent({
   name: 'IndexPage',
   components: {
     HomeCarousel,
-    HomeSearch
+    HomeSearch,
+    ProductCard
   }
 })
 </script>
