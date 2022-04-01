@@ -43,8 +43,4 @@ export default {
 .my-card
   width: 270px
   border-radius: 5% 5% 5% 5%
-.test
-  animation-duration: 1.5s
-  visibility: visible
-  animation-name: fadeInUp
 </style>

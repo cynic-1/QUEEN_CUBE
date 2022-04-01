@@ -5,9 +5,10 @@
         <q-card-section horizontal>
           <template v-if="left">
             <q-img
-              class="col"
+              class="col cursor-pointer"
               :src="image"
               style="border-radius:5% 0 0 5%"
+              img-class="img-hover"
             />
           </template>
           <q-card-section class="col">
@@ -26,9 +27,10 @@
           </q-card-section>
           <template v-if="!left">
             <q-img
-              class="col"
+              class="col cursor-pointer"
               :src="image"
               style="border-radius: 0 5% 5% 0;"
+              img-class="img-hover"
             />
           </template>
         </q-card-section>
