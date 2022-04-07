@@ -8,12 +8,12 @@
         @click="jumpTo"
       />
       <q-responsive :ratio="1">
-      <q-card-section class="items-center">
-        <div class="text-center my-y-pad">{{ title }}</div>
+      <q-card-section class="items-center my-text-1vw">
+        <div class="my-little-card-title">{{ title }}</div>
         <div class="flex flex-center">
 <!--          {{ content }}-->
           <q-chip outline :label="content" style="width: 90%"/>
-          <q-btn class="justify-center text-weight-bold" label="了 解 详 情" :to="link" outline push style="width: 90%"/>
+          <q-btn no-wrap class="justify-center text-weight-bold" label="了 解 详 情" :to="link" outline push style="width: 90%"/>
         </div>
       </q-card-section>
       </q-responsive>
@@ -41,11 +41,13 @@ export default {
 
 <style lang="sass" scoped>
 .my-card
-  width: 100px
+  width: 12vw
   border-radius: 5% 5% 5% 5%
-.my-y-pad
+.my-little-card-title
   padding-top: 10%
   padding-bottom: 10%
-  font-size: 1em
+  text-align: center
+.my-text-1vw
+  font-size: 1vw
 
 </style>

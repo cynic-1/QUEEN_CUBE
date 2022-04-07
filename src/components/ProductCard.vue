@@ -17,6 +17,10 @@
                 {{ content }}
               </div>
               <q-btn color="black" size="md" push>了 解 更 多</q-btn>
+              <div class="my-little-cards">
+                <ProductLCard style="flex-shrink: 0"/>
+                <ProductLCard style="flex-shrink: 0"/>
+              </div>
             </div>
             <div class="xs q-px-xs q-gutter-y-xs" style="width: 100%;">
               <div>{{ title }}</div>
@@ -72,4 +76,8 @@ export default {
   display: -webkit-box
   -webkit-line-clamp: 2
   -webkit-box-orient: vertical
+.my-little-cards
+  margin-top: 20%
+  display: flex
+  justify-content: space-around
 </style>
