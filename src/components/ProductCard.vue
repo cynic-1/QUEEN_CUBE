@@ -11,8 +11,8 @@
             />
           </template>
           <q-card-section class="col">
-            <div class="gt-xs q-px-xl q-gutter-y-lg" style="width: 100%;">
-              <div class="text-h4">{{ title }}</div>
+            <div class="gt-xs q-px-xl q-gutter-y-xl" style="width: 100%;">
+              <div class="text-h4 q-pt-xl">{{ title }}</div>
               <div class="txt text-h5">
                 {{ content }}
               </div>
@@ -77,7 +77,7 @@ export default {
   -webkit-line-clamp: 2
   -webkit-box-orient: vertical
 .my-little-cards
-  margin-top: 20%
+  margin-top: 15%
   display: flex
   justify-content: space-around
 </style>
