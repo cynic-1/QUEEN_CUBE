@@ -16,10 +16,10 @@
               <div class="txt text-h5">
                 {{ content }}
               </div>
-              <q-btn color="black" size="md" push>了 解 更 多</q-btn>
+              <q-btn color="black" size="1.25em" push>了 解 更 多</q-btn>
               <div class="my-little-cards">
-                <ProductLCard style="flex-shrink: 0"/>
-                <ProductLCard style="flex-shrink: 0"/>
+                <ProductLCard class="no-shrink"/>
+                <ProductLCard class="no-shrink"/>
               </div>
             </div>
             <div class="xs q-px-xs q-gutter-y-xs" style="width: 100%;">
@@ -80,4 +80,6 @@ export default {
   margin-top: 15%
   display: flex
   justify-content: space-around
+.no-shrink
+  flex-shrink: 0
 </style>

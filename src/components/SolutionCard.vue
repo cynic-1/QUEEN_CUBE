@@ -41,7 +41,7 @@
 
 <script>
 export default {
-  name: "ProjectListCard",
+  name: "SolutionCard",
   props: {
     left: {
       type: Boolean,
