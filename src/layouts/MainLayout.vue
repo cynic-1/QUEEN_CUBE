@@ -15,7 +15,7 @@
               <div class="childMenu" v-if="item.child.length">
                 <template v-for="it of item.child">
                   <div class="sub-menu">
-                    <q-btn stretch flat :label="getText(it)" :to="item.link"/>
+                    {{getText(it)}}
                   </div>
                 </template>
               </div>
@@ -92,7 +92,11 @@ export default defineComponent({
             {
               chinese: 'KNX_CN',
               english: 'KNX'
-            }
+            },
+            {
+              chinese: 'KNX_CN1',
+              english: 'KNX1'
+            },
           ]
       },
         {
@@ -151,9 +155,9 @@ export default defineComponent({
    margin-right: 15px;
  }
   &.hasChild:hover .childMenu{
-   opacity:1;
-   visibility: visible;
-   transform: translateY(-5px);
+    opacity:1;
+    visibility: visible;
+    transform: translateY(-5px);
  }
 }
 .childMenu{
@@ -172,38 +176,39 @@ export default defineComponent({
   -moz-transition: .6s all linear;
   -o-transition: .6s all ease;
   color: black;
-  &:hover {
-    color: #6df3ff;
+  &:before,&:after{
+              content: '';
+              position: absolute;
+              width: 0;
+              height: 0;
+              border-left: 6px solid transparent;
+              border-right: 6px solid transparent;
+              border-bottom: 8px solid white;
+              top: -8px;
+              left: 20px;
+            }
+  &:before {
+     top: -9px;
+     border-bottom: 8px solid #ddd;
+   }
+  .sub-menu{
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    &:not(:last-child):after {
+       /*position: absolute;*/
+       content: '';
+       width: 50%;
+       height: 1px;
+       bottom: 0;
+       left: 25%;
+       z-index: 99;
+     }
+    &:hover {
+      background-color: #F2F2F2;
+      color: #6df3ff;
+    }
   }
-&:before,&:after{
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-bottom: 8px solid white;
-            top: -8px;
-            left: 20px;
-          }
-&:before {
-   top: -9px;
-   border-bottom: 8px solid #ddd;
- }
-.sub-menu{
-  height: 40px;
-  line-height: 40px;
-  position: relative;
-&:not(:last-child):after {
-   /*position: absolute;*/
-   content: '';
-   width: 50%;
-   height: 1px;
-   bottom: 0;
-   left: 25%;
-   z-index: 99;
- }
-}
   .router-link-active {
     text-decoration: underline;
   }
