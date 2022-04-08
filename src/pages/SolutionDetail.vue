@@ -11,12 +11,30 @@
       <source src="../assets/video_1646475288583.mp4" type="video/mp4">
     </video>
   </div>
-
+  <div style="display: flex; justify-content: center">
+    <div class="q-pa-xl q-gutter-y-xl" style="max-width: 90vw;">
+      <div class="gt-xs q-gutter-xl row">
+        <template v-for="x in 6">
+          <HomeNewsCard/>
+        </template>
+      </div>
+      <div class="xs q-gutter-xl">
+        <template v-for="x in 6">
+          <HomeNewsCard/>
+        </template>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import HomeNewsCard from "components/HomeNewsCard";
+
 export default {
   name: "SolutionDetail",
+  components: {
+    HomeNewsCard
+  },
   data() {
     return {
       tab: "commercial",

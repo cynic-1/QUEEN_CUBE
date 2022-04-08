@@ -44,9 +44,8 @@ export default {
 
 <style lang="sass" scoped>
 .my-card
-  width: 20vw
+  width: 18vw
   border-radius: 5% 5% 5% 5%
-
 .l-title
   text-align: center
   font-size: 1.25rem
