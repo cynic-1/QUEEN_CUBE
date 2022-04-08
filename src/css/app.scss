@@ -5,3 +5,12 @@
     transform: scale(1.3, 1.3);
   }
 }
+
+@font-face {
+  font-family: ALiPuHui;
+  src: url(./fonts/AlibabaSans-Regular.otf);
+}
+
+.my-font {
+  font-family: 'ALiPuHui';
+}
