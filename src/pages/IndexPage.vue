@@ -12,7 +12,7 @@
             <HomeSolutionCard/>
           </template>
         </div>
-        <div class="flex justify-around">
+        <div class="flex justify-around q-pt-xl">
           <template v-for="x in 4">
             <HomeNewsCard/>
           </template>
