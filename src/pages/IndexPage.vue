@@ -17,6 +17,9 @@
             <HomeNewsCard/>
           </template>
         </div>
+        <div class="text-center q-pt-xl">
+          <q-btn color="black" to="news" size="1.25rem" label="查看所有新闻" />
+        </div>
       </div>
     </div>
   </q-page>
