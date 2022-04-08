@@ -98,25 +98,25 @@ export default defineComponent({
         {
           chinese: '解决方案',
           english: 'Solutions',
-          link: 'solutions',
+          link: '/solutions',
           child: []
         },
         {
           chinese: '新闻资讯',
           english: 'News',
-          link: 'news',
+          link: '/news',
           child: []
         },
         {
           chinese: '资料下载',
           english: 'Download',
-          link: 'download',
+          link: '/download',
           child: []
         },
         {
           chinese: '关于我们',
           english: 'About',
-          link: 'about',
+          link: '/about',
           child: []
         }
       ]
@@ -131,7 +131,7 @@ export default defineComponent({
     },
     search(){
       console.log(this.searchValue)
-      this.$router.push('searchResults')
+      this.$router.push('/searchResults')
     },
   }
 })

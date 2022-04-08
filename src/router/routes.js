@@ -10,6 +10,10 @@ const routes = [
         component: () => import('pages/SolutionList.vue'),
       },
       {
+        path: 'solutions/:name',
+        component: () => import('pages/SolutionDetail.vue')
+      },
+      {
         path: 'searchResults',
         component: () => import('pages/SearchResults.vue')
       }

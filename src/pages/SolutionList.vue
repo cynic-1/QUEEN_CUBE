@@ -34,7 +34,7 @@ export default {
 <style scoped>
 video {
   width: 100%;
-  height: 100%;
+  height: 40vh;
   object-fit: fill;
 }
 </style>
