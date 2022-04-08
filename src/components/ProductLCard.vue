@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: "productLCard",
+  name: "ProductLCard",
   data () {
     return {
       title: "KNX毅系列面板",

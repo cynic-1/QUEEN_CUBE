@@ -12,6 +12,11 @@
             <HomeSolutionCard/>
           </template>
         </div>
+        <div class="flex justify-around">
+          <template v-for="x in 4">
+            <HomeNewsCard/>
+          </template>
+        </div>
       </div>
     </div>
   </q-page>
@@ -23,6 +28,7 @@ import HomeCarousel from "components/HomeCarousel";
 import HomeSearch from "components/HomeSearch";
 import ProductCard from "components/ProductCard";
 import HomeSolutionCard from "components/HomeSolutionCard";
+import HomeNewsCard from "components/HomeNewsCard";
 
 export default defineComponent({
   name: 'IndexPage',
@@ -30,7 +36,8 @@ export default defineComponent({
     HomeCarousel,
     HomeSearch,
     ProductCard,
-    HomeSolutionCard
+    HomeSolutionCard,
+    HomeNewsCard
   }
 })
 </script>
