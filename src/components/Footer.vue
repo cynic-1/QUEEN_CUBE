@@ -42,7 +42,7 @@
     <div class="flex justify-center">
       <div class="xs q-py-sm flex justify-around">
         <template v-for="coop of cooperators">
-          <img :alt="coop.name" :src="coop.logo" height="13px" style="padding-left: 10px;">
+          <img :alt="coop.name" :src="coop.logo" height="13px" style="margin-left: 5px; margin-top: 5px;">
         </template>
       </div>
       <div class="gt-xs q-pt-md q-pb-xl flex justify-around">
