@@ -12,9 +12,14 @@
             <HomeSolutionCard/>
           </template>
         </div>
-        <div class="flex justify-around q-pt-xl">
+        <div class="gt-xs flex justify-around q-pt-xl">
           <template v-for="x in 4">
             <HomeNewsCard/>
+          </template>
+        </div>
+        <div class="xs x-scroll">
+          <template v-for="x in 4">
+            <HomeNewsCard :is-mobile="true" style="margin-right: 10vw;"/>
           </template>
         </div>
         <div class="text-center q-pt-xl">
@@ -44,3 +49,15 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="sass" scoped>
+.x-scroll
+  width: auto
+  display: flex
+  justify-content: space-between
+  overflow-x: scroll
+  overflow-y: hidden
+  white-space: nowrap
+  &::-webkit-scrollbar
+    display: none
+</style>

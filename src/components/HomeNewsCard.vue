@@ -1,5 +1,5 @@
 <template>
-  <q-card class="my-card bg-grey-3 cursor-pointer" bordered flat>
+  <q-card class="my-card bg-grey-3 cursor-pointer" :class="{'my-card-mobile': isMobile}" bordered flat>
     <q-img
       class="col"
       :src="image"
@@ -23,6 +23,12 @@
 <script>
 export default {
   name: "HomeNewsCard",
+  props: {
+    isMobile: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
       title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
@@ -46,11 +52,16 @@ export default {
 .my-card
   width: 18vw
   border-radius: 5% 5% 5% 5%
+.my-card-mobile
+  width: 80vw
+  flex-shrink: 0
 .l-title
   text-align: center
   font-size: 1.25rem
   font-weight: bolder
+  white-space: normal
 .l-content
   text-align: center
   font-size: 1rem
+  white-space: normal
 </style>
