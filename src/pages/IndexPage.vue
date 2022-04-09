@@ -19,7 +19,7 @@
         </div>
         <div class="xs x-scroll">
           <template v-for="x in 4">
-            <HomeNewsCard :is-mobile="true" style="margin-right: 10vw;"/>
+            <HomeNewsCard :is-mobile="true"/>
           </template>
         </div>
         <div class="text-center q-pt-xl">
