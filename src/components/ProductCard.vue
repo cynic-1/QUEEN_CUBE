@@ -1,6 +1,6 @@
 <template>
-  <div class="my-card">
-    <q-card class="raw bg-grey-3" flat square>
+  <div class="my-product-card">
+    <q-card class="raw bg-grey-3 gt-xs"  flat square>
       <q-responsive :ratio="16/9">
         <q-card-section horizontal>
           <template v-if="left">
@@ -11,24 +11,20 @@
             />
           </template>
           <q-card-section class="col">
-            <div class="gt-xs flex column">
+            <div class="flex column">
               <div class="my-card-content">
                 <div class="my-title">{{ title }}</div>
                 <div class="txt">
                   {{ content }}
                 </div>
-                <q-btn color="black" size="1.25em" class="my-btn" push>了 解 更 多</q-btn>
+                <q-btn size="1.25em" class="my-btn" outline push>了 解 更 多</q-btn>
               </div>
               <div class="my-little-cards x-scroll">
                 <ProductLCard />
                 <ProductLCard />
                 <ProductLCard />
+                <ProductLCard />
               </div>
-            </div>
-            <div class="xs q-px-xs q-gutter-y-xs" style="width: 100%;">
-              <div>{{ title }}</div>
-              <div class="txt">{{ content }}</div>
-              <q-btn color="black" push size="xs">了 解 更 多</q-btn>
             </div>
 
           </q-card-section>
@@ -42,6 +38,32 @@
         </q-card-section>
       </q-responsive>
     </q-card>
+    <div class="xs">
+      <q-responsive :ratio="8/9">
+        <q-img
+          class="col cursor-pointer"
+          :src="image"
+          img-class="img-hover"
+        >
+          <div class="q-px-xs q-gutter-y-xs my-img-mobile">
+            <div class="">{{ title }}</div>
+            <div class="txt">{{ content }}</div>
+            <q-btn outline push size="xs">了 解 更 多</q-btn>
+          </div>
+        </q-img>
+<!--        <ProductLCard />-->
+      </q-responsive>
+      <q-card>
+
+          <div class="my-little-cards">
+            <div class="x-scroll">
+              <template v-for="x in 4">
+                <ProductLCard :is-mobile="true"/>
+              </template>
+            </div>
+          </div>
+      </q-card>
+    </div>
   </div>
 </template>
 
@@ -70,7 +92,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.my-card
+.my-product-card
   margin-right: 10%
   margin-left: 10%
 .txt
@@ -82,6 +104,7 @@ export default {
   -webkit-box-orient: vertical
 .my-little-cards
   margin: 10% 0 0 0
+  width: -webkit-fill-available
 .no-shrink
   flex-shrink: 0
 .my-card-content
@@ -110,5 +133,9 @@ export default {
     background: #64646429
   > *
     flex-shrink: 0
-    margin-bottom: 5%
+    margin: 3%
+.my-img-mobile
+  position: absolute
+  top: 4vw
+  background-color: unset
 </style>
