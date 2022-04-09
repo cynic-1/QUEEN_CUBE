@@ -10,27 +10,25 @@
     @mouseleave="autoplay = true"
     class="gt-xs"
   >
-    <q-carousel-slide :name="1" img-src="https://cdn.quasar.dev/img/mountains.jpg">
-      <div class="carousel-block">
-        <div class="text-white text-h3 text-weight-bolder ">
-          主标题
-        </div>
-        <div class="q-pt-md text-white text-h5">
-          副标题
-        </div>
-        <div class="q-pt-lg text-white q-gutter-md">
-          <template v-for="x of 4">
-            <q-btn outline label="btn1" icon-right="man"/>
-          </template>
+    <template v-for="x in 4">
+      <q-carousel-slide :name="x" img-src="https://cdn.quasar.dev/img/mountains.jpg">
+        <div class="carousel-block">
+          <div class="text-white text-h3 text-weight-bolder ">
+            主标题
+          </div>
+          <div class="q-pt-md text-white text-h5">
+            副标题
+          </div>
+          <div class="q-pt-lg text-white q-gutter-md">
+            <template v-for="x of 4">
+              <q-btn outline label="btn1" icon-right="man"/>
+            </template>
+          </div>
+
         </div>
 
-      </div>
-
-    </q-carousel-slide>
-    <q-carousel-slide :name="2" img-src="https://cdn.quasar.dev/img/parallax1.jpg" >
-    </q-carousel-slide>
-    <q-carousel-slide :name="3" img-src="https://cdn.quasar.dev/img/parallax2.jpg" />
-    <q-carousel-slide :name="4" img-src="https://cdn.quasar.dev/img/quasar.jpg" />
+      </q-carousel-slide>
+    </template>
   </q-carousel>
 
   <q-carousel

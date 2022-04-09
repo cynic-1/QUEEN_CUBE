@@ -33,21 +33,21 @@
     </div>
     <div class="flex justify-center">
       <div class="xs">
-        <img alt="QUEEN_CUBE_LOGO" src="QUEEN_CUBE_LOGO.png" width="80px">
+        <img alt="QUEEN_CUBE_LOGO" src="QUEEN_CUBE_LOGO.png" height="20px">
       </div>
       <div class="gt-xs">
-        <img alt="QUEEN_CUBE_LOGO" src="QUEEN_CUBE_LOGO.png" width="144px">
+        <img alt="QUEEN_CUBE_LOGO" src="QUEEN_CUBE_LOGO.png" height="40px">
       </div>
     </div>
     <div class="flex justify-center">
-      <div class="xs q-py-sm">
+      <div class="xs q-py-sm flex justify-around">
         <template v-for="coop of cooperators">
-          <img :alt="coop.name" :src="coop.logo" width="40px" style="padding-left: 10px;">
+          <img :alt="coop.name" :src="coop.logo" height="13px" style="padding-left: 10px;">
         </template>
       </div>
-      <div class="gt-xs q-pt-md q-pb-xl">
+      <div class="gt-xs q-pt-md q-pb-xl flex justify-around">
         <template v-for="coop of cooperators">
-          <img :alt="coop.name" :src="coop.logo" width="120px" style="padding-left: 20px;">
+          <img :alt="coop.name" :src="coop.logo" height="30px" style="margin-left: 20px; margin-top: 10px;">
         </template>
       </div>
     </div>
