@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 30vw;">
+  <div class="my-card" :class="{'my-card-mobile': isMobile}">
     <q-responsive :ratio="1">
       <q-img
         class="col cursor-pointer"
@@ -16,6 +16,12 @@
 <script>
 export default {
   name: "HomeSolutionCard",
+  props: {
+    isMobile: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
       image: "https://cdn.quasar.dev/img/parallax2.jpg",
@@ -26,6 +32,13 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.my-card
+  width: 30vw
+.my-card-mobile
+  width: 80vw
+  margin: 0 5vw 0 5vw
+  .lower-btn
+    width: 60vw
 .lower-btn
   width: 20vw
   position: absolute

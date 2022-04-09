@@ -54,7 +54,6 @@ export default {
   border-radius: 5% 5% 5% 5%
 .my-card-mobile
   width: 80vw
-  flex-shrink: 0
   margin: 0 5vw 0 5vw
 .l-title
   text-align: center

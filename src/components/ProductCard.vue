@@ -1,5 +1,5 @@
 <template>
-  <div class="my-card justify-center">
+  <div class="my-card">
     <q-card class="raw bg-grey-3" flat square>
       <q-responsive :ratio="16/9">
         <q-card-section horizontal>
@@ -11,15 +11,18 @@
             />
           </template>
           <q-card-section class="col">
-            <div class="gt-xs q-px-xl q-gutter-y-lg" style="width: 100%;">
-              <div class="text-h4 q-pt-xl">{{ title }}</div>
-              <div class="txt text-h5">
-                {{ content }}
+            <div class="gt-xs flex column">
+              <div class="my-card-content">
+                <div class="my-title">{{ title }}</div>
+                <div class="txt">
+                  {{ content }}
+                </div>
+                <q-btn color="black" size="1.25em" class="my-btn" push>了 解 更 多</q-btn>
               </div>
-              <q-btn color="black" size="1.25em" push>了 解 更 多</q-btn>
-              <div class="my-little-cards">
-                <ProductLCard class="no-shrink"/>
-                <ProductLCard class="no-shrink"/>
+              <div class="my-little-cards x-scroll">
+                <ProductLCard />
+                <ProductLCard />
+                <ProductLCard />
               </div>
             </div>
             <div class="xs q-px-xs q-gutter-y-xs" style="width: 100%;">
@@ -71,15 +74,34 @@ export default {
   margin-right: 10%
   margin-left: 10%
 .txt
+  font-size: 1rem
   overflow: hidden
   text-overflow: ellipsis
   display: -webkit-box
   -webkit-line-clamp: 2
   -webkit-box-orient: vertical
 .my-little-cards
-  margin-top: 15%
-  display: flex
-  justify-content: space-around
+  margin: 10% 0 0 0
 .no-shrink
   flex-shrink: 0
+.my-card-content
+  margin: 3% 5% 0 5%
+  > *
+    margin-top: 3%
+.my-title
+  font-size: 2.5rem
+.my-btn
+  margin-right: 50%
+.x-scroll
+  display: flex
+  justify-content: space-between
+  overflow-x: auto
+  overflow-y: hidden
+  white-space: nowrap
+  &::-webkit-scrollbar
+    position: absolute
+    top: 20px
+    color: black
+  > *
+    flex-shrink: 0
 </style>
