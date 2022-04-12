@@ -7,6 +7,7 @@
         <ProductCard/>
         <HomeSearch/>
         <div class="text-center text-h4 text-weight-bolder">解决方案</div>
+        <div class="text-center text-h6" style="margin: 2em 10vw;">{{solutionText}}</div>
         <div class="gt-xs flex justify-around">
           <template v-for="x in 3">
             <HomeSolutionCard/>
@@ -51,6 +52,11 @@ export default defineComponent({
     ProductCard,
     HomeSolutionCard,
     HomeNewsCard
+  },
+  data() {
+    return {
+      solutionText: "简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍"
+    }
   }
 })
 </script>
