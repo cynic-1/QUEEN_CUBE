@@ -1,13 +1,14 @@
 <template>
   <div class="my-product-card">
     <q-card class="raw bg-grey-3 gt-xs"  flat square>
-      <q-responsive :ratio="16/9">
+      <q-responsive :ratio="1.7778">
         <q-card-section horizontal>
           <template v-if="left">
             <q-img
               class="col cursor-pointer"
               :src="image"
               img-class="img-hover"
+              style="border-radius:8px 0 0 8px;"
             />
           </template>
           <q-card-section class="col">
@@ -33,6 +34,7 @@
               class="col cursor-pointer"
               :src="image"
               img-class="img-hover"
+              style="border-radius: 0 8px 8px 0;"
             />
           </template>
         </q-card-section>
@@ -95,6 +97,7 @@ export default {
 .my-product-card
   margin-right: 10%
   margin-left: 10%
+  border-radius: 8px
 .txt
   font-size: 1rem
   overflow: hidden
