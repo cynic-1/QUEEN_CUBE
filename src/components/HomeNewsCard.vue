@@ -11,7 +11,7 @@
       <div class="l-title q-pt-lg">
         {{title}}
       </div>
-      <div class="q-px-sm">{{date}}</div>
+      <div>{{date}}</div>
       <div class="l-content q-pb-lg">
         {{content}}
       </div>
@@ -56,12 +56,10 @@ export default {
   width: 80vw
   margin: 0 5vw 0 5vw
 .l-title
-  text-align: center
   font-size: 1.25rem
   font-weight: bolder
   white-space: normal
 .l-content
-  text-align: center
   font-size: 1rem
   white-space: normal
 </style>
