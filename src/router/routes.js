@@ -16,6 +16,10 @@ const routes = [
       {
         path: 'searchResults',
         component: () => import('pages/SearchResults.vue')
+      },
+      {
+        path: 'download',
+        component: () => import('pages/DownloadPage.vue')
       }
     ]
   },
