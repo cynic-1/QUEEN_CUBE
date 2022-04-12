@@ -12,7 +12,7 @@
         <div class="my-little-card-title">{{ title }}</div>
         <div class="flex flex-center">
 <!--          {{ content }}-->
-          <q-chip outline :label="content" style="width: 90%"/>
+          <q-chip outline :label="content" style="width: 90%; margin: 10px 0;"/>
           <q-btn no-wrap class="justify-center text-weight-bold" label="了 解 详 情" :to="link" outline push style="width: 90%"/>
         </div>
       </q-card-section>
@@ -50,6 +50,8 @@ export default {
   border-radius: 8px
 .my-card-mobile
   width: 60vw
+  .my-little-card-title
+    font-size: 1.25rem
 .my-little-card-title
   padding-top: 10%
   padding-bottom: 10%
