@@ -57,6 +57,6 @@ export default {
   margin: 4rem auto
   background-color: unset
   text-align: center
-  font-size: 1.5rem
+  font-size: 2rem
   font-weight: bold
 </style>
