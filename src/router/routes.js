@@ -20,6 +20,10 @@ const routes = [
       {
         path: 'download',
         component: () => import('pages/DownloadPage.vue')
+      },
+      {
+        path: 'productList',
+        component: () => import('pages/ProductList.vue')
       }
     ]
   },
