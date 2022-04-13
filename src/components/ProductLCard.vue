@@ -13,7 +13,15 @@
         <div class="flex flex-center">
 <!--          {{ content }}-->
           <q-chip outline :label="content" style="width: 90%; margin: 10px 0;"/>
-          <q-btn no-wrap class="justify-center text-weight-bold" label="了 解 详 情" :to="link" outline push style="width: 90%"/>
+          <template v-if="isDownload">
+            <q-btn-group outline push class="justify-center text-weight-bold">
+              <q-btn no-wrap outline push label="手 册" :to="handbook" />
+              <q-btn no-wrap outline push label="驱 动" :to="driver" />
+            </q-btn-group>
+          </template>
+          <template v-else>
+            <q-btn no-wrap class="justify-center text-weight-bold" label="了 解 详 情" :to="link" outline push style="width: 90%"/>
+          </template>
         </div>
       </q-card-section>
     </q-card>
@@ -26,6 +34,10 @@ export default {
     isMobile: {
       type: Boolean,
       default: false
+    },
+    isDownload: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -33,7 +45,9 @@ export default {
       title: "KNX毅系列面板",
       content: "3 种颜色可选（深空灰/玫瑰金...)",
       image: "https://cdn.quasar.dev/img/mountains.jpg",
-      link: ""
+      link: "",
+      handbook: "",
+      driver: ""
     }
   },
   methods: {
