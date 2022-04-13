@@ -1,12 +1,12 @@
 <template>
-  <q-card class="raw bg-grey-3 my-card" flat square style="border-radius:5% 5% 5% 5%" @mouseover="start" @mouseleave="end">
-    <q-responsive :ratio="3" style="border-radius:0 5% 5% 0">
-      <q-card-section horizontal style="border-radius:5% 5% 5% 5%">
+  <q-card class="raw bg-grey-3 my-card" flat @mouseover="start" @mouseleave="end">
+    <q-responsive :ratio="3" >
+      <q-card-section horizontal >
         <q-img
           class="col-4 cursor-pointer"
           :src="images[index]"
           img-class="img-hover"
-          style="border-radius:5% 0 0 5%"
+          style="border-radius: 30px 0 0 30px"
         />
         <q-card-section class="col-8">
           <div class="my-card-content">
@@ -48,7 +48,7 @@ export default {
         '- 产品参数\n' +
         '- 产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数\n' +
         ' 产品参数产品参数产品参数',
-      images: ['https://cdn.quasar.dev/img/parallax2.jpg', 'https://cdn.quasar.dev/img/parallax2.jpg', 'https://cdn.quasar.dev/img/parallax2.jpg', 'https://cdn.quasar.dev/img/parallax2.jpg', 'https://cdn.quasar.dev/img/parallax2.jpg']
+      images: ['https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg", 'https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg", 'https://cdn.quasar.dev/img/parallax2.jpg']
     }
   },
   methods: {
@@ -77,7 +77,9 @@ export default {
 .my-card
   margin-right: 10%
   margin-left: 10%
-
+  border-radius: 30px
+  &:hover
+    border: 2px black solid
 .my-card-content
   margin: 0 5% 0 13%
 
