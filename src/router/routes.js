@@ -24,6 +24,10 @@ const routes = [
       {
         path: 'productList',
         component: () => import('pages/ProductList.vue')
+      },
+      {
+        path: 'newsList',
+        component: () => import('pages/NewsListPage.vue')
       }
     ]
   },
