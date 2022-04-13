@@ -27,11 +27,7 @@
       </div>
     </div>
     <q-separator inset color="#979797" spaced/>
-    <div class="flex justify-center">
-      <div class="xs q-pt-xs">QUEENCUBE</div>
-      <div class="gt-xs q-pt-md text-h5">QUEENCUBE</div>
-    </div>
-    <div class="flex justify-center">
+    <div class="flex justify-center q-mt-md">
       <div class="xs">
         <img alt="QUEEN_CUBE_LOGO" src="QUEEN_CUBE_LOGO.png" height="20px">
       </div>
