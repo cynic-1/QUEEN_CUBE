@@ -1,7 +1,7 @@
 <template>
   <div>
     <video>
-      <source src="../assets/video_1646475288583.mp4" type="video/mp4">
+<!--      <source src="../assets/video_1646475288583.mp4" type="video/mp4">-->
     </video>
   </div>
   <div class="gt-xs q-gutter-y-xl">
