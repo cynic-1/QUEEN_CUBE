@@ -48,6 +48,8 @@ export default {
 .my-card
   width: 12vw
   border-radius: 8px
+  flex-shrink: 0
+  min-width: 160px
 .my-card-mobile
   width: 60vw
   .my-little-card-title
