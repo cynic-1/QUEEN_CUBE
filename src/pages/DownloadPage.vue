@@ -1,10 +1,5 @@
 <template>
-  <q-img :src="headerImage" class="header-image">
-    <div class="my-header-content">
-      <div class="text-h4">{{headerLabel}}</div>
-      <div class="text-h6">{{subHeaderLabel}}</div>
-    </div>
-  </q-img>
+  <HeaderImage/>
   <div class="q-ml-lg q-mt-lg q-gutter-lg">
     <template v-for="x in 3">
       <q-btn outline label="产品线" size="1.25rem" padding="0 40px"/>
@@ -21,12 +16,12 @@
     <div class="q-pt-md q-gutter-y-xl" style="max-width: 1400px;">
       <div class="gt-xs q-gutter-xl row">
         <template v-for="x in 8">
-          <ProductLCard/>
+          <ProductLCard :is-download="true"/>
         </template>
       </div>
       <div class="xs q-gutter-y-md">
         <template v-for="x in 8">
-          <ProductLCard :is-mobile="true"/>
+          <ProductLCard :is-mobile="true" :is-download="true"/>
         </template>
       </div>
       <div class="q-pa-lg flex flex-center">
@@ -44,11 +39,13 @@
 
 <script>
 import ProductLCard from "components/ProductLCard";
+import HeaderImage from "components/HeaderImage";
 
 export default {
   name: "DownloadPage",
   components: {
-    ProductLCard
+    ProductLCard,
+    HeaderImage
   },
   data() {
     return {
