@@ -3,7 +3,7 @@
       <q-img
         class="col cursor-pointer"
         :src="image"
-        style="border-radius: 8px"
+        style="border-radius: 8px 8px 0 0"
         img-class="img-hover"
         @click="jumpTo"
       />

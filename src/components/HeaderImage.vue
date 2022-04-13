@@ -21,6 +21,17 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="sass" scoped>
+.header-image
+  width: 100%
+  height: 260px
+.my-header-content
+  background-color: unset
+  margin: 20px 20px
+  > *
+    padding: 20px 0
+.my-tabs-content
+  .q-tab__label
+    font-size: 17.5px
 
 </style>

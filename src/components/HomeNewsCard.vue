@@ -3,7 +3,7 @@
     <q-img
       class="col"
       :src="image"
-      style="border-radius: 5% 5% 5% 5%"
+      style="border-radius: 8px 8px 0 0"
       img-class="img-hover"
       @click="jumpTo"
     />
@@ -51,7 +51,7 @@ export default {
 <style lang="sass" scoped>
 .my-card
   width: 18vw
-  border-radius: 5% 5% 5% 5%
+  border-radius: 8px
 .my-card-mobile
   width: 80vw
   margin: 0 5vw 0 5vw
