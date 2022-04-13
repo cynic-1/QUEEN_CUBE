@@ -18,16 +18,42 @@
       <q-tab name="XXX" label="XXX" />
       <q-tab name="XXXX" label="XXXX" />
     </q-tabs>
-
+    <div class="q-pt-md q-gutter-y-xl" style="max-width: 1400px;">
+      <div class="gt-xs q-gutter-xl row">
+        <template v-for="x in 8">
+          <ProductLCard/>
+        </template>
+      </div>
+      <div class="xs q-gutter-y-md">
+        <template v-for="x in 8">
+          <ProductLCard :is-mobile="true"/>
+        </template>
+      </div>
+      <div class="q-pa-lg flex flex-center">
+        <q-pagination
+          v-model="current"
+          color="black"
+          :max="10"
+          :max-pages="3"
+          :boundary-numbers="true"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import ProductLCard from "components/ProductLCard";
+
 export default {
   name: "DownloadPage",
+  components: {
+    ProductLCard
+  },
   data() {
     return {
       tab: "software",
+      current: 1,
       headerImage: "https://cdn.quasar.dev/img/parallax2.jpg",
       headerLabel: "栏目标题",
       subHeaderLabel: "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",

@@ -5,7 +5,7 @@
   </div>
 
   <div style="display: flex; justify-content: center">
-    <div class="q-px-xl q-pt-md q-gutter-y-xl" style="max-width: 1400px;">
+    <div class="q-ml-lg q-pt-md q-gutter-y-xl" style="max-width: 1400px;">
       <q-btn-toggle
         v-model="panel"
         inline
