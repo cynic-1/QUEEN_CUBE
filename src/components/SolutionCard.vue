@@ -1,35 +1,33 @@
 <template>
   <div class="my-card justify-center">
-    <q-card class="raw bg-grey-3" style="width: 100%;border-radius:5%;" flat>
+    <q-card class="raw bg-grey-3" flat>
       <q-responsive :ratio="2.568">
         <q-card-section horizontal>
           <template v-if="left">
             <q-img
               class="col cursor-pointer"
               :src="image"
-              style="border-radius:5% 0 0 5%"
+              style="border-radius:8px 0 0 8px;"
               img-class="img-hover"
             />
           </template>
           <q-card-section class="col">
-            <div class="gt-xs q-px-xl q-gutter-y-lg absolute-center" style="width: 100%;">
-              <div class="text-h5">{{ title }}</div>
-              <div class="txt" style="font-size: 1rem;">
-               {{ content }}
+            <div class="flex column">
+              <div class="my-card-content">
+                <div class="my-title">{{ title }}</div>
+                <div class="txt">
+                  {{ content }}
+                </div>
+                <q-btn size="1.25em" class="my-btn" outline push>了 解 更 多</q-btn>
               </div>
-              <q-btn color="black" push>了 解 更 多</q-btn>
             </div>
-            <div class="xs q-px-xs q-gutter-y-xs absolute-center" style="width: 100%;">
-              <div>{{ title }}</div>
-              <div class="txt">{{ content }}</div>
-              <q-btn color="black" push size="xs">了 解 更 多</q-btn>
-            </div>
+
           </q-card-section>
           <template v-if="!left">
             <q-img
               class="col cursor-pointer"
               :src="image"
-              style="border-radius: 0 5% 5% 0;"
+              style="border-radius: 0 8px 8px 0;"
               img-class="img-hover"
             />
           </template>
@@ -63,15 +61,23 @@ export default {
 .my-card
   margin-right: 10%
   margin-left: 10%
-  height: 70%
-
+  border-radius: 8px
 .txt
+  max-width: 21rem
+  font-size: 1rem
   overflow: hidden
   text-overflow: ellipsis
   display: -webkit-box
-  -webkit-line-clamp: 2
+  -webkit-line-clamp: 3
   -webkit-box-orient: vertical
-  font-size: 10px
 
+.my-card-content
+  margin: 8% 5% 0 5%
+  > *
+    margin-top: 5%
+.my-title
+  font-size: 2.5rem
+.my-btn
+  margin-right: 50%
 
 </style>

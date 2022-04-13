@@ -7,6 +7,7 @@
         style="border-radius:5%"
         img-class="img-hover"
       >
+        <div class="solution-card-text">{{label}}</div>
         <q-btn class="lower-btn" size="1.25rem" color="white" text-color="black" :label="btnLabel"/>
       </q-img>
     </q-responsive>
@@ -24,6 +25,7 @@ export default {
   },
   data () {
     return {
+      label: "智能家居",
       image: "https://cdn.quasar.dev/img/parallax2.jpg",
       btnLabel: "进入了解"
     }
@@ -47,4 +49,14 @@ export default {
   right: 0
   margin-left: auto
   margin-right: auto
+.solution-card-text
+  position: absolute
+  bottom: 4vw
+  left: 0
+  right: 0
+  margin: 4rem auto
+  background-color: unset
+  text-align: center
+  font-size: 2rem
+  font-weight: bold
 </style>

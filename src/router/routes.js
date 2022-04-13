@@ -18,9 +18,9 @@ const routes = [
         component: () => import('pages/SearchResults.vue')
       },
       {
-        path: 'temp',
-        component: () => import('components/ProductListCard.vue')
-      },
+        path: 'download',
+        component: () => import('pages/DownloadPage.vue')
+      }
     ]
   },
 
