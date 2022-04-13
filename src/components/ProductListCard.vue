@@ -2,12 +2,29 @@
   <q-card class="raw bg-grey-3 my-card" flat @mouseover="start" @mouseleave="end">
     <q-responsive :ratio="3" >
       <q-card-section horizontal >
-        <q-img
+<!--        <q-img-->
+<!--          class="col-4 cursor-pointer"-->
+<!--          :src="images[index]"-->
+<!--          img-class="img-hover"-->
+<!--          style="border-radius: 30px 0 0 30px"-->
+<!--        />-->
+
+        <q-carousel
+          animated
+          v-model="slide"
+          infinite
           class="col-4 cursor-pointer"
-          :src="images[index]"
-          img-class="img-hover"
           style="border-radius: 30px 0 0 30px"
-        />
+          :autoplay="isHover"
+        >
+<!--          <q-carousel-slide :name="1" img-src="https://cdn.quasar.dev/img/mountains.jpg" />-->
+<!--          <q-carousel-slide :name="2" img-src="https://cdn.quasar.dev/img/parallax1.jpg" />-->
+<!--          <q-carousel-slide :name="3" img-src="https://cdn.quasar.dev/img/parallax2.jpg" />-->
+<!--          <q-carousel-slide :name="4" img-src="https://cdn.quasar.dev/img/quasar.jpg" />-->
+            <template v-for="(item, idx) of images">
+              <q-carousel-slide :name="idx+1" :img-src="item" />
+            </template>
+        </q-carousel>
         <q-card-section class="col-8">
           <div class="my-card-content">
             <div class="my-title text-weight-bolder text-h6" style="margin-top: 1%">{{ name }}</div>
@@ -48,7 +65,8 @@ export default {
         '- 产品参数\n' +
         '- 产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数\n' +
         ' 产品参数产品参数产品参数',
-      images: ['https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg", 'https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg", 'https://cdn.quasar.dev/img/parallax2.jpg']
+      images: ['https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg", 'https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg", 'https://cdn.quasar.dev/img/parallax2.jpg'],
+      isHover: false
     }
   },
   methods: {
@@ -61,13 +79,15 @@ export default {
       }
     },
     start() {
-      this.timer = setInterval(() => {
-        this.autoChangeImage()
-      }, 8000)
+      // this.timer = setInterval(() => {
+      //   this.autoChangeImage()
+      // }, 8000)
+      this.isHover = true
     },
     end() {
-      clearInterval(this.timer);
-      this.timer = ''
+      // clearInterval(this.timer);
+      // this.timer = ''
+      this.isHover = false
     },
   },
 }
