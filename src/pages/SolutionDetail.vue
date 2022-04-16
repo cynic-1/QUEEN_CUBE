@@ -12,15 +12,15 @@
     </video>
   </div>
   <div style="display: flex; justify-content: center">
-    <div class="q-pa-xl q-gutter-y-xl" style="max-width: 90vw;">
+    <div class="q-pt-md q-gutter-y-xl" style="max-width: 90vw;">
       <div class="gt-xs q-gutter-xl row">
         <template v-for="x in 6">
           <HomeNewsCard/>
         </template>
       </div>
-      <div class="xs q-gutter-xl">
+      <div class="xs q-gutter-y-md">
         <template v-for="x in 6">
-          <HomeNewsCard/>
+          <HomeNewsCard :is-mobile="true"/>
         </template>
       </div>
     </div>
