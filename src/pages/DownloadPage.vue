@@ -1,20 +1,36 @@
 <template>
   <HeaderImage/>
-  <div class="q-ml-lg q-mt-lg q-gutter-lg">
-    <template v-for="x in 3">
-      <q-btn outline label="产品线" size="1.25rem" padding="0 40px"/>
-    </template>
-    <q-tabs
-      v-model="tab"
-      align="left"
-    >
-      <q-tab name="software" label="软件"/>
-      <q-tab name="panel" label="面板/底座" />
-      <q-tab name="XXX" label="XXX" />
-      <q-tab name="XXXX" label="XXXX" />
-    </q-tabs>
-    <div class="q-pt-md q-gutter-y-xl" style="max-width: 1400px;">
-      <div class="gt-xs q-gutter-xl row">
+  <div class="q-mt-lg q-gutter-lg">
+    <div class="gt-xs q-ml-xl q-gutter-lg">
+      <template v-for="x in 3">
+        <q-btn outline label="产品线" size="1.25rem" padding="0 40px"/>
+      </template>
+      <q-tabs
+        v-model="tab"
+        align="left"
+      >
+        <q-tab name="software" label="软件"/>
+        <q-tab name="panel" label="面板/底座" />
+        <q-tab name="XXX" label="XXX" />
+        <q-tab name="XXXX" label="XXXX" />
+      </q-tabs>
+    </div>
+    <div class="xs q-gutter-lg">
+      <template v-for="x in 3">
+        <q-btn outline label="产品线" size="1.25rem" padding="0 40px"/>
+      </template>
+      <q-tabs
+        v-model="tab"
+        align="left"
+      >
+        <q-tab name="software" label="软件"/>
+        <q-tab name="panel" label="面板/底座" />
+        <q-tab name="XXX" label="XXX" />
+        <q-tab name="XXXX" label="XXXX" />
+      </q-tabs>
+    </div>
+    <div class="q-pt-md q-gutter-y-xl flex flex-center">
+      <div class="gt-xs q-ml-xl q-gutter-xl row">
         <template v-for="x in 8">
           <ProductLCard :is-download="true"/>
         </template>
@@ -71,5 +87,6 @@ export default {
 .my-tabs-content
   .q-tab__label
     font-size: 17.5px
-
+.my-selection
+  @media screen
 </style>
