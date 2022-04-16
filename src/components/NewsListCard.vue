@@ -10,8 +10,11 @@
 </template>
 
 <script>
+import api from "src/api/api";
+
 export default {
   name: "NewsListCard",
+  props: ["id"],
   data() {
     return {
       image: "https://cdn.quasar.dev/img/parallax2.jpg",
@@ -20,7 +23,22 @@ export default {
       text: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，构建比较完备的数字家庭标准体系；" +
         "新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；既有住宅和社区配套设施，拥有一定的智能产品，数字化改造初…"
     }
-  }
+  },
+
+  created() {
+    this.getNewsListCard()
+  },
+  methods: {
+    async getNewsListCard() {
+      let res = await api.getNewsListCard(this.id)
+      if (res.data.code === 0 && res.status === 200) {
+        this.image = res.data.data.image
+        this.title = res.data.data.title
+        this.date = res.data.data.date
+        this.text = res.data.data.text
+      }
+    },
+  },
 }
 </script>
 

@@ -14,7 +14,7 @@
           <q-card-section class="col">
             <div class="flex column">
               <div class="my-card-content">
-                <div class="my-title">{{ title }}</div>
+                <div class="my-title">{{ title[global.isChinese] }}</div>
                 <div class="txt">
                   {{ content }}
                 </div>
@@ -48,7 +48,7 @@
           img-class="img-hover"
         >
           <div class="q-px-xs q-gutter-y-xs my-img-mobile">
-            <div class="">{{ title }}</div>
+            <div class=""> {{ title[global.isChinese] }}</div>
             <div class="txt">{{ content }}</div>
             <q-btn outline push size="xs">了 解 更 多</q-btn>
           </div>
@@ -71,6 +71,8 @@
 
 <script>
 import ProductLCard from "components/ProductLCard";
+import select from "../api/select"
+import {watch} from "vue";
 export default {
   name: "ProductCard",
   props: {
@@ -84,12 +86,13 @@ export default {
   },
   data () {
     return {
-      title : "智能",
+      global : select.global,
+      title : ["ai","智能"],
       content : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
         "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
       image: "https://cdn.quasar.dev/img/parallax2.jpg",
     }
-  }
+  },
 }
 </script>
 

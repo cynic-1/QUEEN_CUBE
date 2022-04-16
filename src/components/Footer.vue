@@ -51,6 +51,8 @@
 </template>
 
 <script>
+import api from "src/api/api";
+
 export default {
   name: "Footer",
   data() {
@@ -88,7 +90,18 @@ export default {
       address: '上海市徐汇区田林路200号华鑫天地',
       email: 'Info@queencube.cn',
     }
-  }
+  },
+  created() {
+    this.getCooperators()
+  },
+  methods: {
+    async getCooperators() {
+      let res = await api.getCooperators()
+      if (res.data.code === 0 && res.status === 200) {
+        this.cooperators = res.data.data.cooperators
+      }
+    },
+  },
 }
 </script>
 

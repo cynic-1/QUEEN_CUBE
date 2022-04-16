@@ -11,11 +11,11 @@
         </div>
           <template v-for="item of headers">
             <div class="menu-item gt-xs" :class="{hasChild: item.child.length}">
-              <q-btn stretch flat :label="getText(item)" :to="item.link"/>
+              <q-btn stretch flat :label="getText(item.chinese, item.english)" :to="item.link"/>
               <div class="childMenu" v-if="item.child.length">
                 <template v-for="it of item.child">
                   <div class="sub-menu">
-                    {{getText(it)}}
+                    {{getText(it.chinese, it.english)}}
                   </div>
                 </template>
               </div>
@@ -28,7 +28,7 @@
           <q-icon name="search" size="xs" class="cursor-pointer" @click.stop="search"/>
         </div>
         <div class="menu-item cursor-pointer" @click="langChange">
-          <template v-if="isChinese">
+          <template v-if="global.isChinese">
             EN
           </template>
           <template v-else>
@@ -68,6 +68,7 @@
 </template>
 
 <script>
+import select from "../api/select";
 import { defineComponent } from 'vue'
 import HeaderSearch from "components/HeaderSearch";
 import Footer from "components/Footer";
@@ -82,7 +83,7 @@ export default defineComponent({
   data() {
     return {
       drawer: false,
-      isChinese: true,
+      global: select.global,
       headers: [
         {
           chinese: '产品中心',
@@ -128,10 +129,10 @@ export default defineComponent({
     },
   methods: {
     langChange() {
-      this.isChinese = !this.isChinese
+      this.global.isChinese = (this.global.isChinese+1)%2
     },
-    getText(a) {
-      return this.isChinese ? a.chinese : a.english
+    getText(chinese, english) {
+       return this.global.isChinese ? chinese : english
     },
     search(){
       console.log(this.searchValue)
