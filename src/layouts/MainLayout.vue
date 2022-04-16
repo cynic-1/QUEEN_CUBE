@@ -51,7 +51,7 @@
           <template v-for="(menuItem, index) in headers" :key="index">
             <q-item  clickable v-ripple>
               <q-item-section>
-                {{ getText(menuItem) }}
+                {{ getText(menuItem.chinese, menuItem.english) }}
               </q-item-section>
             </q-item>
           </template>
