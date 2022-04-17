@@ -19,7 +19,7 @@
 <!--            { label: '新闻', value: 'news' }-->
 <!--          ]"-->
 <!--      />-->
-      <div class="gt-xs q-gutter-lg q-mb-xl q-ml-lg">
+      <div class="gt-xs q-gutter-lg q-mb-xl q-ml-xl">
         <q-btn outline label="所有" padding="0 40px"/>
         <q-btn outline label="产品" padding="0 40px"/>
         <q-btn outline label="案例" padding="0 40px"/>

@@ -30,7 +30,7 @@
       </q-tabs>
     </div>
     <div class="q-pt-md q-gutter-y-xl flex flex-center">
-      <div class="gt-xs q-ml-xl q-gutter-xl row">
+      <div class="gt-xs q-ml-sm q-gutter-xl row">
         <template v-for="x in 8">
           <ProductLCard :is-download="true"/>
         </template>
