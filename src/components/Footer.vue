@@ -19,11 +19,11 @@
       </div>
       <div class="q-pr-xl gt-xs text-h6">
         公司地址：{{address}} <br>
-        Email: <a :href="'mailto:'+email">{{email}}</a>
+        Email: <span>{{email}}</span>
       </div>
       <div class="q-pr-sm xs" style="font-size: xx-small">
         公司地址：{{address}} <br>
-        Email: <a :href="'mailto:'+email">{{email}}</a>
+        Email: <span>{{email}}</span>
       </div>
     </div>
     <q-separator inset color="#979797" spaced/>
