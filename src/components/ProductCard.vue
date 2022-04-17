@@ -1,6 +1,6 @@
 <template>
   <div class="my-product-card">
-    <q-card class="raw bg-grey-3 gt-xs"  flat square>
+    <q-card class="raw gt-xs"  flat square>
       <q-responsive :ratio="1.7778">
         <q-card-section horizontal>
           <template v-if="left">

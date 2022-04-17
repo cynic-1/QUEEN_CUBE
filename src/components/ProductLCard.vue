@@ -1,5 +1,5 @@
 <template>
-    <q-card class="my-card bg-grey-3" :class="{'my-card-mobile': isMobile}" bordered flat>
+    <q-card class="my-card" :class="{'my-card-mobile': isMobile}" bordered flat>
       <q-img
         class="col cursor-pointer"
         :src="image"
@@ -38,7 +38,7 @@ export default {
     isDownload: {
       type: Boolean,
       default: false
-    }
+    },
   },
   data () {
     return {
