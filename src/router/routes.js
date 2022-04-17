@@ -28,6 +28,10 @@ const routes = [
       {
         path: 'news',
         component: () => import('pages/NewsListPage.vue')
+      },
+      {
+        path: 'about',
+        component: () => import('pages/AboutPage.vue')
       }
     ]
   },
