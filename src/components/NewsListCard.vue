@@ -1,6 +1,6 @@
 <template>
-  <q-card class="my-card">
-    <q-img :src="image" style="max-height: 25vw;"/>
+  <q-card class="my-card" :class="{'my-card-small': isSmall}">
+    <q-img :src="image" style="max-height: 25vw;" img-class="img-hover"/>
     <div class="my-card-content">
       <div class="my-title">{{title}}</div>
       <div>{{date}}</div>
@@ -14,7 +14,13 @@ import api from "src/api/api";
 
 export default {
   name: "NewsListCard",
-  props: ["id"],
+  props: {
+    id: Number,
+    isSmall: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       image: "https://cdn.quasar.dev/img/parallax2.jpg",
@@ -49,7 +55,7 @@ export default {
   margin-left: auto
   margin-right: auto
   padding-bottom: 10px
-.my-card-mobile
+.my-card-small
   width: 39vw
 .my-card-content
   margin: 3% 8% 5% 8%

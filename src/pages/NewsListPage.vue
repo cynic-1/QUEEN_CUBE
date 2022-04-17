@@ -1,9 +1,26 @@
 <template>
   <HeaderImage/>
   <div class="q-gutter-y-xl q-mt-xl">
-    <template v-for="newsListId in newsListIds">
-      <NewsListCard :id="newsListId"/>
-    </template>
+
+    <NewsListCard/>
+    <div class="gt-xs" style="display: flex; width: 80vw; margin: 48px auto">
+      <NewsListCard :is-small="true"/>
+      <NewsListCard :is-small="true"/>
+    </div>
+
+    <NewsListCard class="xs"/>
+    <NewsListCard class="xs"/>
+    <NewsListCard/>
+
+    <div class="q-pa-lg flex flex-center">
+      <q-pagination
+        v-model="current"
+        color="black"
+        :max="10"
+        :max-pages="3"
+        :boundary-numbers="true"
+      />
+    </div>
   </div>
 </template>
 
@@ -17,6 +34,7 @@ export default {
   data() {
     return {
       newsListIds: [],
+      current: 1
     }
   },
   created() {
