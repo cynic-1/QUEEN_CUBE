@@ -22,7 +22,7 @@ const routes = [
         component: () => import('pages/DownloadPage.vue')
       },
       {
-        path: 'productList',
+        path: 'productCenter',
         component: () => import('pages/ProductList.vue')
       },
       {

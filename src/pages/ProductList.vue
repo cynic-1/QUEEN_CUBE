@@ -13,10 +13,11 @@
       <q-tab name="XXX" label="XXX" />
       <q-tab name="XXXX" label="XXXX" />
     </q-tabs>
-    <div class="q-gutter-y-lg">
+    <div class="q-gutter-y-lg" style="overflow-x: auto">
       <template v-for="x in 4">
         <ProductListCard/>
       </template>
+
     </div>
   </div>
 </template>
