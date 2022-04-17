@@ -26,7 +26,7 @@ const routes = [
         component: () => import('pages/ProductList.vue')
       },
       {
-        path: 'newsList',
+        path: 'news',
         component: () => import('pages/NewsListPage.vue')
       }
     ]
