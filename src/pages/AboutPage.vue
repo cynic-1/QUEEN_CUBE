@@ -2,6 +2,9 @@
   <HeaderImage :header-label="title" :sub-header-label="slogan" :is-center="true"/>
   <q-card class="company-des">{{description}}</q-card>
   <div class="gt-xs time-line-block">
+    <div class="text-center">
+      <h4>公 司 历 程</h4>
+    </div>
     <ul class="timeline" id="timeline">
       <template v-for="item of timelines">
         <li class="li complete">
@@ -15,6 +18,39 @@
       </template>
     </ul>
   </div>
+  <div class="certificate-block">
+    <q-carousel
+      animated
+      v-model="slide"
+      infinite
+      arrows
+      transition-prev="slide-right"
+      transition-next="slide-left"
+      @mouseenter="autoplay = false"
+      @mouseleave="autoplay = true"
+    >
+      <template v-for="x in 4">
+        <q-carousel-slide :name="x" img-src="https://cdn.quasar.dev/img/mountains.jpg"/>
+      </template>
+    </q-carousel>
+  </div>
+  <div class="honor-block">
+    <div class="text-center">
+      <h4>公 司 荣 誉</h4>
+    </div>
+    <div style="margin: auto 10vw;">
+      <div class="row justify-between">
+        <template v-for="x in 5">
+          <q-responsive :ratio="1.4" style="width: 16vw; margin-top: 24px;">
+            <div class="text-center">
+              <q-img src="https://cdn.quasar.dev/img/mountains.jpg"/>
+              <span>荣誉名称</span>
+            </div>
+          </q-responsive>
+        </template>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -27,6 +63,8 @@ export default {
   },
   data() {
     return {
+      slide: 1,
+      autoplay: false,
       headerImg: "",
       title: "标题",
       slogan: "SloganSloganSloganSloganSloganSloganSloganSloganSloganSlogan",
@@ -72,8 +110,8 @@ export default {
   padding: 50px 72px
   width: 80vw
 .time-line-block
-  width: 80vw
-  margin: 0 auto 0 auto
+  width: 90vw
+  margin: 0 auto 90px auto
 .timeline
   list-style-type: none
   display: flex
@@ -134,5 +172,11 @@ export default {
       left: -8%
       top: 30%
       transition: all 200ms ease-in
+
+.certificate-block
+  width: 80vw
+  margin: 0 auto
+
+.honor-block
 
 </style>
