@@ -14,10 +14,18 @@
 <!--          {{ content }}-->
           <q-chip outline :label="content" style="width: 90%; margin: 10px 0;"/>
           <template v-if="isDownload">
-            <q-btn-group outline push class="justify-center text-weight-bold">
-              <q-btn no-wrap outline push label="手 册" :to="handbook" />
-              <q-btn no-wrap outline push label="驱 动" :to="driver" />
-            </q-btn-group>
+            <template v-if="handbook.length && driver.length">
+              <q-btn-group outline push class="justify-center text-weight-bold">
+                <q-btn no-wrap outline push label="手 册" :to="handbook" />
+                <q-btn no-wrap outline push label="驱 动" :to="driver" />
+              </q-btn-group>
+            </template>
+            <template v-else-if="handbook.length">
+              <q-btn no-wrap outline push label="手 册 下 载" :to="handbook" style="width: 90%"/>
+            </template>
+            <template v-else-if="driver.length">
+              <q-btn no-wrap outline push label="驱 动 下 载" :to="driver" style="width: 90%"/>
+            </template>
           </template>
           <template v-else>
             <q-btn no-wrap class="justify-center text-weight-bold" label="了 解 详 情" :to="link" outline push style="width: 90%"/>
@@ -46,8 +54,8 @@ export default {
       content: "3 种颜色可选（深空灰/玫瑰金...)",
       image: "https://cdn.quasar.dev/img/mountains.jpg",
       link: "",
-      handbook: "",
-      driver: ""
+      handbook: "撒旦发射点发射点",
+      driver: "123"
     }
   },
   methods: {
