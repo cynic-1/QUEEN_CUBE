@@ -177,6 +177,7 @@ export default defineComponent({
   -moz-transition: .6s all linear;
   -o-transition: .6s all ease;
   color: black;
+  cursor: pointer;
   &:before,&:after{
               content: '';
               position: absolute;
