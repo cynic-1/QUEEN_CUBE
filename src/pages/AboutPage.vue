@@ -19,20 +19,25 @@
     </ul>
   </div>
   <div class="certificate-block">
-    <q-carousel
-      animated
-      v-model="slide"
-      infinite
-      arrows
-      transition-prev="slide-right"
-      transition-next="slide-left"
-      @mouseenter="autoplay = false"
-      @mouseleave="autoplay = true"
-    >
-      <template v-for="x in 4">
-        <q-carousel-slide :name="x" img-src="https://cdn.quasar.dev/img/mountains.jpg"/>
-      </template>
-    </q-carousel>
+    <div class="text-center">
+      <h4>资 质 证 书</h4>
+    </div>
+    <q-responsive :ratio="1.778">
+      <q-carousel
+        animated
+        v-model="slide"
+        infinite
+        arrows
+        transition-prev="slide-right"
+        transition-next="slide-left"
+        @mouseenter="autoplay = false"
+        @mouseleave="autoplay = true"
+      >
+        <template v-for="x in 4">
+          <q-carousel-slide :name="x" img-src="https://cdn.quasar.dev/img/mountains.jpg"/>
+        </template>
+      </q-carousel>
+    </q-responsive>
   </div>
   <div class="honor-block">
     <div class="text-center">
@@ -40,7 +45,7 @@
     </div>
     <div class="honor-content">
         <template v-for="x in 5">
-          <q-responsive :ratio="1.4">
+          <q-responsive :ratio="1.778">
             <div class="text-center">
               <q-img src="https://cdn.quasar.dev/img/mountains.jpg"/>
               <span>荣誉名称</span>
@@ -56,7 +61,7 @@
     </div>
     <div class="architect-content">
       <template v-for="x in 5">
-        <q-responsive :ratio="1.4">
+        <q-responsive :ratio="1.778">
           <div>
             <q-avatar size="16vw">
               <img src="https://cdn.quasar.dev/img/mountains.jpg" alt="头像">
@@ -126,12 +131,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.company-des
-  margin: -60px auto 30px auto
-  display: flex
-  justify-content: center
-  padding: 50px 72px
-  width: 80vw
 .time-line-block
   width: 90vw
   margin: 0 auto 90px auto
@@ -202,7 +201,7 @@ export default {
 
 .honor-content
   .q-responsive
-    margin-top: 24px
+    margin-bottom: 64px
 
 @media (min-device-width: 600px)
   .architect-content, .honor-content
@@ -211,7 +210,11 @@ export default {
     justify-content: space-between
     .q-responsive
       width: 16vw
-
+  .company-des
+    margin: -60px auto 30px auto
+    padding: 50px 72px
+    width: 80vw
+    line-height: 150%
 
 @media (max-device-width: 600px)
   .architect-content, .honor-content
@@ -222,7 +225,11 @@ export default {
       .q-avatar
         width: 80vw
         height: 80vw
-
+  .company-des
+    margin: 10px auto
+    padding: 25px 15px
+    width: 95vw
+    line-height: 150%
 .certificate-block
   width: 80vw
   margin: 0 auto
