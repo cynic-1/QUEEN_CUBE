@@ -18,6 +18,20 @@
       </template>
     </ul>
   </div>
+  <div class="xs time-line-block">
+    <div class="text-center">
+      <h4>公 司 历 程</h4>
+    </div>
+    <q-timeline layout="loose" color="secondary">
+      <template v-for="(item, idx) of timelines">
+        <q-timeline-entry
+          :title="item.event"
+          :subtitle="item.year"
+          :side="getSide(idx)"
+        />
+      </template>
+    </q-timeline>
+  </div>
   <div class="certificate-block">
     <div class="text-center">
       <h4>资 质 证 书</h4>
@@ -126,6 +140,12 @@ export default {
       ],
 
     }
+  },
+  methods: {
+    getSide(idx) {
+      return idx % 2 ? "left" : "right"
+    }
+
   }
 }
 </script>
