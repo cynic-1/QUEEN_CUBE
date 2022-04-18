@@ -38,8 +38,7 @@
     <div class="text-center">
       <h4>公 司 荣 誉</h4>
     </div>
-    <div style="margin: auto 10vw;">
-      <div class="row justify-between">
+    <div class="row justify-between">
         <template v-for="x in 5">
           <q-responsive :ratio="1.4" style="width: 16vw; margin-top: 24px;">
             <div class="text-center">
@@ -47,8 +46,31 @@
               <span>荣誉名称</span>
             </div>
           </q-responsive>
-        </template>
-      </div>
+          </template>
+    </div>
+  </div>
+  <div class="separator-block"/>
+  <div class="architect-block">
+    <div class="text-center">
+      <h4>组 织 架 构</h4>
+    </div>
+    <div class="row justify-between">
+      <template v-for="x in 5">
+        <q-responsive :ratio="1.4" style="width: 16vw; margin-bottom: 300px;">
+          <div>
+            <q-avatar size="16vw">
+              <img src="https://cdn.quasar.dev/img/mountains.jpg" alt="头像">
+            </q-avatar>
+            <p class="text-h6" style="width: 100%;margin: auto;">
+              张三
+              <span class="float-right">CEO</span>
+            </p>
+            <p class="text-h6">
+              个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人……
+            </p>
+          </div>
+        </q-responsive>
+      </template>
     </div>
   </div>
 </template>
@@ -96,7 +118,8 @@ export default {
           year: 2012,
           event: "大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记"
         },
-      ]
+      ],
+
     }
   }
 }
@@ -178,5 +201,13 @@ export default {
   margin: 0 auto
 
 .honor-block
+  margin: auto 10vw
 
+.separator-block
+  height: 65px
+  background-color: white
+  margin: 80px auto
+
+.architect-block
+  margin: auto 10vw
 </style>
