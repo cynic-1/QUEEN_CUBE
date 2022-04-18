@@ -38,9 +38,9 @@
     <div class="text-center">
       <h4>公 司 荣 誉</h4>
     </div>
-    <div class="row justify-between">
+    <div class="honor-content">
         <template v-for="x in 5">
-          <q-responsive :ratio="1.4" style="width: 16vw; margin-top: 24px;">
+          <q-responsive :ratio="1.4">
             <div class="text-center">
               <q-img src="https://cdn.quasar.dev/img/mountains.jpg"/>
               <span>荣誉名称</span>
@@ -54,9 +54,9 @@
     <div class="text-center">
       <h4>组 织 架 构</h4>
     </div>
-    <div class="row justify-between">
+    <div class="architect-content">
       <template v-for="x in 5">
-        <q-responsive :ratio="1.4" style="width: 16vw; margin-bottom: 300px;">
+        <q-responsive :ratio="1.4">
           <div>
             <q-avatar size="16vw">
               <img src="https://cdn.quasar.dev/img/mountains.jpg" alt="头像">
@@ -65,7 +65,7 @@
               张三
               <span class="float-right">CEO</span>
             </p>
-            <p class="text-h6">
+            <p class="text-h6" style="max-height: 200px;overflow-y: hidden;">
               个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人……
             </p>
           </div>
@@ -195,6 +195,33 @@ export default {
       left: -8%
       top: 30%
       transition: all 200ms ease-in
+
+.architect-content
+  .q-responsive
+    margin-bottom: 300px
+
+.honor-content
+  .q-responsive
+    margin-top: 24px
+
+@media (min-device-width: 600px)
+  .architect-content, .honor-content
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    .q-responsive
+      width: 16vw
+
+
+@media (max-device-width: 600px)
+  .architect-content, .honor-content
+    .q-responsive
+      width: 80vw
+      .q-img
+        width: 80vw
+      .q-avatar
+        width: 80vw
+        height: 80vw
 
 .certificate-block
   width: 80vw
