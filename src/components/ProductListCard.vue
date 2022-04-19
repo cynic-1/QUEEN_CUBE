@@ -22,15 +22,18 @@
               {{ describe }}
             </div>
             <div style="margin-top: 3%;margin-left: -11%;" >
-              <q-btn icon="fa-solid fa-arrow-left" style="float:left;margin-top:5%" flat></q-btn>
-              <q-btn icon="fa-solid fa-arrow-right" style="float:right;margin-top:5%;margin-right: 1%" flat></q-btn>
-              <span v-for="(im, index) in images" :key="index" class="q-gutter-md">
+
+              <q-btn @click="clickLeft" icon="fa-solid fa-arrow-left" style="float:left;margin-top:5%" flat/>
+              <q-btn @click="clickRight" icon="fa-solid fa-arrow-right" style="float:right;margin-top:5%;margin-right: 1%" flat></q-btn>
+
+              <span v-for="(im, idx) in shownImages" :key="idx" class="q-gutter-md">
                 <q-img
                   class="img-responsive"
                   :src="im"
                   :ratio="1"
                   img-class="img-hover"
-                  @click="changeImage(index)"
+                  @click="changeImage(idx)"
+                  :class="{'selected-img': index+idx === slide-1}"
                 />
               </span>
             </div>
@@ -72,7 +75,7 @@
     <div class="column no-wrap my-mobile-images" style="margin: 0 15px;">
       <q-btn icon="fa-solid fa-arrow-up" flat></q-btn>
 
-        <template v-for="(im, index) in images" :key="index" >
+        <template v-for="(im, index) in shownImages" :key="index" >
           <q-img
             class="img-responsive"
             :src="im"
@@ -108,13 +111,15 @@ export default {
         '- 产品参数\n' +
         '- 产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数\n' +
         ' 产品参数产品参数产品参数',
-      images: ['https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg", 'https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg", 'https://cdn.quasar.dev/img/parallax2.jpg'],
+      images: ['https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg",
+        'https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg",
+        'https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg"],
       isHover: false
     }
   },
   methods: {
     changeImage(index) {
-      this.index = index
+      this.slide = index+1
     },
     autoChangeImage() {
       if (this.images && this.images.length > 0) {
@@ -132,7 +137,18 @@ export default {
       // this.timer = ''
       this.isHover = false
     },
+    clickLeft() {
+      if (this.index > 0) this.index--;
+    },
+    clickRight() {
+      if (this.index+5 < this.images.length) this.index++;
+    }
   },
+  computed: {
+    shownImages() {
+      return this.images.slice(this.index, this.index+5)
+    }
+  }
 }
 </script>
 
@@ -144,7 +160,8 @@ export default {
   min-width: 1200px
   &:hover
     border: 2px black solid
-
+.selected-img
+  border: 2px black solid
 .my-card-mobile
   border-radius: 30px
   width: 60vw
