@@ -18,7 +18,7 @@
                 <div class="txt">
                   {{ content }}
                 </div>
-                <q-btn size="1.25em" class="my-btn" outline push>了 解 更 多</q-btn>
+                <q-btn size="1.25em" class="my-btn" outline push to="/solutions/commercial">了 解 更 多</q-btn>
               </div>
             </div>
 
