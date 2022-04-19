@@ -56,7 +56,7 @@ export default {
   min-width: 240px
 .my-card-mobile
   width: 80vw
-  //margin: 0 5vw 0 5vw
+  margin: 0 5vw
 .l-title
   font-size: 1.25rem
   font-weight: bolder
