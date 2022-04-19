@@ -16,8 +16,8 @@
           <template v-if="isDownload">
             <template v-if="handbook.length && driver.length">
               <q-btn-group outline push class="justify-center text-weight-bold">
-                <q-btn no-wrap outline push label="手 册" :to="handbook" padding="10px 30px"/>
-                <q-btn no-wrap outline push label="驱 动" :to="driver" padding="10px 30px"/>
+                <q-btn no-wrap outline push label="手 册" :to="handbook" padding="10px 2.5rem"/>
+                <q-btn no-wrap outline push label="驱 动" :to="driver" padding="10px 2.5rem"/>
               </q-btn-group>
             </template>
             <template v-else-if="handbook.length">
