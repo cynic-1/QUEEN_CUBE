@@ -5,20 +5,8 @@
   </div>
 
   <div class="flex flex-center">
-    <div class="q-pt-md q-gutter-y-lg" style="max-width: 1400px;">
-<!--      <q-btn-toggle-->
-<!--        v-model="panel"-->
-<!--        inline-->
-<!--        rounded-->
-<!--        toggle-color="black"-->
-<!--        toggle-text-color="white"-->
-<!--        :options="[-->
-<!--            { label: '所有', value: 'all' },-->
-<!--            { label: '产品', value: 'products' },-->
-<!--            { label: '案例', value: 'examples' },-->
-<!--            { label: '新闻', value: 'news' }-->
-<!--          ]"-->
-<!--      />-->
+    <div class="q-pt-md q-gutter-y-lg">
+
       <div class="gt-xs q-gutter-lg q-mb-xl q-ml-xl">
         <q-btn outline label="所有" padding="0 40px"/>
         <q-btn outline label="产品" padding="0 40px"/>
@@ -31,7 +19,7 @@
         <q-btn outline label="案例" padding="0 20px"/>
         <q-btn outline label="新闻" padding="0 20px"/>
       </div>
-      <div class="gt-xs q-gutter-xl row q-ml-lg">
+      <div class="gt-xs q-gutter-xl row">
         <template v-for="x in 8">
           <ProductLCard/>
         </template>
@@ -66,7 +54,7 @@ export default {
   data() {
     return {
       panel: 'all',
-      current: '',
+      current: 1,
     }
   }
 }
