@@ -1,7 +1,7 @@
 <template>
   <HeaderImage/>
-  <div class="q-mt-lg q-gutter-lg">
-    <div class="gt-xs q-ml-xl q-gutter-lg">
+  <div class="q-mt-lg q-gutter-lg page-width">
+    <div class="gt-xs q-gutter-lg">
       <template v-for="x in 3">
         <q-btn outline label="产品线" size="1.25rem" padding="0 40px"/>
       </template>
@@ -30,9 +30,9 @@
       </q-tabs>
     </div>
     <div class="q-pt-md q-gutter-y-xl flex flex-center">
-      <div class="gt-xs q-ml-sm q-gutter-xl row">
-        <template v-for="x in 8">
-          <ProductLCard :is-download="true"/>
+      <div class="gt-xs grid">
+        <template v-for="x in 7">
+          <ProductLCard :is-download="true" class="grid__item"/>
         </template>
       </div>
       <div class="xs q-gutter-y-md">
@@ -87,6 +87,15 @@ export default {
 .my-tabs-content
   .q-tab__label
     font-size: 17.5px
-.my-selection
-  @media screen
+@media (min-device-width: 600px)
+  .page-width
+    padding: 0 10vw
+  .grid
+    display: flex
+    flex-wrap: wrap
+    padding: 0
+    list-style: none
+  .grid__item
+    width: calc(25% - 1.5rem)
+    margin: auto 0.75rem 1.5rem 0.75rem
 </style>

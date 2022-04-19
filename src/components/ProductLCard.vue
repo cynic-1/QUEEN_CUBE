@@ -12,12 +12,12 @@
         <div class="my-little-card-title">{{ title }}</div>
         <div class="flex flex-center">
 <!--          {{ content }}-->
-          <q-chip outline :label="content" style="width: 90%; margin: 10px 0;"/>
+          <q-chip outline :label="content" style="margin: 10px 0;"/>
           <template v-if="isDownload">
             <template v-if="handbook.length && driver.length">
               <q-btn-group outline push class="justify-center text-weight-bold">
-                <q-btn no-wrap outline push label="手 册" :to="handbook" />
-                <q-btn no-wrap outline push label="驱 动" :to="driver" />
+                <q-btn no-wrap outline push label="手 册" :to="handbook" padding="10px 30px"/>
+                <q-btn no-wrap outline push label="驱 动" :to="driver" padding="10px 30px"/>
               </q-btn-group>
             </template>
             <template v-else-if="handbook.length">
@@ -74,9 +74,8 @@ export default {
   min-width: 160px
 .my-card-mobile
   width: 60vw
-  .my-little-card-title
-    font-size: 1.25rem
 .my-little-card-title
+  font-size: 1.25rem
   padding-top: 10%
   padding-bottom: 10%
   text-align: center
