@@ -1,9 +1,8 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="hHr lpR fFr">
 
     <q-header reveal elevated style="color: black">
       <q-toolbar>
-        <q-btn class="lt-sm" flat @click="drawer = !drawer" round dense icon="menu" />
         <div class="q-pr-lg">
           <q-avatar>
             <img alt="logo" src="https://cdn.quasar.dev/logo-v2/svg/logo.svg">
@@ -27,13 +26,16 @@
         <div class="menu-item header-search" style="margin-right: unset; min-width: unset;">
           <q-icon name="search" size="xs" class="cursor-pointer" @click.stop="search"/>
         </div>
-        <div class="menu-item cursor-pointer" @click="langChange">
+        <div class="q-px-md cursor-pointer" @click="langChange">
           <template v-if="global.isChinese">
             EN
           </template>
           <template v-else>
             中
           </template>
+        </div>
+        <div class="xs">
+          <q-btn class="lt-sm" flat @click="drawer = !drawer" round dense icon="menu" />
         </div>
       </q-toolbar>
     </q-header>
@@ -43,6 +45,7 @@
       :width="200"
       :breakpoint="600"
       bordered
+      side="right"
       content-class="bg-grey-3"
     >
       <q-scroll-area class="fit">
