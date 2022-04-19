@@ -4,7 +4,7 @@
       <source src="../assets/video_1646475288583.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="gt-xs q-gutter-y-xl">
+  <div class="gt-xs q-gutter-y-xl" style="margin-top: 60px;">
     <SolutionCard/>
     <SolutionCard :left="false"/>
   </div>

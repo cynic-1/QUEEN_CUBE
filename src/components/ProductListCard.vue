@@ -141,7 +141,7 @@ export default {
   margin-right: 10%
   margin-left: 10%
   border-radius: 30px
-  min-width: 1120px
+  min-width: 1200px
   &:hover
     border: 2px black solid
 

@@ -1,13 +1,13 @@
 <template>
-  <div class="my-card justify-center">
-    <q-card class="raw bg-grey-3" flat>
+  <div class="justify-center">
+    <q-card class="raw bg-grey-3 my-card" flat>
       <q-responsive :ratio="2.568">
         <q-card-section horizontal>
           <template v-if="left">
             <q-img
               class="col cursor-pointer"
               :src="image"
-              style="border-radius:8px 0 0 8px;"
+              style="border-radius:30px 0 0 30px;"
               img-class="img-hover"
             />
           </template>
@@ -27,7 +27,7 @@
             <q-img
               class="col cursor-pointer"
               :src="image"
-              style="border-radius: 0 8px 8px 0;"
+              style="border-radius: 0 30px 30px 0;"
               img-class="img-hover"
             />
           </template>
@@ -61,7 +61,7 @@ export default {
 .my-card
   margin-right: 10%
   margin-left: 10%
-  border-radius: 8px
+  border-radius: 30px
 .txt
   max-width: 21rem
   font-size: 1rem
