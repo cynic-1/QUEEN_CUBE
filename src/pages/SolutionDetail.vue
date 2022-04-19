@@ -11,11 +11,11 @@
 <!--      <source src="../assets/video_1646475288583.mp4" type="video/mp4">-->
     </video>
   </div>
-  <div style="display: flex; justify-content: center">
-    <div class="q-pt-md q-gutter-y-xl" style="max-width: 90vw;">
-      <div class="gt-xs q-gutter-xl row">
+  <div class="page-width">
+    <div class="q-pt-md">
+      <div class="gt-xs grid">
         <template v-for="x in 6">
-          <HomeNewsCard/>
+          <HomeNewsCard class="grid__item"/>
         </template>
       </div>
       <div class="xs q-gutter-y-md">
@@ -72,5 +72,15 @@ video
   width: 100%
   height: 40vh
   object-fit: fill
-
+@media (min-device-width: 600px)
+  .page-width
+    padding: 0 10vw
+  .grid
+    display: flex
+    flex-wrap: wrap
+    padding: 0
+    list-style: none
+  .grid__item
+    width: calc(25% - 1.5rem)
+    margin: auto 0.75rem 1.5rem 0.75rem
 </style>
