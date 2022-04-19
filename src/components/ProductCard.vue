@@ -43,12 +43,12 @@
     <div class="xs">
       <q-responsive :ratio="8/9">
         <q-img
-          class="col cursor-pointer"
+          class="col"
           :src="image"
           img-class="img-hover"
         >
-          <div class="q-px-xs q-gutter-y-xs my-img-mobile">
-            <div class=""> {{ title[global.isChinese] }}</div>
+          <div class="q-px-xs q-my-xl q-gutter-y-md my-img-mobile">
+            <div class="text-h4"> {{ title[global.isChinese] }}</div>
             <div class="txt">{{ content }}</div>
             <q-btn outline push size="xs">了 解 更 多</q-btn>
           </div>
@@ -102,7 +102,7 @@ export default {
   margin-left: 10%
   border-radius: 8px
 .txt
-  font-size: 1rem
+  font-size: 1.25rem
   overflow: hidden
   text-overflow: ellipsis
   display: -webkit-box
