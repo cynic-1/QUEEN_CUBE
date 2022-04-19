@@ -1,6 +1,6 @@
 <template>
   <div class="justify-center">
-    <q-card class="raw bg-grey-3 my-card" flat>
+    <q-card class="raw my-card" flat>
       <q-responsive :ratio="2.568">
         <q-card-section horizontal>
           <template v-if="left">
@@ -48,7 +48,7 @@ export default {
   },
   data () {
     return {
-      title : "智能",
+      title : "智能家居",
       content : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
         "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
       image: "https://cdn.quasar.dev/img/parallax2.jpg",
