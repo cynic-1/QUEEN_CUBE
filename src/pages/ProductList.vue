@@ -1,5 +1,5 @@
 <template>
-  <HeaderImage/>
+  <HeaderImage :header-image-data="headerImageData"/>
   <div class="q-ml-lg q-mt-lg q-gutter-lg">
     <template v-for="item of productLines">
       <q-btn outline :label="item" size="1.25rem" padding="0 40px"/>
@@ -32,6 +32,7 @@ export default {
   },
   data() {
     return {
+      // 需请求数据
       productLines: [
         "产品线1","产品线2","产品线3"
       ],
@@ -45,6 +46,11 @@ export default {
           english: "frame"
         },
       ],
+      headerImageData: {
+        headerImage: "https://cdn.quasar.dev/img/parallax2.jpg",
+        headerLabel: "栏目标题",
+        subHeaderLabel: "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题"
+      },
       productListCardData: [
         {
           index: 0,
