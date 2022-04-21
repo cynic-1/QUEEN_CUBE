@@ -1,8 +1,8 @@
 <template>
-  <q-img :src="headerImage" class="header-image">
+  <q-img :src="headerImageData.headerImage" class="header-image">
     <div class="my-header-content" :class="{'text-center': isCenter}">
-      <div class="text-h4">{{headerLabel}}</div>
-      <div class="text-h6">{{subHeaderLabel}}</div>
+      <div class="text-h4">{{headerImageData.headerLabel}}</div>
+      <div class="text-h6">{{headerImageData.subHeaderLabel}}</div>
     </div>
   </q-img>
 
@@ -12,18 +12,7 @@
 export default {
   name: "HeaderImage",
   props: {
-    headerImage: {
-      type: String,
-      default:"https://cdn.quasar.dev/img/parallax2.jpg"
-    },
-    headerLabel: {
-      type: String,
-      default: "栏目标题"
-    },
-    subHeaderLabel: {
-      type: String,
-      default: "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题"
-    },
+    headerImageData: Object,
     isCenter: {
       type: Boolean,
       default: false

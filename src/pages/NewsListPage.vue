@@ -1,5 +1,5 @@
 <template>
-  <HeaderImage/>
+  <HeaderImage :header-image-data="headerImageData"/>
   <div class="q-gutter-y-xl q-mt-xl">
 
     <NewsListCard/>
@@ -34,7 +34,12 @@ export default {
   data() {
     return {
       newsListIds: [],
-      current: 1
+      current: 1,
+      headerImageData: {
+        headerImage: "https://cdn.quasar.dev/img/parallax2.jpg",
+        headerLabel: "栏目标题",
+        subHeaderLabel: "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题"
+      }
     }
   },
   created() {
