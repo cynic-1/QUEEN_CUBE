@@ -1,23 +1,21 @@
 <template>
   <HeaderImage/>
   <div class="q-ml-lg q-mt-lg q-gutter-lg">
-    <template v-for="x in 3">
-      <q-btn outline label="产品线" size="1.25rem" padding="0 40px"/>
+    <template v-for="item of productLines">
+      <q-btn outline :label="item" size="1.25rem" padding="0 40px"/>
     </template>
     <q-tabs
       v-model="tab"
       align="left"
     >
-      <q-tab name="software" label="软件"/>
-      <q-tab name="panel" label="面板/底座" />
-      <q-tab name="XXX" label="XXX" />
-      <q-tab name="XXXX" label="XXXX" />
+      <template v-for="item of categories">
+        <q-tab :name="item.english" :label="item.chinese"/>
+      </template>
     </q-tabs>
     <div class="q-gutter-y-lg" style="overflow-x: auto">
-      <template v-for="x in 4">
-        <ProductListCard/>
+      <template v-for="item in productListCardData">
+        <ProductListCard :product-list-card-data="item"/>
       </template>
-
     </div>
   </div>
 </template>
@@ -34,6 +32,43 @@ export default {
   },
   data() {
     return {
+      productLines: [
+        "产品线1","产品线2","产品线3"
+      ],
+      categories: [
+        {
+          chinese: "软件",
+          english: "software"
+        },
+        {
+          chinese: "面板",
+          english: "frame"
+        },
+      ],
+      productListCardData: [
+        {
+          index: 0,
+          name: '产品名称',
+          describe: '- 产品参数\n' +
+            '- 产品参数\n' +
+            '- 产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数\n' +
+            ' 产品参数产品参数产品参数',
+          imgs: ['https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg",
+            'https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg",
+            'https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg"],
+        },
+        {
+          index: 0,
+          name: '产品名称',
+          describe: '- 产品参数\n' +
+            '- 产品参数\n' +
+            '- 产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数\n' +
+            ' 产品参数产品参数产品参数',
+          imgs: ['https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg",
+            'https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg",
+            'https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg"],
+        }
+      ],
       tab: "software",
 
     }

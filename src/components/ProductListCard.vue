@@ -10,16 +10,16 @@
           style="border-radius: 30px 0 0 30px"
           :autoplay="isHover"
         >
-            <template v-for="(item, idx) of images">
+            <template v-for="(item, idx) of productListCardData.imgs">
               <q-carousel-slide :name="idx+1" :img-src="item" />
             </template>
         </q-carousel>
         <q-card-section class="col-8">
           <div class="my-card-content">
-            <div class="my-title text-weight-bolder text-h6" style="margin-top: 1%">{{ name }}</div>
+            <div class="my-title text-weight-bolder text-h6" style="margin-top: 1%">{{ productListCardData.name }}</div>
             <q-btn no-wrap class="justify-center" outline push style="width: 20%;margin-top: 3%" size="xs">型号型号</q-btn>
             <div style="white-space: pre-wrap; margin-top: 3%" >
-              {{ describe }}
+              {{ productListCardData.describe }}
             </div>
             <div style="margin-top: 3%;margin-left: -11%;" >
 
@@ -55,17 +55,17 @@
               style="border-radius: 30px 30px 0 0"
               :autoplay="isHover"
             >
-              <template v-for="(item, idx) of images">
+              <template v-for="(item, idx) of productListCardData.imgs">
                 <q-carousel-slide :name="idx+1" :img-src="item" />
               </template>
             </q-carousel>
           </q-responsive>
           <q-card-section class="col-8">
             <div class="my-card-content">
-              <div class="my-title text-weight-bolder text-h6" style="margin-top: 1%">{{ name }}</div>
+              <div class="my-title text-weight-bolder text-h6" style="margin-top: 1%">{{ productListCardData.name }}</div>
               <q-btn no-wrap class="justify-center" outline push style="width: 60%;margin-top: 10%" size="xs">型号型号</q-btn>
               <div style="white-space: pre-wrap; margin-top: 10%" >
-                {{ describe }}
+                {{ productListCardData.describe }}
               </div>
             </div>
           </q-card-section>
@@ -99,12 +99,12 @@ export default {
     isMobile: {
       type: Boolean,
       default: false
-    }
+    },
+    productListCardData: Object
   },
   data() {
     return {
       slide: 1,
-      timer: '',
       index: 0,
       name: '产品名称',
       describe: '- 产品参数\n' +
@@ -146,7 +146,7 @@ export default {
   },
   computed: {
     shownImages() {
-      return this.images.slice(this.index, this.index+5)
+      return this.productListCardData.imgs.slice(this.index, this.index+5)
     }
   }
 }
