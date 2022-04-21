@@ -20,13 +20,13 @@
         <q-btn outline label="新闻" padding="0 20px"/>
       </div>
       <div class="gt-xs grid">
-        <template v-for="x in 8">
-          <ProductLCard class="grid__item"/>
+        <template v-for="item of productLittleCardData">
+          <ProductLCard class="grid__item" :product-little-card-data="item"/>
         </template>
       </div>
       <div class="xs flex flex-center q-gutter-y-md">
-        <template v-for="x in 8">
-          <ProductLCard :is-mobile="true"/>
+        <template v-for="item of productLittleCardData">
+          <ProductLCard :is-mobile="true" :product-little-card-data="item"/>
         </template>
       </div>
       <div class="q-pa-lg flex flex-center">
@@ -55,6 +55,33 @@ export default {
     return {
       panel: 'all',
       current: 1,
+      // 需要请求
+      productLittleCardData: [
+        {
+          title: "KNX毅系列面板",
+          content: "3 种颜色可选（深空灰/玫瑰金...)",
+          img: "https://cdn.quasar.dev/img/mountains.jpg",
+          link: "",
+          handbook: "撒旦发射点发射点",
+          driver: "123"
+        },
+        {
+          title: "KNX毅系列面板",
+          content: "3 种颜色可选（深空灰/玫瑰金...)",
+          img: "https://cdn.quasar.dev/img/mountains.jpg",
+          link: "",
+          handbook: "撒旦发射点发射点",
+          driver: "123"
+        },
+        {
+          title: "KNX毅系列面板",
+          content: "3 种颜色可选（深空灰/玫瑰金...)",
+          img: "https://cdn.quasar.dev/img/mountains.jpg",
+          link: "",
+          handbook: "撒旦发射点发射点",
+          driver: "123"
+        },
+      ]
     }
   }
 }
