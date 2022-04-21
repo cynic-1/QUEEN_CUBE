@@ -1,5 +1,5 @@
 <template>
-  <q-card class="my-card bg-grey-3 cursor-pointer" :class="{'my-card-mobile': isMobile}" bordered flat>
+  <q-card class="my-card cursor-pointer" :class="{'my-card-mobile': isMobile}" bordered flat>
     <q-img
       class="col"
       :src="image"
@@ -50,7 +50,7 @@ export default {
 
 <style lang="sass" scoped>
 .my-card
-  width: 100%
+  width: 18vw
   border-radius: 8px
   flex-shrink: 0
   min-width: 240px

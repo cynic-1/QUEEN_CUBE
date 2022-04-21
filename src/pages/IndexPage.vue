@@ -72,4 +72,15 @@ export default defineComponent({
     display: none
   > *
     flex-shrink: 0
+@media (min-device-width: 600px)
+  .page-width
+    padding: 0 10vw
+  .grid
+    display: flex
+    flex-wrap: wrap
+    padding: 0
+    list-style: none
+  .grid__item
+    width: calc(25% - 1.5rem)
+    margin: auto 0.75rem 1.5rem 0.75rem
 </style>
