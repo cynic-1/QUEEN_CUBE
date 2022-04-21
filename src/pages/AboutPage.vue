@@ -1,5 +1,5 @@
 <template>
-  <HeaderImage :header-label="title" :sub-header-label="slogan" :is-center="true"/>
+  <HeaderImage :header-image-data="headerImageData" :is-center="true"/>
   <q-card class="company-des">{{description}}</q-card>
   <div class="gt-xs time-line-block">
     <div class="text-center">
@@ -47,8 +47,8 @@
         @mouseenter="autoplay = false"
         @mouseleave="autoplay = true"
       >
-        <template v-for="x in 4">
-          <q-carousel-slide :name="x" img-src="https://cdn.quasar.dev/img/mountains.jpg"/>
+        <template v-for="(item,idx) of certificates">
+          <q-carousel-slide :name="idx" :img-src="item"/>
         </template>
       </q-carousel>
     </q-responsive>
@@ -58,11 +58,11 @@
       <h4>公 司 荣 誉</h4>
     </div>
     <div class="honor-content">
-        <template v-for="x in 5">
+        <template v-for="item of honors">
           <q-responsive :ratio="1.778">
             <div class="text-center">
-              <q-img src="https://cdn.quasar.dev/img/mountains.jpg"/>
-              <span>荣誉名称</span>
+              <q-img :src="item.img"/>
+              <span>{{item.label}}</span>
             </div>
           </q-responsive>
           </template>
@@ -106,7 +106,6 @@ export default {
     return {
       slide: 1,
       autoplay: false,
-      headerImg: "",
       title: "标题",
       slogan: "SloganSloganSloganSloganSloganSloganSloganSloganSloganSlogan",
       description: "公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍\n" +
@@ -138,14 +137,39 @@ export default {
           event: "大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记"
         },
       ],
-
+      certificates: [
+        "https://cdn.quasar.dev/img/mountains.jpg",
+        "https://cdn.quasar.dev/img/mountains.jpg"
+      ],
+      honors: [
+        {
+          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+          label: "荣誉名称"
+        },
+        {
+          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+          label: "荣誉名称"
+        },
+        {
+          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+          label: "荣誉名称"
+        },
+        {
+          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+          label: "荣誉名称"
+        },
+      ],
+      headerImageData: {
+        headerImage: "https://cdn.quasar.dev/img/parallax2.jpg",
+        headerLabel: "栏目标题",
+        subHeaderLabel: "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题"
+      }
     }
   },
   methods: {
     getSide(idx) {
       return idx % 2 ? "left" : "right"
     }
-
   }
 }
 </script>
