@@ -1,18 +1,17 @@
 <template>
-  <HeaderImage/>
+  <HeaderImage :header-image-data="headerImageData"/>
   <div class="q-mt-lg q-gutter-lg page-width">
     <div class="gt-xs q-gutter-lg">
-      <template v-for="x in 3">
-        <q-btn outline label="产品线" size="1.25rem" padding="0 40px"/>
+      <template v-for="item of productLines">
+        <q-btn outline :label="item" size="1.25rem" padding="0 40px"/>
       </template>
       <q-tabs
         v-model="tab"
         align="left"
       >
-        <q-tab name="software" label="软件"/>
-        <q-tab name="panel" label="面板/底座" />
-        <q-tab name="XXX" label="XXX" />
-        <q-tab name="XXXX" label="XXXX" />
+        <template v-for="item of categories">
+          <q-tab :name="item.english" :label="item.chinese"/>
+        </template>
       </q-tabs>
     </div>
     <div class="xs q-gutter-lg">
@@ -31,13 +30,13 @@
     </div>
     <div class="q-pt-md q-gutter-y-xl flex flex-center">
       <div class="gt-xs grid">
-        <template v-for="x in 7">
-          <ProductLCard :is-download="true" class="grid__item"/>
+        <template v-for="item in productLittleCardData">
+          <ProductLCard :is-download="true" class="grid__item" :product-little-card-data="item"/>
         </template>
       </div>
       <div class="xs q-gutter-y-md">
-        <template v-for="x in 8">
-          <ProductLCard :is-mobile="true" :is-download="true"/>
+        <template v-for="item in productLittleCardData">
+          <ProductLCard :is-mobile="true" :is-download="true" :product-little-card-data="item"/>
         </template>
       </div>
       <div class="q-pa-lg flex flex-center">
@@ -67,9 +66,51 @@ export default {
     return {
       tab: "software",
       current: 1,
-      headerImage: "https://cdn.quasar.dev/img/parallax2.jpg",
-      headerLabel: "栏目标题",
-      subHeaderLabel: "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
+      // 需请求
+      headerImageData: {
+        headerImage: "https://cdn.quasar.dev/img/parallax2.jpg",
+        headerLabel: "栏目标题",
+        subHeaderLabel: "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题"
+      },
+      productLittleCardData: [
+        {
+          title: "KNX毅系列面板",
+          content: "3 种颜色可选（深空灰/玫瑰金...)",
+          img: "https://cdn.quasar.dev/img/mountains.jpg",
+          link: "",
+          handbook: "撒旦发射点发射点",
+          driver: "123"
+        },
+        {
+          title: "KNX毅系列面板",
+          content: "3 种颜色可选（深空灰/玫瑰金...)",
+          img: "https://cdn.quasar.dev/img/mountains.jpg",
+          link: "",
+          handbook: "撒旦发射点发射点",
+          driver: "123"
+        },
+        {
+          title: "KNX毅系列面板",
+          content: "3 种颜色可选（深空灰/玫瑰金...)",
+          img: "https://cdn.quasar.dev/img/mountains.jpg",
+          link: "",
+          handbook: "撒旦发射点发射点",
+          driver: "123"
+        },
+      ],
+      productLines: [
+        "产品线1","产品线2","产品线3"
+      ],
+      categories: [
+        {
+          chinese: "软件",
+          english: "software"
+        },
+        {
+          chinese: "面板",
+          english: "frame"
+        },
+      ],
     }
   }
 }
