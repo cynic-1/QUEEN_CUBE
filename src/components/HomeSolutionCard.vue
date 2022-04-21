@@ -3,12 +3,12 @@
     <q-responsive :ratio="1">
       <q-img
         class="col cursor-pointer"
-        :src="image"
+        :src="solutionCardData.img"
         style="border-radius:5%"
         img-class="img-hover"
       >
-        <div class="solution-card-text">{{label}}</div>
-        <q-btn class="lower-btn" size="1.25rem" color="white" text-color="black" :label="btnLabel"/>
+        <div class="solution-card-text">{{solutionCardData.label}}</div>
+        <q-btn class="lower-btn" size="1.25rem" color="white" text-color="black" :label="solutionCardData.btnLabel"/>
       </q-img>
     </q-responsive>
   </div>
@@ -21,12 +21,13 @@ export default {
     isMobile: {
       type: Boolean,
       default: false
-    }
+    },
+    solutionCardData: Object
   },
   data () {
     return {
       label: "智能家居",
-      image: "https://cdn.quasar.dev/img/parallax2.jpg",
+      img: "https://cdn.quasar.dev/img/parallax2.jpg",
       btnLabel: "进入了解"
     }
   }

@@ -10,18 +10,18 @@
     @mouseleave="autoplay = true"
     class="carousel-block"
   >
-    <template v-for="x in 4">
-      <q-carousel-slide :name="x" img-src="https://cdn.quasar.dev/img/mountains.jpg">
+    <template v-for="(item, idx) of homeCarouselData">
+      <q-carousel-slide :name="idx" img-src="https://cdn.quasar.dev/img/mountains.jpg">
         <div class="carousel-content">
           <div class="text-white text-h3 text-weight-bolder ">
-            主标题
+            {{item.title || 主标签}}
           </div>
           <div class="q-pt-md text-white text-h5">
-            副标题
+            {{item.subtitle || 副标题}}
           </div>
           <div class="q-pt-lg text-white q-gutter-md">
-            <template v-for="x of 4">
-              <q-btn outline label="btn1"/>
+            <template v-for="lab of item.btnLabels">
+              <q-btn outline :label="lab"/>
             </template>
           </div>
 
@@ -35,6 +35,9 @@
 <script>
 export default {
   name: "HomeCarousel",
+  props: {
+    homeCarouselData: Array
+  },
   data () {
     return {
       slide: 1,

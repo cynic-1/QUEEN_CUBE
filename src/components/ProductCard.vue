@@ -1,72 +1,69 @@
 <template>
-
-    <q-card class="raw gt-xs my-product-card"  flat>
-      <q-responsive :ratio="1.7778">
-        <q-card-section horizontal>
-          <template v-if="left">
-            <q-img
-              class="col"
-              :src="image"
-              img-class="img-hover"
-              style="border-radius:30px 0 0 30px;"
-            />
-          </template>
-          <q-card-section class="col">
-            <div class="flex column">
-              <div class="my-card-content">
-                <div class="my-title">{{ title[global.isChinese] }}</div>
-                <div class="txt">
-                  {{ content }}
-                </div>
-                <q-btn size="1.25em" class="my-btn" outline push>了 解 更 多</q-btn>
+  <q-card class="raw gt-xs my-product-card"  flat>
+    <q-responsive :ratio="1.7778">
+      <q-card-section horizontal>
+        <template v-if="left">
+          <q-img
+            class="col"
+            :src="productCardData.img"
+            img-class="img-hover"
+            style="border-radius:30px 0 0 30px;"
+          />
+        </template>
+        <q-card-section class="col">
+          <div class="flex column">
+            <div class="my-card-content">
+              <div class="my-title">{{ productCardData.title }}</div>
+              <div class="txt">
+                {{ productCardData.subtitle }}
               </div>
-              <div class="my-little-cards x-scroll">
-                <ProductLCard />
-                <ProductLCard />
-                <ProductLCard />
-                <ProductLCard />
-              </div>
+              <q-btn size="1.25em" class="my-btn" outline push>了 解 更 多</q-btn>
             </div>
-
-          </q-card-section>
-          <template v-if="!left">
-            <q-img
-              class="col cursor-pointer"
-              :src="image"
-              img-class="img-hover"
-              style="border-radius: 0 30px 30px 0;"
-            />
-          </template>
-        </q-card-section>
-      </q-responsive>
-    </q-card>
-    <div class="xs">
-      <q-responsive :ratio="8/9">
-        <q-img
-          class="col"
-          :src="image"
-          img-class="img-hover"
-        >
-          <div class="q-px-xs q-my-xl q-gutter-y-md my-img-mobile">
-            <div class="text-h4"> {{ title[global.isChinese] }}</div>
-            <div class="txt">{{ content }}</div>
-            <q-btn outline push size="xs">了 解 更 多</q-btn>
-          </div>
-        </q-img>
-<!--        <ProductLCard />-->
-      </q-responsive>
-      <q-card>
-
-          <div class="my-little-cards">
-            <div class="x-scroll">
-              <template v-for="x in 4">
-                <ProductLCard :is-mobile="true"/>
+            <div class="my-little-cards x-scroll">
+              <template v-for="item of productCardData.productLittleCardData">
+                <ProductLCard :product-little-card-data="item"/>
               </template>
             </div>
           </div>
-      </q-card>
-    </div>
 
+        </q-card-section>
+        <template v-if="!left">
+          <q-img
+            class="col cursor-pointer"
+            :src="productCardData.img"
+            img-class="img-hover"
+            style="border-radius: 0 30px 30px 0;"
+          />
+        </template>
+      </q-card-section>
+    </q-responsive>
+  </q-card>
+  <div class="xs">
+    <q-responsive :ratio="8/9">
+      <q-img
+        class="col"
+        :src="productCardData.img"
+        img-class="img-hover"
+      >
+        <div class="q-px-xs q-my-xl q-gutter-y-md my-img-mobile">
+          <div class="text-h4"> {{ productCardData.title }}</div>
+          <div class="txt">{{ productCardData.content }}</div>
+          <q-btn outline push size="xs">了 解 更 多</q-btn>
+        </div>
+      </q-img>
+<!--        <ProductLCard />-->
+    </q-responsive>
+    <q-card>
+
+        <div class="my-little-cards">
+          <div class="x-scroll">
+            <template v-for="item in productCardData.productLittleCardData">
+              <ProductLCard :is-mobile="true" :product-little-card-data="item"/>
+            </template>
+          </div>
+        </div>
+    </q-card>
+  </div>
 </template>
 
 <script>
@@ -79,7 +76,9 @@ export default {
     left: {
       type: Boolean,
       default: true
-    }
+    },
+    productCardData: Object
+
   },
   components: {
     ProductLCard

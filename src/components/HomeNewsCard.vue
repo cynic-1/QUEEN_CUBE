@@ -2,18 +2,18 @@
   <q-card class="my-card cursor-pointer" :class="{'my-card-mobile': isMobile}" bordered flat>
     <q-img
       class="col"
-      :src="image"
+      :src="homeNewsCardData.img"
       style="border-radius: 8px 8px 0 0"
       img-class="img-hover"
       @click="jumpTo"
     />
     <div class="q-gutter-y-md q-px-lg">
       <div class="l-title q-pt-lg">
-        {{title}}
+        {{homeNewsCardData.title}}
       </div>
-      <div>{{date}}</div>
+      <div>{{homeNewsCardData.date}}</div>
       <div class="l-content q-pb-lg">
-        {{content}}
+        {{homeNewsCardData.content}}
       </div>
     </div>
   </q-card>
@@ -27,7 +27,8 @@ export default {
     isMobile: {
       type: Boolean,
       default: false
-    }
+    },
+    homeNewsCardData: Object
   },
   data () {
     return {
@@ -35,7 +36,7 @@ export default {
       content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
         "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
         "既有住宅和社区配套设施…",
-      image: "https://cdn.quasar.dev/img/mountains.jpg",
+      img: "https://cdn.quasar.dev/img/mountains.jpg",
       date: "2022年4月3日",
       link: ""
     }

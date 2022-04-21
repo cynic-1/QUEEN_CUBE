@@ -1,31 +1,32 @@
 <template>
   <q-page class="flex">
     <div class="col">
-      <HomeCarousel/>
+      <HomeCarousel :home-carousel-data="homeCarouselData"/>
       <div class="q-gutter-y-xl q-py-xl">
-        <ProductCard :left="false"/>
-        <ProductCard/>
+        <template v-for="(item,idx) of productCardData">
+          <ProductCard :left="idx % 2 === 0" :product-card-data="item"/>
+        </template>
         <HomeSearch/>
         <div class="text-center text-h4 text-weight-bolder">解决方案</div>
         <div class="text-center text-h6" style="margin: 2em 10vw;">{{solutionText}}</div>
         <div class="gt-xs flex justify-around">
-          <template v-for="x in 3">
-            <HomeSolutionCard/>
+          <template v-for="item of solutionCardData">
+            <HomeSolutionCard :solution-card-data="item"/>
           </template>
         </div>
         <div class="xs x-scroll">
-          <template v-for="x in 3">
-            <HomeSolutionCard :is-mobile="true"/>
+          <template v-for="item of solutionCardData">
+            <HomeSolutionCard :is-mobile="true" :solution-card-data="item"/>
           </template>
         </div>
         <div class="gt-xs flex justify-around q-pt-xl">
-          <template v-for="x in 4">
-            <HomeNewsCard/>
+          <template v-for="item of homeNewsCardData">
+            <HomeNewsCard :home-news-card-data="item"/>
           </template>
         </div>
         <div class="xs x-scroll">
-          <template v-for="x in 4">
-            <HomeNewsCard :is-mobile="true"/>
+          <template v-for="item of homeNewsCardData">
+            <HomeNewsCard :is-mobile="true" :home-news-card-data="item"/>
           </template>
         </div>
         <div class="text-center q-pt-xl">
@@ -55,7 +56,142 @@ export default defineComponent({
   },
   data() {
     return {
-      solutionText: "简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍"
+      solutionText: "简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍",
+      homeCarouselData: [{
+        title: "主标题",
+        subtitle: "副标题",
+        btnLabels: [
+          "btn1","btn2","btn3","btn4"
+        ]
+      },
+        {
+          title: "主标题",
+          subtitle: "副标题",
+          btnLabels: [
+            "btn1","btn2","btn3","btn4"
+          ]
+        },],
+      productCardData: [
+        {
+          title : "智能家居",
+          subtitle : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
+            "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
+          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+          productLittleCardData: [
+            {
+              title: "KNX毅系列面板",
+              content: "3 种颜色可选（深空灰/玫瑰金...)",
+              img: "https://cdn.quasar.dev/img/mountains.jpg",
+              link: "",
+              handbook: "撒旦发射点发射点",
+              driver: "123"
+            },
+            {
+              title: "KNX毅系列面板",
+              content: "3 种颜色可选（深空灰/玫瑰金...)",
+              img: "https://cdn.quasar.dev/img/mountains.jpg",
+              link: "",
+              handbook: "撒旦发射点发射点",
+              driver: "123"
+            },
+            {
+              title: "KNX毅系列面板",
+              content: "3 种颜色可选（深空灰/玫瑰金...)",
+              img: "https://cdn.quasar.dev/img/mountains.jpg",
+              link: "",
+              handbook: "撒旦发射点发射点",
+              driver: "123"
+            },
+          ]
+        },
+        {
+          title : "智能家居",
+          subtitle : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
+            "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
+          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+          productLittleCardData: [
+            {
+              title: "KNX毅系列面板",
+              content: "3 种颜色可选（深空灰/玫瑰金...)",
+              img: "https://cdn.quasar.dev/img/mountains.jpg",
+              link: "",
+              handbook: "撒旦发射点发射点",
+              driver: "123"
+            },
+            {
+              title: "KNX毅系列面板",
+              content: "3 种颜色可选（深空灰/玫瑰金...)",
+              img: "https://cdn.quasar.dev/img/mountains.jpg",
+              link: "",
+              handbook: "撒旦发射点发射点",
+              driver: "123"
+            },
+            {
+              title: "KNX毅系列面板",
+              content: "3 种颜色可选（深空灰/玫瑰金...)",
+              img: "https://cdn.quasar.dev/img/mountains.jpg",
+              link: "",
+              handbook: "撒旦发射点发射点",
+              driver: "123"
+            },
+          ]
+        },
+      ],
+      solutionCardData: [
+        {
+          label: "智能家居",
+          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+          btnLabel: "进入了解"
+        },
+        {
+          label: "智能家居",
+          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+          btnLabel: "进入了解"
+        },
+        {
+          label: "智能家居",
+          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+          btnLabel: "进入了解"
+        }
+      ],
+      homeNewsCardData: [
+        {
+          title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
+          content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
+            "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
+            "既有住宅和社区配套设施…",
+          img: "https://cdn.quasar.dev/img/mountains.jpg",
+          date: "2022年4月3日",
+          link: ""
+        },
+        {
+          title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
+          content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
+            "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
+            "既有住宅和社区配套设施…",
+          img: "https://cdn.quasar.dev/img/mountains.jpg",
+          date: "2022年4月3日",
+          link: ""
+        },
+        {
+          title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
+          content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
+            "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
+            "既有住宅和社区配套设施…",
+          img: "https://cdn.quasar.dev/img/mountains.jpg",
+          date: "2022年4月3日",
+          link: ""
+        },
+        {
+          title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
+          content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
+            "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
+            "既有住宅和社区配套设施…",
+          img: "https://cdn.quasar.dev/img/mountains.jpg",
+          date: "2022年4月3日",
+          link: ""
+        }
+      ]
     }
   }
 })
