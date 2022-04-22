@@ -14,9 +14,9 @@
           <q-card-section class="col">
             <div class="flex column">
               <div class="my-card-content">
-                <div class="my-title">{{ title }}</div>
+                <div class="my-title">{{ title[global.isChinese] }}</div>
                 <div class="txt">
-                  {{ content }}
+                  {{ content[global.isChinese] }}
                 </div>
                 <q-btn size="1.25em" class="my-btn" outline push to="/solutions/commercial">了 解 更 多</q-btn>
               </div>
@@ -38,6 +38,8 @@
 </template>
 
 <script>
+import select from "src/api/select";
+
 export default {
   name: "SolutionCard",
   props: {
@@ -48,6 +50,7 @@ export default {
   },
   data () {
     return {
+      global: select.global,
       title : "智能家居",
       content : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
         "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",

@@ -9,10 +9,10 @@
       />
 
       <q-card-section class="items-center my-text-1vw">
-        <div class="my-little-card-title">{{ productLittleCardData.title }}</div>
+        <div class="my-little-card-title">{{ productLittleCardData.title[global.isChinese] }}</div>
         <div class="flex flex-center">
 <!--          {{ content }}-->
-          <q-chip outline :label="productLittleCardData.content" style="margin: 10px 0;"/>
+          <q-chip outline :label="productLittleCardData.content[global.isChinese]" style="margin: 10px 0;"/>
           <template v-if="isDownload">
             <template v-if="productLittleCardData.handbook.length && productLittleCardData.driver.length">
               <q-btn-group outline push class="justify-center text-weight-bold">
@@ -36,6 +36,8 @@
 </template>
 
 <script>
+import select from "src/api/select";
+
 export default {
   name: "ProductLCard",
   props: {
@@ -51,6 +53,7 @@ export default {
   },
   data () {
     return {
+      global: select.global,
       title: "KNX毅系列面板",
       content: "3 种颜色可选（深空灰/玫瑰金...)",
       image: "https://cdn.quasar.dev/img/mountains.jpg",

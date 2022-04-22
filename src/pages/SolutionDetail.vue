@@ -29,6 +29,7 @@
 
 <script>
 import HomeNewsCard from "components/HomeNewsCard";
+import api from "src/api/api";
 
 export default {
   name: "SolutionDetail",
@@ -100,7 +101,19 @@ export default {
         }
       ]
     }
-  }
+  },
+  created() {
+    this.getSolutionDetail()
+  },
+  methods: {
+    async getSolutionDetail() {
+      let res = await api.getSolutionDetail()
+      if (res.data.code === 0 && res.status === 200) {
+        this.solutions = res.data.data.solutions
+        this.homeNewsCardData = res.data.data.homeNewsCardData
+      }
+    },
+  },
 }
 </script>
 

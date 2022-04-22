@@ -8,7 +8,7 @@
         </template>
         <HomeSearch/>
         <div class="text-center text-h4 text-weight-bolder">解决方案</div>
-        <div class="text-center text-h6" style="margin: 2em 10vw;">{{solutionText}}</div>
+        <div class="text-center text-h6" style="margin: 2em 10vw;">{{solutionText[global.isChinese]}}</div>
         <div class="gt-xs flex justify-around">
           <template v-for="item of solutionCardData">
             <HomeSolutionCard :solution-card-data="item"/>
@@ -44,6 +44,8 @@ import HomeSearch from "components/HomeSearch";
 import ProductCard from "components/ProductCard";
 import HomeSolutionCard from "components/HomeSolutionCard";
 import HomeNewsCard from "components/HomeNewsCard";
+import api from "src/api/api";
+import select from "src/api/select";
 
 export default defineComponent({
   name: 'IndexPage',
@@ -56,6 +58,7 @@ export default defineComponent({
   },
   data() {
     return {
+      global: select.global,
       solutionText: "简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍",
       homeCarouselData: [{
         title: "主标题",
@@ -193,6 +196,21 @@ export default defineComponent({
         }
       ]
     }
+  },
+  created() {
+    this.getIndexPage()
+  },
+  methods: {
+    async getIndexPage() {
+      let res = await api.getIndexPage()
+      if (res.data.code === 0 && res.status === 200) {
+        this.solutionText = res.data.data.solutionText
+        this.homeCarouselData = res.data.data.homeCarouselData
+        this.productCardData = res.data.data.productCardData
+        this.solutionCardData = res.data.data.solutionCardData
+        this.homeNewsCardData = res.data.data.homeNewsCardData
+      }
+    },
   }
 })
 </script>

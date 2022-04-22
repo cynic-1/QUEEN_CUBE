@@ -13,9 +13,9 @@
         <q-card-section class="col">
           <div class="flex column">
             <div class="my-card-content">
-              <div class="my-title">{{ productCardData.title }}</div>
+              <div class="my-title">{{ productCardData.title[global.isChinese] }}</div>
               <div class="txt">
-                {{ productCardData.subtitle }}
+                {{ productCardData.subtitle[global.isChinese] }}
               </div>
               <q-btn size="1.25em" class="my-btn" outline push>了 解 更 多</q-btn>
             </div>
@@ -46,8 +46,8 @@
         img-class="img-hover"
       >
         <div class="q-px-xs q-my-xl q-gutter-y-md my-img-mobile">
-          <div class="text-h4"> {{ productCardData.title }}</div>
-          <div class="txt">{{ productCardData.content }}</div>
+          <div class="text-h4"> {{ productCardData.title[global.isChinese] }}</div>
+          <div class="txt">{{ productCardData.content[global.isChinese] }}</div>
           <q-btn outline push size="xs">了 解 更 多</q-btn>
         </div>
       </q-img>

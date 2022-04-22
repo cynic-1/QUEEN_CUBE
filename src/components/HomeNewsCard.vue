@@ -9,11 +9,11 @@
     />
     <div class="q-gutter-y-md q-px-lg">
       <div class="l-title q-pt-lg">
-        {{homeNewsCardData.title}}
+        {{homeNewsCardData.title[global.isChinese]}}
       </div>
       <div>{{homeNewsCardData.date}}</div>
       <div class="l-content q-pb-lg">
-        {{homeNewsCardData.content}}
+        {{homeNewsCardData.content[global.isChinese]}}
       </div>
     </div>
   </q-card>
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import select from "src/api/select";
+
 export default {
   name: "HomeNewsCard",
   props: {
@@ -32,6 +34,7 @@ export default {
   },
   data () {
     return {
+      global: select.global,
       title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
       content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
         "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +

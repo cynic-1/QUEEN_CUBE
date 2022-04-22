@@ -1,6 +1,6 @@
 <template>
   <HeaderImage :header-image-data="headerImageData" :is-center="true"/>
-  <q-card class="company-des">{{description}}</q-card>
+  <q-card class="company-des">{{description[global.isChinese]}}</q-card>
   <div class="gt-xs time-line-block">
     <div class="text-center">
       <h4>公 司 历 程</h4>
@@ -12,7 +12,7 @@
             <span class="date">{{item.year}}</span>
           </div>
           <div class="status">
-            {{item.event}}
+            {{item.event[global.isChinese]}}
           </div>
         </li>
       </template>
@@ -25,7 +25,7 @@
     <q-timeline layout="loose" color="secondary">
       <template v-for="(item, idx) of timelines">
         <q-timeline-entry
-          :title="item.event"
+          :title="item.event[global.isChinese]"
           :subtitle="item.year"
           :side="getSide(idx)"
         />
@@ -62,7 +62,7 @@
           <q-responsive :ratio="1.778">
             <div class="text-center">
               <q-img :src="item.img"/>
-              <span>{{item.label}}</span>
+              <span>{{item.label[global.isChinese]}}</span>
             </div>
           </q-responsive>
           </template>
@@ -96,14 +96,20 @@
 
 <script>
 import HeaderImage from "components/HeaderImage";
+import api from "src/api/api";
+import select from "../api/select";
 
 export default {
   name: "AboutPage",
   components: {
     HeaderImage
   },
+  created() {
+    this.getAbout()
+  },
   data() {
     return {
+      global : select.global,
       slide: 1,
       autoplay: false,
       title: "标题",
@@ -167,6 +173,18 @@ export default {
     }
   },
   methods: {
+    async getAbout() {
+      let res = await api.getAbout()
+      if (res.data.code === 0 && res.status === 200) {
+        this.title = res.data.data.title
+        this.slogan = res.data.data.slogan
+        this.description = res.data.data.description
+        this.timelines = res.data.data.timelines
+        this.certificates = res.data.data.certificates
+        this.honors = res.data.data.honors
+        this.headerImageData = res.data.data.headerImageData
+      }
+    },
     getSide(idx) {
       return idx % 2 ? "left" : "right"
     }

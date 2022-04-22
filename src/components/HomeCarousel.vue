@@ -14,14 +14,14 @@
       <q-carousel-slide :name="idx" img-src="https://cdn.quasar.dev/img/mountains.jpg">
         <div class="carousel-content">
           <div class="text-white text-h3 text-weight-bolder ">
-            {{item.title || 主标签}}
+            {{item.title[global.isChinese] || 主标签}}
           </div>
           <div class="q-pt-md text-white text-h5">
-            {{item.subtitle || 副标题}}
+            {{item.subtitle[global.isChinese] || 副标题}}
           </div>
           <div class="q-pt-lg text-white q-gutter-md">
             <template v-for="lab of item.btnLabels">
-              <q-btn outline :label="lab"/>
+              <q-btn outline :label="lab[global.isChinese]"/>
             </template>
           </div>
 
@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import select from "../api/select";
 export default {
   name: "HomeCarousel",
   props: {
@@ -40,6 +41,7 @@ export default {
   },
   data () {
     return {
+      global: select.global,
       slide: 1,
       autoplay: true
     }

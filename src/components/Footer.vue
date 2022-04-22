@@ -38,12 +38,12 @@
     <div class="flex justify-center">
       <div class="xs q-py-sm flex justify-around">
         <template v-for="coop of cooperators">
-          <img :alt="coop.name" :src="coop.logo" height="13px" style="margin-left: 5px; margin-top: 5px;">
+          <img :src="coop.logo" height="13px" style="margin-left: 5px; margin-top: 5px;">
         </template>
       </div>
       <div class="gt-xs q-pt-md q-pb-xl flex justify-around">
         <template v-for="coop of cooperators">
-          <img :alt="coop.name" :src="coop.logo" height="30px" style="margin-left: 20px; margin-top: 10px;">
+          <img :src="coop.logo" height="30px" style="margin-left: 20px; margin-top: 10px;">
         </template>
       </div>
     </div>
@@ -59,31 +59,24 @@ export default {
     return {
       cooperators: [
         {
-          name: '嘉宏集团',
           logo: 'JHJT_LOGO.png',
         },
         {
-          name: '木里木外',
           logo: 'MULI_LOGO.png',
         },
         {
-          name: '新希望集团',
           logo: 'NEW_HOPE_LOGO.png',
         },
         {
-          name: '金地集团',
           logo: 'GEMDALE_LOGO_CUT.png',
         },
         {
-          name: '金科集团',
           logo: 'JINKE_LOGO.png',
         },
         {
-          name: '禹州地产',
           logo: 'YUZHOU_LOGO.png',
         },
         {
-          name: '碧桂园',
           logo: 'BGY_LOGO.png',
         },
       ],

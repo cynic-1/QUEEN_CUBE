@@ -45,6 +45,7 @@
 <script>
 import ProductLCard from "components/ProductLCard";
 import SearchBox from "components/SearchBox";
+import api from "src/api/api";
 export default {
   name: "SearchResult",
   components: {
@@ -83,7 +84,18 @@ export default {
         },
       ]
     }
-  }
+  },
+  created() {
+    this.productLittleCardData()
+  },
+  methods: {
+    async productLittleCardData() {
+      let res = await api.productLittleCardData()
+      if (res.data.code === 0 && res.status === 200) {
+        this.productLittleCardData = res.data.data.productLittleCardData
+      }
+    },
+  },
 }
 </script>
 

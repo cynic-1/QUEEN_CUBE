@@ -23,6 +23,8 @@
 <script>
 import HeaderImage from "components/HeaderImage";
 import ProductListCard from "components/ProductListCard";
+import api from "src/api/api";
+import select from "src/api/select";
 
 export default {
   name: "ProductList",
@@ -32,6 +34,7 @@ export default {
   },
   data() {
     return {
+      global: select.global,
       // 需请求数据
       productLines: [
         "产品线1","产品线2","产品线3"
@@ -78,7 +81,21 @@ export default {
       tab: "software",
 
     }
-  }
+  },
+  created() {
+    this.getProductList()
+  },
+  methods: {
+    async getProductList() {
+      let res = await api.getProductList()
+      if (res.data.code === 0 && res.status === 200) {
+        this.productLines = res.data.data.productLines
+        this.categories = res.data.data.categories
+        this.headerImageData = res.data.data.headerImageData
+        this.productListCardData = res.data.data.productListCardData
+      }
+    },
+  },
 }
 </script>
 

@@ -1,14 +1,15 @@
 <template>
   <q-img :src="headerImageData.headerImage" class="header-image">
     <div class="my-header-content" :class="{'text-center': isCenter}">
-      <div class="text-h4">{{headerImageData.headerLabel}}</div>
-      <div class="text-h6">{{headerImageData.subHeaderLabel}}</div>
+      <div class="text-h4">{{headerImageData.headerLabel[global.isChinese]}}</div>
+      <div class="text-h6">{{headerImageData.subHeaderLabel[global.isChinese]}}</div>
     </div>
   </q-img>
 
 </template>
 
 <script>
+import select from "../api/select";
 export default {
   name: "HeaderImage",
   props: {
@@ -20,6 +21,7 @@ export default {
   },
   data() {
     return {
+      global: select.global,
     }
   }
 }

@@ -7,14 +7,16 @@
         style="border-radius:5%"
         img-class="img-hover"
       >
-        <div class="solution-card-text">{{solutionCardData.label}}</div>
-        <q-btn class="lower-btn" size="1.25rem" color="white" text-color="black" :label="solutionCardData.btnLabel"/>
+        <div class="solution-card-text">{{solutionCardData.label[global.isChinese]}}</div>
+        <q-btn class="lower-btn" size="1.25rem" color="white" text-color="black" :label="solutionCardData.btnLabel[global.isChinese]"/>
       </q-img>
     </q-responsive>
   </div>
 </template>
 
 <script>
+import select from "src/api/select";
+
 export default {
   name: "HomeSolutionCard",
   props: {
@@ -26,6 +28,7 @@ export default {
   },
   data () {
     return {
+      global: select.global,
       label: "智能家居",
       img: "https://cdn.quasar.dev/img/parallax2.jpg",
       btnLabel: "进入了解"

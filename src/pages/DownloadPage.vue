@@ -55,6 +55,8 @@
 <script>
 import ProductLCard from "components/ProductLCard";
 import HeaderImage from "components/HeaderImage";
+import api from "src/api/api";
+import select from "src/api/select";
 
 export default {
   name: "DownloadPage",
@@ -64,6 +66,7 @@ export default {
   },
   data() {
     return {
+      global: select.global,
       tab: "software",
       current: 1,
       // 需请求
@@ -112,6 +115,20 @@ export default {
         },
       ],
     }
+  },
+  created() {
+    this.getDownload()
+  },
+  methods: {
+    async getDownload() {
+      let res = await api.getDownload()
+      if (res.data.code === 0 && res.status === 200) {
+        this.headerImageData = res.data.data.headerImageData
+        this.productLittleCardData = res.data.data.productLittleCardData
+        this.productLines = res.data.data.productLines
+        this.categories = res.data.data.categories
+      }
+    },
   }
 }
 </script>

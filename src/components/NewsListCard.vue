@@ -2,15 +2,16 @@
   <q-card class="my-card" :class="{'my-card-small': isSmall}">
     <q-img :src="image" style="max-height: 25vw;" img-class="img-hover"/>
     <div class="my-card-content">
-      <div class="my-title">{{title}}</div>
+      <div class="my-title">{{title[global.isChinese]}}</div>
       <div>{{date}}</div>
-      <div>{{text}}</div>
+      <div>{{text[global.isChinese]}}</div>
     </div>
   </q-card>
 </template>
 
 <script>
 import api from "src/api/api";
+import select from "src/api/select";
 
 export default {
   name: "NewsListCard",
@@ -23,6 +24,7 @@ export default {
   },
   data() {
     return {
+      global: select.global,
       image: "https://cdn.quasar.dev/img/parallax2.jpg",
       title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
       date: "2022年4月3日",

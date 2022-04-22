@@ -28,11 +28,13 @@
 import HeaderImage from "components/HeaderImage";
 import NewsListCard from "components/NewsListCard";
 import api from "src/api/api";
+import select from "src/api/select";
 
 export default {
   name: "NewsListPage",
   data() {
     return {
+      global: select.global,
       newsListIds: [],
       current: 1,
       headerImageData: {
@@ -50,6 +52,7 @@ export default {
       let res = await api.getNewsListIds()
       if (res.data.code === 0 && res.status === 200) {
         this.newsListIds = res.data.data.newsListIds
+        this.headerImageData = res.data.data.headerImageData
       }
     },
   },

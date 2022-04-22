@@ -16,10 +16,10 @@
         </q-carousel>
         <q-card-section class="col-8">
           <div class="my-card-content">
-            <div class="my-title text-weight-bolder text-h6" style="margin-top: 1%">{{ productListCardData.name }}</div>
+            <div class="my-title text-weight-bolder text-h6" style="margin-top: 1%">{{ productListCardData.name[global.isChinese] }}</div>
             <q-btn no-wrap class="justify-center" outline push style="width: 20%;margin-top: 3%" size="xs">型号型号</q-btn>
             <div style="white-space: pre-wrap; margin-top: 3%" >
-              {{ productListCardData.describe }}
+              {{ productListCardData.describe[global.isChinese] }}
             </div>
             <div style="margin-top: 3%;margin-left: -11%;" >
 
@@ -62,10 +62,10 @@
           </q-responsive>
           <q-card-section class="col-8">
             <div class="my-card-content">
-              <div class="my-title text-weight-bolder text-h6" style="margin-top: 1%">{{ productListCardData.name }}</div>
+              <div class="my-title text-weight-bolder text-h6" style="margin-top: 1%">{{ productListCardData.name[global.isChinese] }}</div>
               <q-btn no-wrap class="justify-center" outline push style="width: 60%;margin-top: 10%" size="xs">型号型号</q-btn>
               <div style="white-space: pre-wrap; margin-top: 10%" >
-                {{ productListCardData.describe }}
+                {{ productListCardData.describe[global.isChinese] }}
               </div>
             </div>
           </q-card-section>
@@ -93,6 +93,8 @@
 </template>
 
 <script>
+import select from "src/api/select";
+
 export default {
   name: "ProductListCard",
   props: {
@@ -104,6 +106,7 @@ export default {
   },
   data() {
     return {
+      global: select.global,
       slide: 1,
       index: 0,
       name: '产品名称',
