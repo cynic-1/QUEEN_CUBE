@@ -63,8 +63,23 @@ export default defineComponent({
       homeCarouselData: [{
         title: "主标题",
         subtitle: "副标题",
-        btnLabels: [
-          "btn1","btn2","btn3","btn4"
+        btns: [
+          {
+            label: "btn1",
+            link: ""
+          },
+          {
+            label: "btn1",
+            link: ""
+          },
+          {
+            label: "btn1",
+            link: ""
+          },
+          {
+            label: "btn1",
+            link: ""
+          }
         ]
       },
         {
