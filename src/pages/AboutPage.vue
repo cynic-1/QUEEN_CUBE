@@ -112,8 +112,6 @@ export default {
       global : select.global,
       slide: 1,
       autoplay: false,
-      title: "标题",
-      slogan: "SloganSloganSloganSloganSloganSloganSloganSloganSloganSlogan",
       description: "公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍\n" +
         "公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍\n" +
         "\n" +
@@ -168,7 +166,7 @@ export default {
       headerImageData: {
         headerImage: "https://cdn.quasar.dev/img/parallax2.jpg",
         headerLabel: "栏目标题",
-        subHeaderLabel: "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题"
+        subHeaderLabel: "SloganSloganSloganSloganSloganSloganSloganSloganSloganSlogan"
       }
     }
   },
@@ -176,8 +174,8 @@ export default {
     async getAbout() {
       let res = await api.getAbout()
       if (res.data.code === 0 && res.status === 200) {
-        this.title = res.data.data.title
-        this.slogan = res.data.data.slogan
+        // this.title = res.data.data.title
+        // this.slogan = res.data.data.slogan
         this.description = res.data.data.description
         this.timelines = res.data.data.timelines
         this.certificates = res.data.data.certificates
