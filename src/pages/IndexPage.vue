@@ -159,17 +159,26 @@ export default defineComponent({
         {
           label: "智能家居",
           img: "https://cdn.quasar.dev/img/parallax2.jpg",
-          btnLabel: "进入了解"
+          btn: {
+            label: "进入了解",
+            link: ""
+          }
         },
         {
           label: "智能家居",
           img: "https://cdn.quasar.dev/img/parallax2.jpg",
-          btnLabel: "进入了解"
+          btn: {
+            label: "进入了解",
+            link: ""
+          }
         },
         {
           label: "智能家居",
           img: "https://cdn.quasar.dev/img/parallax2.jpg",
-          btnLabel: "进入了解"
+          btn: {
+            label: "进入了解",
+            link: ""
+          }
         }
       ],
       homeNewsCardData: [

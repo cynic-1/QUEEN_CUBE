@@ -8,7 +8,8 @@
         img-class="img-hover"
       >
         <div class="solution-card-text">{{solutionCardData.label[global.isChinese]}}</div>
-        <q-btn class="lower-btn" size="1.25rem" color="white" text-color="black" :label="solutionCardData.btnLabel[global.isChinese]"/>
+        <q-btn class="lower-btn" size="1.25rem" color="white" text-color="black"
+               :label="solutionCardData.btn.label[global.isChinese]" :to="solutionCardData.btn.link"/>
       </q-img>
     </q-responsive>
   </div>
