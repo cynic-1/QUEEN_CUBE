@@ -1,11 +1,10 @@
 <template>
-  <q-card class="my-card cursor-pointer" :class="{'my-card-mobile': isMobile}" bordered flat>
+  <q-card class="my-card cursor-pointer" :class="{'my-card-mobile': isMobile}" bordered flat @click="jumpTo">
     <q-img
       class="col"
       :src="homeNewsCardData.img"
       style="border-radius: 8px 8px 0 0"
       img-class="img-hover"
-      @click="jumpTo"
     />
     <div class="q-gutter-y-md q-px-lg">
       <div class="l-title q-pt-lg">
@@ -46,7 +45,7 @@ export default {
   },
   methods: {
     jumpTo() {
-      this.$router.push(this.link)
+      this.$router.push(this.homeNewsCardData.link)
     }
   }
 }

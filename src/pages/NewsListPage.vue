@@ -2,15 +2,16 @@
   <HeaderImage :header-image-data="headerImageData"/>
   <div class="q-gutter-y-xl q-mt-xl">
 
-    <NewsListCard/>
+    <NewsListCard :id="newsListIds[0]"/>
     <div class="gt-xs" style="display: flex; width: 80vw; margin: 48px auto">
-      <NewsListCard :is-small="true"/>
-      <NewsListCard :is-small="true"/>
+      <NewsListCard :is-small="true" :id="newsListIds[1]"/>
+      <NewsListCard :is-small="true" :id="newsListIds[2]"/>
     </div>
-
-    <NewsListCard class="xs"/>
-    <NewsListCard class="xs"/>
-    <NewsListCard/>
+    <div class="xs">
+      <NewsListCard :id="newsListIds[1]"/>
+      <NewsListCard :id="newsListIds[2]"/>
+    </div>
+    <NewsListCard :id="newsListIds[3]"/>
 
     <div class="q-pa-lg flex flex-center">
       <q-pagination

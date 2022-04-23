@@ -3,15 +3,15 @@
   <div class="q-ml-lg q-mt-lg q-gutter-lg">
     <template v-for="item of productLines">
       <q-btn outline :label="item" size="1.25rem" padding="0 40px"/>
+      <q-tabs
+        v-model="tab"
+        align="left"
+      >
+        <template v-for="it of item.categories">
+          <q-tab :name="it.english" :label="it.chinese"/>
+        </template>
+      </q-tabs>
     </template>
-    <q-tabs
-      v-model="tab"
-      align="left"
-    >
-      <template v-for="item of categories">
-        <q-tab :name="item.english" :label="item.chinese"/>
-      </template>
-    </q-tabs>
     <div class="q-gutter-y-lg" style="overflow-x: auto">
       <template v-for="item in productListCardData">
         <ProductListCard :product-list-card-data="item"/>
@@ -37,7 +37,32 @@ export default {
       global: select.global,
       // 需请求数据
       productLines: [
-        "产品线1","产品线2","产品线3"
+        {
+          label: "产品线1",
+          categories: [
+            {
+              chinese: "软件",
+              english: "software"
+            },
+            {
+              chinese: "面板",
+              english: "frame"
+            },
+          ],
+        },
+        {
+          label: "产品线2",
+          categories: [
+            {
+              chinese: "软件",
+              english: "software"
+            },
+            {
+              chinese: "面板",
+              english: "frame"
+            },
+          ],
+        }
       ],
       categories: [
         {
@@ -90,7 +115,7 @@ export default {
       let res = await api.getProductList()
       if (res.data.code === 0 && res.status === 200) {
         this.productLines = res.data.data.productLines
-        this.categories = res.data.data.categories
+        // this.categories = res.data.data.categories
         this.headerImageData = res.data.data.headerImageData
         this.productListCardData = res.data.data.productListCardData
       }
