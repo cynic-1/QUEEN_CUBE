@@ -64,16 +64,6 @@ export default {
           ],
         }
       ],
-      categories: [
-        {
-          chinese: "软件",
-          english: "software"
-        },
-        {
-          chinese: "面板",
-          english: "frame"
-        },
-      ],
       headerImageData: {
         headerImage: "https://cdn.quasar.dev/img/parallax2.jpg",
         headerLabel: "栏目标题",

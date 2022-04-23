@@ -102,17 +102,32 @@ export default {
         },
       ],
       productLines: [
-        "产品线1","产品线2","产品线3"
-      ],
-      categories: [
         {
-          chinese: "软件",
-          english: "software"
+          label: "产品线1",
+          categories: [
+            {
+              chinese: "软件",
+              english: "software"
+            },
+            {
+              chinese: "面板",
+              english: "frame"
+            },
+          ],
         },
         {
-          chinese: "面板",
-          english: "frame"
-        },
+          label: "产品线2",
+          categories: [
+            {
+              chinese: "软件",
+              english: "software"
+            },
+            {
+              chinese: "面板",
+              english: "frame"
+            },
+          ],
+        }
       ],
     }
   },
