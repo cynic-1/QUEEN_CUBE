@@ -8,7 +8,7 @@
         align="left"
       >
         <template v-for="it of item.categories">
-          <q-tab :name="it.english" :label="it.chinese"/>
+          <q-tab :name="it.link" :label="it.label"/>
         </template>
       </q-tabs>
     </template>
@@ -41,12 +41,12 @@ export default {
           label: "产品线1",
           categories: [
             {
-              chinese: "软件",
-              english: "software"
+              label: ["软件","software"],
+              link: ""
             },
             {
-              chinese: "面板",
-              english: "frame"
+              label: ["软件","software"],
+              link: ""
             },
           ],
         },
@@ -54,12 +54,12 @@ export default {
           label: "产品线2",
           categories: [
             {
-              chinese: "软件",
-              english: "software"
+              label: ["软件","software"],
+              link: ""
             },
             {
-              chinese: "面板",
-              english: "frame"
+              label: ["软件","software"],
+              link: ""
             },
           ],
         }

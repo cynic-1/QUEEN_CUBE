@@ -4,15 +4,15 @@
     <div class="gt-xs q-gutter-lg">
       <template v-for="item of productLines">
         <q-btn outline :label="item" size="1.25rem" padding="0 40px"/>
+        <q-tabs
+          v-model="tab"
+          align="left"
+        >
+          <template v-for="it of item.categories">
+            <q-tab :name="it.link" :label="it.label"/>
+          </template>
+        </q-tabs>
       </template>
-      <q-tabs
-        v-model="tab"
-        align="left"
-      >
-        <template v-for="item of categories">
-          <q-tab :name="item.english" :label="item.chinese"/>
-        </template>
-      </q-tabs>
     </div>
     <div class="xs q-gutter-lg">
       <template v-for="x in 3">
@@ -106,12 +106,12 @@ export default {
           label: "产品线1",
           categories: [
             {
-              chinese: "软件",
-              english: "software"
+              label: ["软件","software"],
+              link: ""
             },
             {
-              chinese: "面板",
-              english: "frame"
+              label: ["软件","software"],
+              link: ""
             },
           ],
         },
@@ -119,12 +119,12 @@ export default {
           label: "产品线2",
           categories: [
             {
-              chinese: "软件",
-              english: "software"
+              label: ["软件","software"],
+              link: ""
             },
             {
-              chinese: "面板",
-              english: "frame"
+              label: ["软件","software"],
+              link: ""
             },
           ],
         }
