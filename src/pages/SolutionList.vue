@@ -1,16 +1,18 @@
 <template>
   <div>
     <video>
-<!--      <source src="../assets/video_1646475288583.mp4" type="video/mp4">-->
+      <source :src="videoSrc" type="video/mp4">
     </video>
   </div>
   <div class="gt-xs q-gutter-y-xl" style="margin-top: 60px;">
-    <SolutionCard/>
-    <SolutionCard :left="false"/>
+    <template v-for="(item,idx) of solutionCardData">
+      <SolutionCard :left="idx%2===0" :solution-card-data="item"/>
+    </template>
   </div>
   <div class="xs q-gutter-y-sm">
-    <SolutionCard/>
-    <SolutionCard :left="false"/>
+    <template v-for="(item,idx) of solutionCardData">
+      <SolutionCard :left="idx%2===0" :solution-card-data="item"/>
+    </template>
   </div>
 </template>
 
@@ -21,7 +23,33 @@ export default {
   name: "ProjectList",
   data() {
     return {
-
+      videoSrc: "",
+      solutionCardData: [
+        {
+          title : "智能家居",
+          content : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
+            "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
+          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+        },
+        {
+          title : "智能家居",
+          content : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
+            "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
+          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+        },
+        {
+          title : "智能家居",
+          content : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
+            "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
+          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+        },
+        {
+          title : "智能家居",
+          content : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
+            "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
+          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+        },
+      ]
     }
   },
   components: {

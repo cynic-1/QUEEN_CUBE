@@ -6,7 +6,7 @@
           <template v-if="left">
             <q-img
               class="col cursor-pointer"
-              :src="image"
+              :src="img"
               style="border-radius:30px 0 0 30px;"
               img-class="img-hover"
             />
@@ -26,7 +26,7 @@
           <template v-if="!left">
             <q-img
               class="col cursor-pointer"
-              :src="image"
+              :src="img"
               style="border-radius: 0 30px 30px 0;"
               img-class="img-hover"
             />
@@ -46,7 +46,8 @@ export default {
     left: {
       type: Boolean,
       default: true
-    }
+    },
+    solutionCardData: Object
   },
   data () {
     return {
@@ -54,7 +55,7 @@ export default {
       title : "智能家居",
       content : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
         "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
-      image: "https://cdn.quasar.dev/img/parallax2.jpg",
+      img: "https://cdn.quasar.dev/img/parallax2.jpg",
     }
   }
 }
