@@ -16,7 +16,7 @@ export default {
       method: 'get',
     })
   },
-  // 每页4个
+
   getNewsListIds(page) {
     return request({
       url: baseURL+"/getNewsListIds",
@@ -46,11 +46,11 @@ export default {
       method: 'get',
     })
   },
-  getProductList(productLine, productType) {
+  getProductList(productLine, productType, current) {
     return request({
       url: baseURL+"/getProductList",
       method: 'get',
-      params: {'productLine': productLine, 'productType': productType}
+      params: {'productLine': productLine, 'productType': productType, 'current':current}
     })
   },
   getProductLines() {
