@@ -72,6 +72,7 @@ export default {
       subtab: "software",
       current: 1,
       // 需请求
+      maxPage: 3,
       headerImageData: {
         headerImage: "https://cdn.quasar.dev/img/parallax2.jpg",
         headerLabel: "栏目标题",
@@ -139,10 +140,11 @@ export default {
   },
   methods: {
     async getDownload() {
-      let res = await api.getDownload(this.tab, this.subtab)
+      let res = await api.getDownload(this.tab, this.subtab, this.current)
       if (res.data.code === 0 && res.status === 200) {
         this.headerImageData = res.data.data.headerImageData
         this.productLittleCardData = res.data.data.productLittleCardData
+        this.maxPage = res.data.data.maxPage
         // this.productLines = res.data.data.productLines
       }
     },

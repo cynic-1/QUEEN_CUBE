@@ -56,6 +56,7 @@ export default {
     return {
       panel: 'all',
       current: 1,
+      maxPage: 3,
       // 需要请求
       productLittleCardData: [
         {

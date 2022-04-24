@@ -38,6 +38,7 @@ export default {
       global: select.global,
       newsListIds: [],
       current: 1,
+      maxPage: 3,
       headerImageData: {
         headerImage: "https://cdn.quasar.dev/img/parallax2.jpg",
         headerLabel: "栏目标题",
@@ -50,10 +51,11 @@ export default {
   },
   methods: {
     async getNewsListIds() {
-      let res = await api.getNewsListIds()
+      let res = await api.getNewsListIds(this.current)
       if (res.data.code === 0 && res.status === 200) {
         this.newsListIds = res.data.data.newsListIds
         this.headerImageData = res.data.data.headerImageData
+        this.maxPage = res.data.data.maxPage
       }
     },
   },

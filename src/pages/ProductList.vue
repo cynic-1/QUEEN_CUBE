@@ -18,6 +18,15 @@
         <ProductListCard :product-list-card-data="item"/>
       </template>
     </div>
+    <div class="q-pa-lg flex flex-center">
+      <q-pagination
+        v-model="current"
+        color="black"
+        :max="10"
+        :max-pages="maxPage"
+        :boundary-numbers="true"
+      />
+    </div>
   </div>
 </template>
 
@@ -36,7 +45,9 @@ export default {
   data() {
     return {
       global: select.global,
+      current: 1,
       // 需请求数据
+      maxPage: 3,
       productLines: [
         {
           label: ["Productline1", "产品线1"],
@@ -104,11 +115,12 @@ export default {
   },
   methods: {
     async getProductList() {
-      let res = await api.getProductList(this.tab, this.subtab)
+      let res = await api.getProductList(this.tab, this.subtab, this.current)
       if (res.data.code === 0 && res.status === 200) {
         // this.categories = res.data.data.categories
         this.headerImageData = res.data.data.headerImageData
         this.productListCardData = res.data.data.productListCardData
+        this.maxPage = res.data.data.maxPage
       }
     },
     async getProductLines() {
