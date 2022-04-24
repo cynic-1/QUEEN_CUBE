@@ -59,27 +59,24 @@ export default defineComponent({
   data() {
     return {
       global: select.global,
-      solutionText: "简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍",
+      solutionText: ['description', "简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要" +
+      "介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍"],
       homeCarouselData: [{
-        title: "主标题",
-        subtitle: "副标题",
+        title: ['title', "主标题"],
+        subtitle: ['subtitle', "副标题"],
         btns: [
           {
-            label: "btn1",
+            label: ["btn1", '按钮1'],
             link: ""
           },
           {
-            label: "btn1",
+            label: ["btn1", '按钮1'],
             link: ""
           },
           {
-            label: "btn1",
+            label: ["btn1", '按钮1'],
             link: ""
           },
-          {
-            label: "btn1",
-            link: ""
-          }
         ]
       },
         {

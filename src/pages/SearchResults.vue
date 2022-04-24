@@ -148,30 +148,27 @@ export default {
   },
   methods: {
     // category: 'all', 'product', 'solution', 'news'
-    async getSearchResults(word, category, page) {
-      let res = await api.getSearchResults(word, category, page)
+    async getSearchResults() {
+      let res = await api.getSearchResults(this.word, this.panel, this.current)
       if (res.data.code === 0 && res.status === 200) {
         this.productLittleCardData = res.data.data.productLittleCardData
         this.homeNewsCardData = res.data.data.homeNewsCardData
         this.maxPage = res.data.data.maxPage
       }
     },
-    changePagination(page) {
-      this.current = page
-      console.log(page)
-      this.getSearchResults(this.word, this.panel, page)
-    },
     changeWord(word) {
       this.word = word
-      this.getSearchResults(word, 'all', 1)
     }
   },
   watch: {
-    current(newPage) {
-      this.getSearchResults(this.word, this.panel, newPage)
+    current() {
+      this.getSearchResults()
     },
-    panel(newPanel) {
-      this.getSearchResults(this.word, newPanel, this.current)
+    panel() {
+      this.getSearchResults()
+    },
+    word() {
+      this.getSearchResults()
     }
   }
 }

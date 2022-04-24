@@ -133,15 +133,14 @@ export default {
     }
   },
   watch: {
-    current(newPage) {
-      this.getProductList(this.tab, this.subtab, newPage)
+    current() {
+      this.getProductList()
     },
     tab(newTab) {
       this.subtab = newTab.categories[0]
-      this.getProductList(newTab, this.subtab, this.current)
     },
     subtab(newSubtab) {
-      this.getProductList(this.tab, newSubtab, this.current)
+      this.getProductList()
     }
   }
 }

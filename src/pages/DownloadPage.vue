@@ -149,15 +149,14 @@ export default {
     },
   },
   watch: {
-    current(newPage) {
-      this.getDownload(this.tab, this.subtab, newPage)
+    current() {
+      this.getDownload()
     },
     tab(newTab) {
       this.subtab = newTab.categories[0]
-      this.getDownload(newTab, this.subtab, this.current)
     },
-    subtab(newSubtab) {
-      this.getDownload(this.tab, newSubtab, this.current)
+    subtab() {
+      this.getDownload()
     }
   }
 }
