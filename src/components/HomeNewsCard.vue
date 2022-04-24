@@ -56,7 +56,7 @@ export default {
   width: 18vw
   border-radius: 8px
   flex-shrink: 0
-  min-width: 240px
+  min-width: 160px
 .my-card-mobile
   width: 80vw
   margin: 0 5vw

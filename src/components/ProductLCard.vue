@@ -1,11 +1,10 @@
 <template>
-    <q-card class="my-card" :class="{'my-card-mobile': isMobile}" bordered flat>
+    <q-card class="my-card cursor-pointer" :class="{'my-card-mobile': isMobile}" bordered flat @click="jumpTo">
       <q-img
-        class="col cursor-pointer"
+        class="col"
         :src="productLittleCardData.img"
         style="border-radius: 8px 8px 0 0"
         img-class="img-hover"
-        @click="jumpTo"
       />
 
       <q-card-section class="items-center my-text-1vw">

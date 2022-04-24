@@ -1,7 +1,7 @@
 <template>
   <div class="q-pt-xl col text-center">
     <div class="text-center text-h5 q-pb-md">搜 索 结 果</div>
-    <SearchBox/>
+    <SearchBox @search="getSearchResults($event, 'all', 1)"/>
   </div>
 
   <div class="page-width">
@@ -23,10 +23,16 @@
         <template v-for="item of productLittleCardData">
           <ProductLCard class="grid__item" :product-little-card-data="item"/>
         </template>
+        <template v-for="item of homeNewsCardData">
+          <HomeNewsCard class="grid__item" :home-news-card-data="item"/>
+        </template>
       </div>
       <div class="xs flex flex-center q-gutter-y-md">
         <template v-for="item of productLittleCardData">
           <ProductLCard :is-mobile="true" :product-little-card-data="item"/>
+        </template>
+        <template v-for="item of homeNewsCardData">
+          <HomeNewsCard :home-news-card-data="item"/>
         </template>
       </div>
       <div class="q-pa-lg flex flex-center">
@@ -34,8 +40,9 @@
           v-model="current"
           color="black"
           :max="10"
-          :max-pages="3"
+          :max-pages="maxPage"
           :boundary-numbers="true"
+          :to-fn="page => ({query: page})"
         />
       </div>
     </div>
@@ -46,9 +53,11 @@
 import ProductLCard from "components/ProductLCard";
 import SearchBox from "components/SearchBox";
 import api from "src/api/api";
+import HomeNewsCard from "components/HomeNewsCard";
 export default {
   name: "SearchResult",
   components: {
+    HomeNewsCard,
     ProductLCard,
     SearchBox
   },
@@ -83,17 +92,60 @@ export default {
           handbook: "撒旦发射点发射点",
           driver: "123"
         },
+      ],
+      // 新闻和案例都是一样的数据，不区分
+      // 在搜索页里，如果选择所有，则会同时出现两种小卡，加起来8个
+      homeNewsCardData: [
+        {
+          title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
+          content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
+            "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
+            "既有住宅和社区配套设施…",
+          img: "https://cdn.quasar.dev/img/mountains.jpg",
+          date: "2022年4月3日",
+          link: ""
+        },
+        {
+          title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
+          content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
+            "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
+            "既有住宅和社区配套设施…",
+          img: "https://cdn.quasar.dev/img/mountains.jpg",
+          date: "2022年4月3日",
+          link: ""
+        },
+        {
+          title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
+          content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
+            "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
+            "既有住宅和社区配套设施…",
+          img: "https://cdn.quasar.dev/img/mountains.jpg",
+          date: "2022年4月3日",
+          link: ""
+        },
+        {
+          title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
+          content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
+            "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
+            "既有住宅和社区配套设施…",
+          img: "https://cdn.quasar.dev/img/mountains.jpg",
+          date: "2022年4月3日",
+          link: ""
+        }
       ]
     }
   },
   created() {
-    this.productLittleCardData()
+    this.getSearchResults()
   },
   methods: {
-    async productLittleCardData() {
-      let res = await api.productLittleCardData()
+    // category: 'all', 'product', 'solution', 'news'
+    async getSearchResults(word, category, page) {
+      let res = await api.getSearchResults(word, category, page)
       if (res.data.code === 0 && res.status === 200) {
         this.productLittleCardData = res.data.data.productLittleCardData
+        this.homeNewsCardData = res.data.data.homeNewsCardData
+        this.maxPage = res.data.data.maxPage
       }
     },
   },
@@ -111,5 +163,5 @@ export default {
     list-style: none
   .grid__item
     width: calc(25% - 1.5rem)
-    margin: auto 0.75rem 1.5rem 0.75rem
+    margin: 0 0.75rem 1.5rem 0.75rem
 </style>
