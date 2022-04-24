@@ -64,6 +64,7 @@ export default defineComponent({
       homeCarouselData: [{
         title: ['title', "主标题"],
         subtitle: ['subtitle', "副标题"],
+        img: "",
         btns: [
           {
             label: ["btn1", '按钮1'],
@@ -78,14 +79,7 @@ export default defineComponent({
             link: ""
           },
         ]
-      },
-        {
-          title: "主标题",
-          subtitle: "副标题",
-          btnLabels: [
-            "btn1","btn2","btn3","btn4"
-          ]
-        },],
+      },],
       productCardData: [
         {
           title : "智能家居",

@@ -11,13 +11,13 @@
     class="carousel-block"
   >
     <template v-for="(item, idx) of homeCarouselData">
-      <q-carousel-slide :name="idx" img-src="https://cdn.quasar.dev/img/mountains.jpg">
+      <q-carousel-slide :name="idx" :img-src="item.img">
         <div class="carousel-content">
           <div class="text-white text-h3 text-weight-bolder ">
-            {{item.title[global.isChinese] || 主标签}}
+            {{item.title[global.isChinese]}}
           </div>
           <div class="q-pt-md text-white text-h5">
-            {{item.subtitle[global.isChinese] || 副标题}}
+            {{item.subtitle[global.isChinese]}}
           </div>
           <div class="q-pt-lg text-white q-gutter-md">
             <template v-for="it of item.btns">
