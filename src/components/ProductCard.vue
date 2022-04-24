@@ -53,16 +53,15 @@
       </q-img>
 <!--        <ProductLCard />-->
     </q-responsive>
-    <q-card>
 
-        <div class="my-little-cards">
-          <div class="x-scroll">
-            <template v-for="item in productCardData.productLittleCardData">
-              <ProductLCard :is-mobile="true" :product-little-card-data="item"/>
-            </template>
-          </div>
-        </div>
-    </q-card>
+
+      <div class="x-scroll no-scrollbar">
+        <template v-for="item in productCardData.productLittleCardData">
+          <ProductLCard :is-mobile="true" :product-little-card-data="item" style="margin: 40px 20px 0 20px;"/>
+        </template>
+      </div>
+
+
   </div>
 </template>
 
@@ -139,6 +138,9 @@ export default {
   > *
     flex-shrink: 0
     margin: 3%
+.no-scrollbar
+  &::-webkit-scrollbar
+    display: none
 .my-img-mobile
   position: absolute
   top: 4vw

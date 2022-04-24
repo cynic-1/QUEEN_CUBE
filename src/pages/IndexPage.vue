@@ -26,7 +26,7 @@
         </div>
         <div class="xs x-scroll">
           <template v-for="item of homeNewsCardData">
-            <HomeNewsCard :is-mobile="true" :home-news-card-data="item"/>
+            <HomeNewsCard :is-mobile="true" :home-news-card-data="item" style="margin: auto 20px;"/>
           </template>
         </div>
         <div class="text-center q-pt-xl">
