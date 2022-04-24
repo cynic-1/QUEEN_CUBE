@@ -31,7 +31,6 @@ export default {
       params: {'id': id},
     })
   },
-  // 一页8个
   getDownload(productLine, productType, page) {
     return request({
       url: baseURL+"/getDownload",
@@ -65,7 +64,6 @@ export default {
       method: 'get',
     })
   },
-  // 最多8个
   getSolutionDetail(tab) {
     return request({
       url: baseURL+"/getSolutionDetail",
@@ -75,14 +73,14 @@ export default {
       }
     })
   },
-  // 一页8个
-  getSearchResults(word, page) {
+  getSearchResults(word, panel, page) {
     return request(({
       url: baseURL+"/getSearchResults",
       method: 'get',
       params: {
         'word': word,
-        'page': page
+        'page': page,
+        'panel': panel
       }
     }))
   }
