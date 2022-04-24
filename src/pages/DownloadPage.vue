@@ -3,29 +3,30 @@
   <div class="q-mt-lg q-gutter-lg page-width">
     <div class="gt-xs q-gutter-lg">
       <template v-for="item of productLines">
-        <q-btn outline :label="item" size="1.25rem" padding="0 40px"/>
-        <q-tabs
-          v-model="tab"
-          align="left"
-        >
-          <template v-for="it of item.categories">
-            <q-tab :name="it.link" :label="it.label"/>
-          </template>
-        </q-tabs>
-      </template>
-    </div>
-    <div class="xs q-gutter-lg">
-      <template v-for="x in 3">
-        <q-btn outline label="产品线" size="1.25rem" padding="0 40px"/>
+        <q-btn outline :label="item.label[global.isChinese]" size="1.25rem" padding="0 40px" @click="tab=item"
+               :class="{'bg-grey': tab===item}"/>
       </template>
       <q-tabs
-        v-model="tab"
+        v-model="subtab"
         align="left"
       >
-        <q-tab name="software" label="软件"/>
-        <q-tab name="panel" label="面板/底座" />
-        <q-tab name="XXX" label="XXX" />
-        <q-tab name="XXXX" label="XXXX" />
+        <template v-for="it of tab.categories">
+          <q-tab :name="it" :label="it.label[global.isChinese]"/>
+        </template>
+      </q-tabs>
+    </div>
+    <div class="xs q-gutter-lg">
+      <template v-for="item of productLines">
+        <q-btn outline :label="item.label[global.isChinese]" size="1.25rem" padding="0 40px" @click="tab=item"
+               :class="{'bg-grey': tab===item}"/>
+      </template>
+      <q-tabs
+        v-model="subtab"
+        align="left"
+      >
+        <template v-for="it of tab.categories">
+          <q-tab :name="it" :label="it.label[global.isChinese]"/>
+        </template>
       </q-tabs>
     </div>
     <div class="q-pt-md q-gutter-y-xl flex flex-center">
@@ -104,10 +105,10 @@ export default {
       ],
       productLines: [
         {
-          label: "产品线1",
+          label: ["Productline1", "产品线1"],
           categories: [
             {
-              label: ["软件","software"],
+              label: ["software", "软件",],
               link: ""
             },
             {
@@ -117,7 +118,7 @@ export default {
           ],
         },
         {
-          label: "产品线2",
+          label: ["Productline2", "产品线2"],
           categories: [
             {
               label: ["软件","software"],
@@ -133,6 +134,7 @@ export default {
     }
   },
   created() {
+    this.getProductLines()
     this.getDownload()
   },
   methods: {
@@ -141,9 +143,17 @@ export default {
       if (res.data.code === 0 && res.status === 200) {
         this.headerImageData = res.data.data.headerImageData
         this.productLittleCardData = res.data.data.productLittleCardData
-        this.productLines = res.data.data.productLines
+        // this.productLines = res.data.data.productLines
       }
     },
+    async getProductLines() {
+      let res = await api.getProductLines()
+      if (res.data.code === 0 && res.status === 200) {
+        this.productLines = res.data.data.productLines
+        this.tab = this.productLines[0]
+        this.subtab = this.tab.categories[0]
+      }
+    }
   }
 }
 </script>
