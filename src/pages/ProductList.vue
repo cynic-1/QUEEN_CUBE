@@ -2,16 +2,17 @@
   <HeaderImage :header-image-data="headerImageData"/>
   <div class="q-ml-lg q-mt-lg q-gutter-lg">
     <template v-for="item of productLines">
-      <q-btn outline :label="item" size="1.25rem" padding="0 40px"/>
-      <q-tabs
-        v-model="tab"
-        align="left"
-      >
-        <template v-for="it of item.categories">
-          <q-tab :name="it.link" :label="it.label"/>
-        </template>
-      </q-tabs>
+      <q-btn outline :label="item.label[global.isChinese]" size="1.25rem" padding="0 40px" @click="tab=item"
+      :class="{'bg-grey': tab===item}"/>
     </template>
+    <q-tabs
+      v-model="subtab"
+      align="left"
+    >
+      <template v-for="it of tab.categories">
+        <q-tab :name="it" :label="it.label[global.isChinese]"/>
+      </template>
+    </q-tabs>
     <div class="q-gutter-y-lg" style="overflow-x: auto">
       <template v-for="item in productListCardData">
         <ProductListCard :product-list-card-data="item"/>
@@ -38,10 +39,10 @@ export default {
       // 需请求数据
       productLines: [
         {
-          label: "产品线1",
+          label: ["Productline1", "产品线1"],
           categories: [
             {
-              label: ["软件","software"],
+              label: ["software", "软件",],
               link: ""
             },
             {
@@ -51,7 +52,7 @@ export default {
           ],
         },
         {
-          label: "产品线2",
+          label: ["Productline2", "产品线2"],
           categories: [
             {
               label: ["软件","software"],
@@ -98,18 +99,26 @@ export default {
     }
   },
   created() {
+    this.getProductLines()
     this.getProductList()
   },
   methods: {
     async getProductList() {
       let res = await api.getProductList(this.tab, this.subtab)
       if (res.data.code === 0 && res.status === 200) {
-        this.productLines = res.data.data.productLines
         // this.categories = res.data.data.categories
         this.headerImageData = res.data.data.headerImageData
         this.productListCardData = res.data.data.productListCardData
       }
     },
+    async getProductLines() {
+      let res = await api.getProductLines()
+      if (res.data.code === 0 && res.status === 200) {
+        this.productLines = res.data.data.productLines
+        this.tab = this.productLines[0]
+        this.subtab = this.tab.categories[0]
+      }
+    }
   },
 }
 </script>

@@ -49,6 +49,12 @@ export default {
       params: {'productLine': productLine, 'productType': productType}
     })
   },
+  getProductLines() {
+    return request({
+      url: baseURL+"/getProductLines",
+      methods: 'get',
+    })
+  },
   productLittleCardData() {
     return request({
       url: baseURL+"/productLittleCardData",
