@@ -68,7 +68,7 @@
           </template>
     </div>
   </div>
-  <div class="separator-block"/>
+  <SeparatorBlock/>
   <div class="architect-block">
     <div class="text-center">
       <h4>组 织 架 构</h4>
@@ -98,11 +98,13 @@
 import HeaderImage from "components/HeaderImage";
 import api from "src/api/api";
 import select from "../api/select";
+import SeparatorBlock from "components/SeparatorBlock";
 
 export default {
   name: "AboutPage",
   components: {
-    HeaderImage
+    HeaderImage,
+    SeparatorBlock
   },
   created() {
     this.getAbout()
@@ -296,11 +298,7 @@ export default {
 
 .honor-block
   margin: auto 10vw
-
-.separator-block
-  height: 65px
-  background-color: white
-  margin: 80px auto
+  margin-bottom: 80px
 
 .architect-block
   margin: auto 10vw

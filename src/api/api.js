@@ -65,6 +65,7 @@ export default {
       method: 'get',
     })
   },
+  // 最多8个
   getSolutionDetail(tab) {
     return request({
       url: baseURL+"/getSolutionDetail",

@@ -11,6 +11,7 @@
       <source :src="videoSrc" type="video/mp4">
     </video>
   </div>
+  <SeparatorBlock/>
   <div class="page-width">
     <div class="q-pt-md">
       <div class="gt-xs grid">
@@ -30,11 +31,13 @@
 <script>
 import HomeNewsCard from "components/HomeNewsCard";
 import api from "src/api/api";
+import SeparatorBlock from "components/SeparatorBlock";
 
 export default {
   name: "SolutionDetail",
   components: {
-    HomeNewsCard
+    HomeNewsCard,
+    SeparatorBlock
   },
   data() {
     return {
