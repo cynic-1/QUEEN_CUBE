@@ -75,4 +75,15 @@ export default {
       }
     })
   },
+  // 一页8个
+  getSearchResults(word, page) {
+    return request(({
+      url: baseURL+"/getSearchResults",
+      method: 'get',
+      params: {
+        'word': word,
+        'page': page
+      }
+    }))
+  }
 }
