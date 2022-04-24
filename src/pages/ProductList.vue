@@ -94,7 +94,7 @@ export default {
         }
       ],
       tab: "software",
-
+      subtab: "software",
     }
   },
   created() {
@@ -102,7 +102,7 @@ export default {
   },
   methods: {
     async getProductList() {
-      let res = await api.getProductList()
+      let res = await api.getProductList(this.tab, this.subtab)
       if (res.data.code === 0 && res.status === 200) {
         this.productLines = res.data.data.productLines
         // this.categories = res.data.data.categories

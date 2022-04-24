@@ -67,7 +67,8 @@ export default {
   data() {
     return {
       global: select.global,
-      tab: "software",
+      tab: "line1",
+      subtab: "software",
       current: 1,
       // 需请求
       headerImageData: {
@@ -136,12 +137,11 @@ export default {
   },
   methods: {
     async getDownload() {
-      let res = await api.getDownload()
+      let res = await api.getDownload(this.tab, this.subtab)
       if (res.data.code === 0 && res.status === 200) {
         this.headerImageData = res.data.data.headerImageData
         this.productLittleCardData = res.data.data.productLittleCardData
         this.productLines = res.data.data.productLines
-        this.categories = res.data.data.categories
       }
     },
   }

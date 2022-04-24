@@ -1,6 +1,6 @@
 import request from './request'
 
-// const baseURL = "http://localhost:8080";
+// const baseURL = "http://localhost:8000/queencube";
 const baseURL = "http://47.103.152.187:8000/queencube";
 
 export default {
@@ -29,10 +29,11 @@ export default {
       params: {'id': id},
     })
   },
-  getDownload() {
+  getDownload(productLine, productType) {
     return request({
       url: baseURL+"/getDownload",
       method: 'get',
+      params: {'productLine': productLine, 'productType': productType}
     })
   },
   getIndexPage() {
@@ -41,10 +42,11 @@ export default {
       method: 'get',
     })
   },
-  getProductList() {
+  getProductList(productLine, productType) {
     return request({
       url: baseURL+"/getProductList",
       method: 'get',
+      params: {'productLine': productLine, 'productType': productType}
     })
   },
   productLittleCardData() {
@@ -53,10 +55,13 @@ export default {
       method: 'get',
     })
   },
-  getSolutionDetail() {
+  getSolutionDetail(tab) {
     return request({
       url: baseURL+"/getSolutionDetail",
       method: 'get',
+      params:{
+        'resolution': tab,
+      }
     })
   },
 }

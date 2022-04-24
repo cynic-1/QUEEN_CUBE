@@ -107,9 +107,10 @@ export default {
   },
   methods: {
     async getSolutionDetail() {
-      let res = await api.getSolutionDetail()
+      let res = await api.getSolutionDetail(this.tab)
       if (res.data.code === 0 && res.status === 200) {
         this.solutions = res.data.data.solutions
+        this.videoSrc = res.data.data.videoSrc
         this.homeNewsCardData = res.data.data.homeNewsCardData
       }
     },
