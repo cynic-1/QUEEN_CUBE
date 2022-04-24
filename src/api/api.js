@@ -16,10 +16,12 @@ export default {
       method: 'get',
     })
   },
-  getNewsListIds() {
+  // 每页4个
+  getNewsListIds(page) {
     return request({
       url: baseURL+"/getNewsListIds",
       method: 'get',
+      params: {'page': page}
     })
   },
   getNewsListCard(id) {
@@ -29,11 +31,12 @@ export default {
       params: {'id': id},
     })
   },
-  getDownload(productLine, productType) {
+  // 一页8个
+  getDownload(productLine, productType, page) {
     return request({
       url: baseURL+"/getDownload",
       method: 'get',
-      params: {'productLine': productLine, 'productType': productType}
+      params: {'productLine': productLine, 'productType': productType, 'page': page}
     })
   },
 
