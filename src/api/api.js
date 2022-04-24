@@ -36,6 +36,7 @@ export default {
       params: {'productLine': productLine, 'productType': productType}
     })
   },
+
   getIndexPage() {
     return request({
       url: baseURL+"/getIndexPage",
