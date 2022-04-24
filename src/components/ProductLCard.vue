@@ -71,7 +71,7 @@ export default {
 
 <style lang="sass" scoped>
 .my-card
-  width: 12vw
+  width: 18vw
   border-radius: 8px
   flex-shrink: 0
   min-width: 160px

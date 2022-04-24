@@ -1,7 +1,7 @@
 <template>
   <div class="q-pt-xl col text-center">
     <div class="text-center text-h5 q-pb-md">搜 索 结 果</div>
-    <SearchBox @search="getSearchResults($event, 'all', 1)"/>
+    <SearchBox @search="changeWord($event)"/>
   </div>
 
   <div class="page-width">
@@ -42,7 +42,6 @@
           :max="10"
           :max-pages="maxPage"
           :boundary-numbers="true"
-          :to-fn="page => ({query: page})"
         />
       </div>
     </div>
@@ -66,6 +65,7 @@ export default {
       panel: 'all',
       current: 1,
       maxPage: 3,
+      word: "",
       // 需要请求
       productLittleCardData: [
         {
@@ -148,7 +148,21 @@ export default {
         this.maxPage = res.data.data.maxPage
       }
     },
+    changePagination(page) {
+      this.current = page
+      console.log(page)
+      this.getSearchResults(this.word, this.panel, page)
+    },
+    changeWord(word) {
+      this.word = word
+      this.getSearchResults(word, 'all', 1)
+    }
   },
+  watch: {
+    current(newPage) {
+      this.getSearchResults(this.word, this.panel, newPage)
+    }
+  }
 }
 </script>
 
