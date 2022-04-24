@@ -8,16 +8,24 @@
     <div class="q-pt-md q-gutter-y-lg">
 
       <div class="gt-xs q-gutter-lg q-mb-xl" style="padding-left: 0.75rem;">
-        <q-btn outline label="所有" padding="0 40px"/>
-        <q-btn outline label="产品" padding="0 40px"/>
-        <q-btn outline label="案例" padding="0 40px"/>
-        <q-btn outline label="新闻" padding="0 40px"/>
+        <q-btn outline label="所有" padding="0 40px" @click="panel='all'"
+               :class="{'bg-grey': panel==='all'}"/>
+        <q-btn outline label="产品" padding="0 40px" @click="panel='product'"
+               :class="{'bg-grey': panel==='product'}"/>
+        <q-btn outline label="案例" padding="0 40px" @click="panel='solution'"
+               :class="{'bg-grey': panel==='solution'}"/>
+        <q-btn outline label="新闻" padding="0 40px" @click="panel='news'"
+               :class="{'bg-grey': panel==='news'}"/>
       </div>
       <div class="xs flex justify-around q-mb-lg">
-        <q-btn outline label="所有" padding="0 20px"/>
-        <q-btn outline label="产品" padding="0 20px"/>
-        <q-btn outline label="案例" padding="0 20px"/>
-        <q-btn outline label="新闻" padding="0 20px"/>
+        <q-btn outline label="所有" padding="0 20px" @click="panel='all'"
+               :class="{'bg-grey': panel==='all'}"/>
+        <q-btn outline label="产品" padding="0 20px" @click="panel='product'"
+               :class="{'bg-grey': panel==='product'}"/>
+        <q-btn outline label="案例" padding="0 20px" @click="panel='solution'"
+               :class="{'bg-grey': panel==='solution'}"/>
+        <q-btn outline label="新闻" padding="0 20px" @click="panel='news'"
+               :class="{'bg-grey': panel==='news'}"/>
       </div>
       <div class="gt-xs grid">
         <template v-for="item of productLittleCardData">
@@ -161,6 +169,9 @@ export default {
   watch: {
     current(newPage) {
       this.getSearchResults(this.word, this.panel, newPage)
+    },
+    panel(newPanel) {
+      this.getSearchResults(this.word, newPanel, this.current)
     }
   }
 }
