@@ -20,7 +20,8 @@ export default {
   name: "SearchBox",
   methods: {
     search() {
-      console.log('search!')
+      // console.log('search!')
+      this.$emit('search', this.text)
     }
   },
   data() {
