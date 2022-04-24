@@ -115,7 +115,7 @@ export default {
   },
   methods: {
     async getProductList() {
-      let res = await api.getProductList(this.tab, this.subtab, this.current)
+      let res = await api.getProductList(this.tab.label[0], this.subtab.label[0], this.current)
       if (res.data.code === 0 && res.status === 200) {
         // this.categories = res.data.data.categories
         this.headerImageData = res.data.data.headerImageData
@@ -132,6 +132,18 @@ export default {
       }
     }
   },
+  watch: {
+    current(newPage) {
+      this.getProductList(this.tab, this.subtab, newPage)
+    },
+    tab(newTab) {
+      this.subtab = newTab.categories[0]
+      this.getProductList(newTab, this.subtab, this.current)
+    },
+    subtab(newSubtab) {
+      this.getProductList(this.tab, newSubtab, this.current)
+    }
+  }
 }
 </script>
 

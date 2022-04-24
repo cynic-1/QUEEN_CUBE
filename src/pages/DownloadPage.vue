@@ -135,7 +135,6 @@ export default {
     }
   },
   created() {
-    this.getProductLines()
     this.getDownload()
   },
   methods: {
@@ -148,13 +147,17 @@ export default {
         // this.productLines = res.data.data.productLines
       }
     },
-    async getProductLines() {
-      let res = await api.getProductLines()
-      if (res.data.code === 0 && res.status === 200) {
-        this.productLines = res.data.data.productLines
-        this.tab = this.productLines[0]
-        this.subtab = this.tab.categories[0]
-      }
+  },
+  watch: {
+    current(newPage) {
+      this.getDownload(this.tab, this.subtab, newPage)
+    },
+    tab(newTab) {
+      this.subtab = newTab.categories[0]
+      this.getDownload(newTab, this.subtab, this.current)
+    },
+    subtab(newSubtab) {
+      this.getDownload(this.tab, newSubtab, this.current)
     }
   }
 }
