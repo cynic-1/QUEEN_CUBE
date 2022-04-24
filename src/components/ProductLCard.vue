@@ -76,7 +76,7 @@ export default {
   flex-shrink: 0
   min-width: 160px
 .my-card-mobile
-  width: 60vw
+  width: 80vw
 .my-little-card-title
   font-size: 1.25rem
   padding-top: 10%

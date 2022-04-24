@@ -32,7 +32,7 @@
           <ProductLCard :is-mobile="true" :product-little-card-data="item"/>
         </template>
         <template v-for="item of homeNewsCardData">
-          <HomeNewsCard :home-news-card-data="item"/>
+          <HomeNewsCard :is-mobile="true" :home-news-card-data="item"/>
         </template>
       </div>
       <div class="q-pa-lg flex flex-center">
