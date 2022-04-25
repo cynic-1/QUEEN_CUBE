@@ -17,12 +17,15 @@
 </template>
 
 <script>
+import api from "src/api/api";
+import select from "src/api/select";
 import SolutionCard from "components/SolutionCard"
 import productLCard from "components/ProductLCard"
 export default {
   name: "ProjectList",
   data() {
     return {
+      global: select.global,
       videoSrc: "",
       solutionCardData: [
         {
@@ -55,6 +58,18 @@ export default {
   components: {
     SolutionCard,
     productLCard,
+  },
+  methods: {
+    async getSolutionList() {
+      let res = await api.getDownload(this.tab, this.subtab, this.current)
+      if (res.data.code === 0 && res.status === 200) {
+        this.videoSrc = res.data.data.videoSrc
+        this.solutionCardData = res.data.data.solutionCardData
+      }
+    },
+  },
+  created() {
+    this.getSolutionList()
   }
 }
 </script>
