@@ -1,97 +1,97 @@
 <template>
   <HeaderImage :header-image-data="headerImageData" :is-center="true"/>
   <q-card class="company-des">{{description[global.isChinese]}}</q-card>
-  <div class="gt-xs time-line-block">
-    <div class="text-center">
-      <h4>公 司 历 程</h4>
-    </div>
-    <ul class="timeline" id="timeline">
-      <template v-for="item of timelines">
-        <li class="li complete">
-          <div class="timestamp">
-            <span class="date">{{item.year}}</span>
-          </div>
-          <div class="status">
-            {{item.event[global.isChinese]}}
-          </div>
-        </li>
-      </template>
-    </ul>
-  </div>
-  <div class="xs time-line-block">
-    <div class="text-center">
-      <h4>公 司 历 程</h4>
-    </div>
-    <q-timeline layout="loose" color="secondary">
-      <template v-for="(item, idx) of timelines">
-        <q-timeline-entry
-          :title="item.event[global.isChinese]"
-          :subtitle="item.year"
-          :side="getSide(idx)"
-        />
-      </template>
-    </q-timeline>
-  </div>
-  <div class="certificate-block">
-    <div class="text-center">
-      <h4>资 质 证 书</h4>
-    </div>
-    <q-responsive :ratio="1.778">
-      <q-carousel
-        animated
-        v-model="slide"
-        infinite
-        arrows
-        transition-prev="slide-right"
-        transition-next="slide-left"
-        @mouseenter="autoplay = false"
-        @mouseleave="autoplay = true"
-      >
-        <template v-for="(item,idx) of certificates">
-          <q-carousel-slide :name="idx" :img-src="item"/>
-        </template>
-      </q-carousel>
-    </q-responsive>
-  </div>
-  <div class="honor-block">
-    <div class="text-center">
-      <h4>公 司 荣 誉</h4>
-    </div>
-    <div class="honor-content">
-        <template v-for="item of honors">
-          <q-responsive :ratio="1.778">
-            <div class="text-center">
-              <q-img :src="item.img"/>
-              <span>{{item.label[global.isChinese]}}</span>
-            </div>
-          </q-responsive>
-          </template>
-    </div>
-  </div>
-  <SeparatorBlock/>
-  <div class="architect-block">
-    <div class="text-center">
-      <h4>组 织 架 构</h4>
-    </div>
-    <div class="architect-content">
-      <template v-for="x in 5">
-        <q-responsive :ratio="1.778">
-          <div>
-            <q-avatar size="16vw">
-              <img src="https://cdn.quasar.dev/img/mountains.jpg" alt="头像">
-            </q-avatar>
-            <p class="text-h6" style="width: 100%;margin: auto;">
-              张三
-              <span class="float-right">CEO</span>
-            </p>
-            <p class="text-h6" style="max-height: 200px;overflow-y: hidden;">
-              个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人……
-            </p>
-          </div>
-        </q-responsive>
-      </template>
-    </div>
-  </div>
+<!--  <div class="gt-xs time-line-block">-->
+<!--    <div class="text-center">-->
+<!--      <h4>{{History}}</h4>-->
+<!--    </div>-->
+<!--    <ul class="timeline" id="timeline">-->
+<!--      <template v-for="item of timelines">-->
+<!--        <li class="li complete">-->
+<!--          <div class="timestamp">-->
+<!--            <span class="date">{{item.year}}</span>-->
+<!--          </div>-->
+<!--          <div class="status">-->
+<!--            {{item.event[global.isChinese]}}-->
+<!--          </div>-->
+<!--        </li>-->
+<!--      </template>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--  <div class="xs time-line-block">-->
+<!--    <div class="text-center">-->
+<!--      <h4>{{ History }}</h4>-->
+<!--    </div>-->
+<!--    <q-timeline layout="loose" color="secondary">-->
+<!--      <template v-for="(item, idx) of timelines">-->
+<!--        <q-timeline-entry-->
+<!--          :title="item.event[global.isChinese]"-->
+<!--          :subtitle="item.year"-->
+<!--          :side="getSide(idx)"-->
+<!--        />-->
+<!--      </template>-->
+<!--    </q-timeline>-->
+<!--  </div>-->
+<!--  <div class="certificate-block">-->
+<!--    <div class="text-center">-->
+<!--      <h4>{{Certificates}}</h4>-->
+<!--    </div>-->
+<!--    <q-responsive :ratio="1.778">-->
+<!--      <q-carousel-->
+<!--        animated-->
+<!--        v-model="slide"-->
+<!--        infinite-->
+<!--        arrows-->
+<!--        transition-prev="slide-right"-->
+<!--        transition-next="slide-left"-->
+<!--        @mouseenter="autoplay = false"-->
+<!--        @mouseleave="autoplay = true"-->
+<!--      >-->
+<!--        <template v-for="(item,idx) of certificates">-->
+<!--          <q-carousel-slide :name="idx" :img-src="item"/>-->
+<!--        </template>-->
+<!--      </q-carousel>-->
+<!--    </q-responsive>-->
+<!--  </div>-->
+<!--  <div class="honor-block">-->
+<!--    <div class="text-center">-->
+<!--      <h4>{{ Honors }}</h4>-->
+<!--    </div>-->
+<!--    <div class="honor-content">-->
+<!--        <template v-for="item of honors">-->
+<!--          <q-responsive :ratio="1.778">-->
+<!--            <div class="text-center">-->
+<!--              <q-img :src="item.img"/>-->
+<!--              <span>{{item.label[global.isChinese]}}</span>-->
+<!--            </div>-->
+<!--          </q-responsive>-->
+<!--          </template>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <SeparatorBlock/>-->
+<!--  <div class="architect-block">-->
+<!--    <div class="text-center">-->
+<!--      <h4>{{Architecture}}</h4>-->
+<!--    </div>-->
+<!--    <div class="architect-content">-->
+<!--      <template v-for="x in 5">-->
+<!--        <q-responsive :ratio="1.778">-->
+<!--          <div>-->
+<!--            <q-avatar size="16vw">-->
+<!--              <img src="https://cdn.quasar.dev/img/mountains.jpg" alt="头像">-->
+<!--            </q-avatar>-->
+<!--            <p class="text-h6" style="width: 100%;margin: auto;">-->
+<!--              张三-->
+<!--              <span class="float-right">CEO</span>-->
+<!--            </p>-->
+<!--            <p class="text-h6" style="max-height: 200px;overflow-y: hidden;">-->
+<!--              个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人……-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </q-responsive>-->
+<!--      </template>-->
+<!--    </div>-->
+<!--  </div>-->
 </template>
 
 <script>
@@ -107,64 +107,19 @@ export default {
     SeparatorBlock
   },
   created() {
+    console.log("fuck you")
     this.getAbout()
+    console.log("wtf!")
   },
   data() {
     return {
       global : select.global,
       slide: 1,
       autoplay: false,
-      description: "公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍\n" +
-        "公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍\n" +
-        "\n" +
-        "公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍\n" +
-        "公司介绍公司介绍公司介绍公司介绍\n" +
-        "\n" +
-        "公司介绍公司介绍公司介绍",
-      timelines: [
-        {
-          year: 2012,
-          event: "大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记"
-        },
-        {
-          year: 2012,
-          event: "大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记"
-        },
-        {
-          year: 2012,
-          event: "大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记"
-        },
-        {
-          year: 2012,
-          event: "大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记"
-        },
-        {
-          year: 2012,
-          event: "大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记大事记"
-        },
-      ],
-      certificates: [
-        "https://cdn.quasar.dev/img/mountains.jpg",
-        "https://cdn.quasar.dev/img/mountains.jpg"
-      ],
-      honors: [
-        {
-          img: "https://cdn.quasar.dev/img/parallax2.jpg",
-          label: "荣誉名称"
-        },
-        {
-          img: "https://cdn.quasar.dev/img/parallax2.jpg",
-          label: "荣誉名称"
-        },
-        {
-          img: "https://cdn.quasar.dev/img/parallax2.jpg",
-          label: "荣誉名称"
-        },
-        {
-          img: "https://cdn.quasar.dev/img/parallax2.jpg",
-          label: "荣誉名称"
-        },
-      ],
+      description: null,
+      timelines: null,
+      certificates: null,
+      honors: null,
       headerImageData: {
         headerImage: "https://cdn.quasar.dev/img/parallax2.jpg",
         headerLabel: "栏目标题",
@@ -183,11 +138,26 @@ export default {
         this.certificates = res.data.data.certificates
         this.honors = res.data.data.honors
         this.headerImageData = res.data.data.headerImageData
-      }
+        console.log(this.timelines)
+      } else console.log(res)
     },
     getSide(idx) {
       return idx % 2 ? "left" : "right"
     }
+  },
+  computed: {
+    History() {
+      return this.global.isChinese ? "公 司 历 程" : "History"
+    },
+    Certificates() {
+      return this.global.isChinese ? "资 质 证 书" : "Certificates"
+    },
+    Honors() {
+      return this.global.isChinese ? "公 司 荣 誉" : "Honors"
+    },
+    Architecture() {
+      return this.global.isChinese ? "组 织 架 构" : "Architecture"
+    },
   }
 }
 </script>
