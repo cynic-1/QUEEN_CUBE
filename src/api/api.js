@@ -86,7 +86,13 @@ export default {
       method: 'get'
     })
   },
-
+  // TODO
+  getHeaderData() {
+    return request({
+      url: baseURL+"/getHeaderData",
+      method: 'get'
+    })
+  },
   getSearchResults(word, panel, page) {
     return request(({
       url: baseURL+"/getSearchResults",

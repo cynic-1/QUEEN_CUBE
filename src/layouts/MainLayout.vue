@@ -5,16 +5,16 @@
       <q-toolbar>
         <div class="q-pr-lg">
           <q-avatar>
-            <img alt="logo" src="https://cdn.quasar.dev/logo-v2/svg/logo.svg">
+            <img alt="logo" :src="logo">
           </q-avatar>
         </div>
           <template v-for="item of headers">
-            <div class="menu-item gt-xs" :class="{hasChild: item.child.length}">
-              <q-btn stretch flat :label="getText(item.chinese, item.english)" :to="item.link"/>
+            <div class="menu-item gt-xs" :class="{'hasChild': item.child.length}">
+              <q-btn stretch flat :label="item.label[global.isChinese]" :to="item.link"/>
               <div class="childMenu" v-if="item.child.length">
                 <template v-for="it of item.child">
                   <div class="sub-menu">
-                    {{getText(it.chinese, it.english)}}
+                    {{it.label[global.isChinese]}}
                   </div>
                 </template>
               </div>
@@ -54,7 +54,7 @@
           <template v-for="(menuItem, index) in headers" :key="index">
             <q-item  clickable v-ripple>
               <q-item-section>
-                {{ getText(menuItem.chinese, menuItem.english) }}
+                {{ menuItem.label[global.isChinese] }}
               </q-item-section>
             </q-item>
           </template>
@@ -75,6 +75,9 @@ import select from "../api/select";
 import { defineComponent } from 'vue'
 import HeaderSearch from "components/HeaderSearch";
 import Footer from "components/Footer";
+import api from "src/api/api";
+
+
 export default defineComponent({
   name: 'MainLayout',
 
@@ -87,46 +90,28 @@ export default defineComponent({
     return {
       drawer: false,
       global: select.global,
+      logo: "",
       headers: [
         {
-          chinese: '产品中心',
-          english: 'Product Center',
+          label: ['Product Center', '产品中心'],
           link: 'productCenter',
           child: [
             {
-              chinese: 'KNX_CN',
-              english: 'KNX'
-            },
-            {
-              chinese: 'KNX_CN1',
-              english: 'KNX1'
+              label: ['Product Center', '产品中心'],
+              link: 'productCenter',
             },
           ]
       },
         {
-          chinese: '解决方案',
-          english: 'Solutions',
-          link: '/solutions',
-          child: []
+          label: ['Product Center', '产品中心'],
+          link: 'productCenter',
+          child: [
+            {
+              label: ['Product Center', '产品中心'],
+              link: 'productCenter',
+            },
+          ]
         },
-        {
-          chinese: '新闻资讯',
-          english: 'News',
-          link: '/news',
-          child: []
-        },
-        {
-          chinese: '资料下载',
-          english: 'Download',
-          link: '/download',
-          child: []
-        },
-        {
-          chinese: '关于我们',
-          english: 'About',
-          link: '/about',
-          child: []
-        }
       ]
       }
     },
@@ -141,6 +126,13 @@ export default defineComponent({
       console.log(this.searchValue)
       this.$router.push('/searchResults')
     },
+    async getHeaderData() {
+      let res = await api.getHeaderData()
+      if (res.data.code === 0 && res.status === 200) {
+        this.headers = res.data.data.headers
+        this.logo = res.data.data.logo
+      }
+    }
   }
 })
 </script>

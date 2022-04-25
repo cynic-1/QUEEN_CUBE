@@ -111,6 +111,11 @@ export default {
       }
     }
   },
+  watch:{
+    tab() {
+      this.getSolutionDetail()
+    }
+  }
 }
 </script>
 
