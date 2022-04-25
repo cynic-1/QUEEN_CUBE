@@ -60,8 +60,8 @@ export default {
     productLCard,
   },
   methods: {
-    async getSolutionList() {
-      let res = await api.getDownload(this.tab, this.subtab, this.current)
+    async getSolutionLists() {
+      let res = await api.getSolutionLists(this.tab, this.subtab, this.current)
       if (res.data.code === 0 && res.status === 200) {
         this.videoSrc = res.data.data.videoSrc
         this.solutionCardData = res.data.data.solutionCardData
