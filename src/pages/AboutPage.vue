@@ -5,7 +5,7 @@
     <div class="text-center">
       <h4>{{History}}</h4>
     </div>
-    <ul class="timeline" id="timeline">
+    <ul class="timeline">
       <template v-for="item of timelines">
         <li class="li complete">
           <div class="timestamp">
@@ -108,7 +108,7 @@ export default {
   },
   created() {
     console.log("fuck you")
-    this.getAbout()
+    // this.getAbout()
     console.log("wtf!")
   },
   data() {

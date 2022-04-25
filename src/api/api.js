@@ -76,7 +76,7 @@ export default {
   //TODO: backend interface!!!
   getSolutionLists() {
     return request({
-      url: baseURL+"/getSolutionList",
+      url: baseURL+"/getSolutionLists",
       method: 'get'
     })
   },
