@@ -11,7 +11,7 @@
     class="carousel-block"
   >
     <template v-for="(item, idx) of homeCarouselData">
-      <q-carousel-slide :name="idx" :img-src="item.img">
+      <q-carousel-slide :name="idx+1" :img-src="item.img">
         <div class="carousel-content">
           <div class="text-white text-h3 text-weight-bolder ">
             {{item.title[global.isChinese]}}

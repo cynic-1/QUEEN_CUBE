@@ -17,7 +17,7 @@
               <div class="txt">
                 {{ productCardData.subtitle[global.isChinese] }}
               </div>
-              <q-btn size="1.25em" class="my-btn" outline push>了 解 更 多</q-btn>
+              <q-btn size="1.25em" class="my-btn" outline push>{{learnMore}}</q-btn>
             </div>
             <div class="my-little-cards x-scroll">
               <template v-for="item of productCardData.productLittleCardData">
@@ -47,8 +47,8 @@
       >
         <div class="q-px-xs q-my-xl q-gutter-y-md my-img-mobile">
           <div class="text-h4"> {{ productCardData.title[global.isChinese] }}</div>
-          <div class="txt">{{ productCardData.content[global.isChinese] }}</div>
-          <q-btn outline push size="xs">了 解 更 多</q-btn>
+          <div class="txt">{{ productCardData.subtitle[global.isChinese] }}</div>
+          <q-btn outline push size="xs">{{learnMore}}</q-btn>
         </div>
       </q-img>
 <!--        <ProductLCard />-->
@@ -91,6 +91,14 @@ export default {
       image: "https://cdn.quasar.dev/img/parallax2.jpg",
     }
   },
+  computed: {
+    learnMore() {
+      return this.global.isChinese ? "了 解 更 多" : "Learn More"
+    },
+    // detail() {
+    //   return this.global.isChinese ? "了 解 详 情" : "Learn More"
+    // }
+  }
 }
 </script>
 

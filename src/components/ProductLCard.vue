@@ -15,19 +15,19 @@
           <template v-if="isDownload">
             <template v-if="productLittleCardData.handbook.length && productLittleCardData.driver.length">
               <q-btn-group outline push class="justify-center text-weight-bold">
-                <q-btn no-wrap outline push label="手 册" :to="handbook" padding="10px 2.5rem"/>
-                <q-btn no-wrap outline push label="驱 动" :to="driver" padding="10px 2.5rem"/>
+                <q-btn no-wrap outline push :label="guidebook" :to="productLittleCardData.handbook" padding="10px 2.5rem"/>
+                <q-btn no-wrap outline push :label="driver" :to="productLittleCardData.driver" padding="10px 2.5rem"/>
               </q-btn-group>
             </template>
             <template v-else-if="productLittleCardData.handbook.length">
-              <q-btn no-wrap outline push label="手 册 下 载" :to="productLittleCardData.handbook" style="width: 90%"/>
+              <q-btn no-wrap outline push :label="guidebookDownload" :to="productLittleCardData.handbook" style="width: 90%"/>
             </template>
             <template v-else-if="productLittleCardData.driver.length">
-              <q-btn no-wrap outline push label="驱 动 下 载" :to="productLittleCardData.driver" style="width: 90%"/>
+              <q-btn no-wrap outline push :label="driverDownload" :to="productLittleCardData.driver" style="width: 90%"/>
             </template>
           </template>
           <template v-else>
-            <q-btn no-wrap class="justify-center text-weight-bold" label="了 解 详 情" :to="productLittleCardData.link" outline push style="width: 90%"/>
+            <q-btn no-wrap class="justify-center text-weight-bold" :label="learnMore" :to="productLittleCardData.link" outline push style="width: 90%"/>
           </template>
         </div>
       </q-card-section>
@@ -64,6 +64,23 @@ export default {
   methods: {
     jumpTo() {
       this.$router.push(this.link)
+    }
+  },
+  computed: {
+    learnMore() {
+      return this.global.isChinese ? "了 解 更 多" : "Learn More"
+    },
+    driver() {
+      return this.global.isChinese ? "驱 动" : "Driver"
+    },
+    driverDownload() {
+      return this.global.isChinese ? "驱 动 下 载" : "Download Driver"
+    },
+    guidebook() {
+      return this.global.isChinese ? "手 册" : "GuideBook"
+    },
+    guidebookDownload() {
+      return this.global.isChinese ? "手 册 下 载" : "Download Guidebook"
     }
   }
 }
