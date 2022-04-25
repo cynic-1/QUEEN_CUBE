@@ -39,6 +39,11 @@ export default {
             link: ""
           }
         },
+      ],
+      solutionTabs: [
+        {
+          label: ["智能家家具", "fsdfasf"],
+        }
       ]
     }
   },
@@ -57,6 +62,7 @@ export default {
     },
   },
   created() {
+    this.getSolutionTabs()
     this.getSolutionLists()
   }
 }

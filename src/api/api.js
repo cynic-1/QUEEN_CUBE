@@ -73,13 +73,20 @@ export default {
       }
     })
   },
-  //TODO: backend interface!!!
   getSolutionLists() {
     return request({
       url: baseURL+"/getSolutionLists",
       method: 'get'
     })
   },
+  // TODO: add backend interface
+  getSolutionTabs() {
+    return request({
+      url: baseURL+"/getSolutionTabs",
+      method: 'get'
+    })
+  },
+
   getSearchResults(word, panel, page) {
     return request(({
       url: baseURL+"/getSearchResults",

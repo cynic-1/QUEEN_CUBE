@@ -1,8 +1,8 @@
 <template>
   <q-tabs align="left" class="q-px-xl q-py-md" v-model="tab">
-    <template v-for="item of solutions">
-      <q-route-tab :to="item.link" :name="item.link" class="tabs">
-        {{item.chinese}}
+    <template v-for="item of solutionTabs">
+      <q-route-tab :to="item.link" :name="item.label[0]" class="tabs">
+        {{item.label[global.isChinese]}}
       </q-route-tab>
     </template>
   </q-tabs>
@@ -31,6 +31,7 @@
 <script>
 import HomeNewsCard from "components/HomeNewsCard";
 import api from "src/api/api";
+import select from "src/api/select"
 import SeparatorBlock from "components/SeparatorBlock";
 
 export default {
@@ -42,27 +43,12 @@ export default {
   data() {
     return {
       tab: "commercial",
-      solutions: [
+      global: select.global,
+      solutionTabs: [
         {
-          chinese: "智慧建筑",
-          english: "",
+          label: ['fdsfas', '智慧办公'],
           link: "commercial"
         },
-        {
-          chinese: "智慧办公",
-          english: "",
-          link: "office"
-        },
-        {
-          chinese: "XXXX",
-          english: "",
-          link: "XXXX"
-        },
-        {
-          chinese: "XXXXX",
-          english: "",
-          link: "XXXXX"
-        }
       ],
       videoSrc: "",
       homeNewsCardData: [
@@ -106,17 +92,24 @@ export default {
     }
   },
   created() {
+    this.getSolutionTabs()
     this.getSolutionDetail()
   },
   methods: {
     async getSolutionDetail() {
       let res = await api.getSolutionDetail(this.tab)
       if (res.data.code === 0 && res.status === 200) {
-        this.solutions = res.data.data.solutions
+        // this.solutions = res.data.data.solutions
         this.videoSrc = res.data.data.videoSrc
         this.homeNewsCardData = res.data.data.homeNewsCardData
       }
     },
+    async getSolutionTabs() {
+      let res = await api.getSolutionLists()
+      if (res.data.code === 0 && res.status === 200) {
+        this.solutionTabs = res.data.data.solutionTabs
+      }
+    }
   },
 }
 </script>
