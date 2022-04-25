@@ -42,7 +42,7 @@ export default {
   },
   data() {
     return {
-      tab: "commercial",
+      tab: "",
       global: select.global,
       solutionTabs: [
         {
@@ -93,7 +93,7 @@ export default {
   },
   created() {
     this.getSolutionTabs()
-    this.getSolutionDetail()
+    // this.getSolutionDetail()
   },
   methods: {
     async getSolutionDetail() {
@@ -105,9 +105,10 @@ export default {
       }
     },
     async getSolutionTabs() {
-      let res = await api.getSolutionLists()
+      let res = await api.getSolutionTabs()
       if (res.data.code === 0 && res.status === 200) {
         this.solutionTabs = res.data.data.solutionTabs
+        this.tab = this.solutionTabs[0].label[0]
       }
     }
   },

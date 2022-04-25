@@ -133,6 +133,9 @@ export default defineComponent({
         this.logo = res.data.data.logo
       }
     }
+  },
+  created() {
+    this.getHeaderData()
   }
 })
 </script>
