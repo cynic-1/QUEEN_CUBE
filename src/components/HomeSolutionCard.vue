@@ -1,5 +1,5 @@
 <template>
-  <div class="my-card" :class="{'my-card-mobile': isMobile}">
+  <div class="my-card" :class="{'my-card-mobile': isMobile}" @click="jumpTo">
     <q-responsive :ratio="1">
       <q-img
         class="col cursor-pointer"
@@ -34,7 +34,12 @@ export default {
       img: "https://cdn.quasar.dev/img/parallax2.jpg",
       btnLabel: "进入了解"
     }
-  }
+  },
+  methods: {
+    jumpTo() {
+      this.$router.push(this.solutionCardData.btn.link)
+    }
+  },
 }
 </script>
 
