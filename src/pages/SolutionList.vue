@@ -34,24 +34,10 @@ export default {
           content : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
             "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
           img: "https://cdn.quasar.dev/img/parallax2.jpg",
-        },
-        {
-          title : "智能家居",
-          content : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
-            "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
-          img: "https://cdn.quasar.dev/img/parallax2.jpg",
-        },
-        {
-          title : "智能家居",
-          content : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
-            "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
-          img: "https://cdn.quasar.dev/img/parallax2.jpg",
-        },
-        {
-          title : "智能家居",
-          content : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
-            "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
-          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+          btn: {
+            label: ['Show Details', '进入了解'],
+            link: ""
+          }
         },
       ]
     }
@@ -63,7 +49,7 @@ export default {
   },
   methods: {
     async getSolutionLists() {
-      let res = await api.getSolutionLists(this.tab, this.subtab, this.current)
+      let res = await api.getSolutionLists()
       if (res.data.code === 0 && res.status === 200) {
         this.headerImageData = res.data.data.headerImageData
         this.solutionCardData = res.data.data.solutionCardData
