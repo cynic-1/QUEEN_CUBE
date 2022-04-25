@@ -63,6 +63,11 @@ export default {
     HeaderImage,
     NewsListCard
   },
+  watch: {
+    current() {
+      this.getSearchResults()
+    },
+  }
 }
 </script>
 
