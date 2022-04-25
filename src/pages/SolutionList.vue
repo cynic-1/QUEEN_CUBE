@@ -69,7 +69,7 @@ export default {
     },
   },
   created() {
-    this.getSolutionList()
+    this.getSolutionLists()
   }
 }
 </script>
