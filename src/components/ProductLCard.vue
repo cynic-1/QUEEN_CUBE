@@ -11,12 +11,14 @@
         <div class="my-little-card-title">{{ productLittleCardData.title[global.isChinese] }}</div>
         <div class="flex flex-center">
 <!--          {{ content }}-->
-          <q-chip outline :label="productLittleCardData.content[global.isChinese]" style="margin: 10px 0;"/>
+          <q-chip outline style="width: 90%; margin: 10px 0; min-width: 140px; padding: 10px 20%;">
+            <div style="margin: auto">{{productLittleCardData.content[global.isChinese]}}</div>
+          </q-chip>
           <template v-if="isDownload">
             <template v-if="productLittleCardData.handbook.length && productLittleCardData.driver.length">
-              <q-btn-group outline push class="justify-center text-weight-bold">
-                <q-btn no-wrap outline push :label="guidebook" :to="productLittleCardData.handbook" padding="10px 2.5rem"/>
-                <q-btn no-wrap outline push :label="driver" :to="productLittleCardData.driver" padding="10px 2.5rem"/>
+              <q-btn-group outline push class="justify-center text-weight-bold" style="width: 90%;">
+                <q-btn no-wrap outline push :label="guidebook" :to="productLittleCardData.handbook" padding="10px 20%"/>
+                <q-btn no-wrap outline push :label="driver" :to="productLittleCardData.driver" padding="10px 20%"/>
               </q-btn-group>
             </template>
             <template v-else-if="productLittleCardData.handbook.length">
@@ -101,5 +103,7 @@ export default {
   text-align: center
 .my-text-1vw
   font-size: 1vw
-
+.q-chip__content
+  .ellipsis
+    margin: auto
 </style>

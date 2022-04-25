@@ -79,14 +79,14 @@ export default {
       method: 'get'
     })
   },
-  // TODO: add backend interface
+
   getSolutionTabs() {
     return request({
       url: baseURL+"/getSolutionTabs",
       method: 'get'
     })
   },
-  // TODO
+
   getHeaderData() {
     return request({
       url: baseURL+"/getHeaderData",

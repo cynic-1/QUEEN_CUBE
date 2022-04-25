@@ -29,7 +29,7 @@
         </template>
       </q-tabs>
     </div>
-    <div class="q-pt-md q-gutter-y-xl flex flex-center">
+    <div class="q-pt-md q-gutter-y-xl">
       <div class="gt-xs grid">
         <template v-for="item in productLittleCardData">
           <ProductLCard :is-download="true" class="grid__item" :product-little-card-data="item"/>
