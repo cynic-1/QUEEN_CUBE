@@ -30,7 +30,7 @@
           </template>
         </div>
         <div class="text-center q-pt-xl">
-          <q-btn color="black" to="news" size="1.25rem" label="查看所有新闻" />
+          <q-btn color="black" to="news" size="1.25rem" :label="viewAll" />
         </div>
       </div>
     </div>
@@ -226,6 +226,11 @@ export default defineComponent({
         this.homeNewsCardData = res.data.data.homeNewsCardData
       }
     },
+  },
+  computed: {
+    viewAll() {
+      return this.global.isChinese ? "查 看 所 有" : "View All"
+    }
   }
 })
 </script>
