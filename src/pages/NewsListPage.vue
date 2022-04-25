@@ -18,7 +18,7 @@
         v-model="current"
         color="black"
         :max="maxPage"
-        :max-pages="3"
+        :max-pages="5"
         :boundary-numbers="true"
       />
     </div>

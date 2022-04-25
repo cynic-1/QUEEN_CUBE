@@ -44,8 +44,8 @@
         <q-pagination
           v-model="current"
           color="black"
-          :max="10"
-          :max-pages="3"
+          :max="maxPage"
+          :max-pages="5"
           :boundary-numbers="true"
         />
       </div>
