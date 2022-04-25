@@ -158,6 +158,7 @@ export default {
         this.certificates = res.data.data.certificates
         this.honors = res.data.data.honors
         this.headerImageData = res.data.data.headerImageData
+        this.architecture = res.data.data.architecture
         console.log(this.timelines)
       } else console.log(res)
     },
