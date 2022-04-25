@@ -6,7 +6,7 @@
           <template v-if="left">
             <q-img
               class="col cursor-pointer"
-              :src="img"
+              :src="solutionCardData.img"
               style="border-radius:30px 0 0 30px;"
               img-class="img-hover"
             />
@@ -14,9 +14,9 @@
           <q-card-section class="col">
             <div class="flex column">
               <div class="my-card-content">
-                <div class="my-title">{{ title[global.isChinese] }}</div>
+                <div class="my-title">{{ solutionCardData.title[global.isChinese] }}</div>
                 <div class="txt">
-                  {{ content[global.isChinese] }}
+                  {{ solutionCardData.content[global.isChinese] }}
                 </div>
                 <q-btn size="1.25em" class="my-btn" outline push to="/solutions/commercial">了 解 更 多</q-btn>
               </div>
@@ -26,7 +26,7 @@
           <template v-if="!left">
             <q-img
               class="col cursor-pointer"
-              :src="img"
+              :src="solutionCardData.img"
               style="border-radius: 0 30px 30px 0;"
               img-class="img-hover"
             />

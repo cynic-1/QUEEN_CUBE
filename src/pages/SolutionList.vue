@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <video>
-      <source :src="videoSrc" type="video/mp4">
-    </video>
-  </div>
+  <HeaderImage :header-image-data="headerImageData"/>
   <div class="gt-xs q-gutter-y-xl" style="margin-top: 60px;">
     <template v-for="(item,idx) of solutionCardData">
       <SolutionCard :left="idx%2===0" :solution-card-data="item"/>
@@ -21,12 +17,17 @@ import api from "src/api/api";
 import select from "src/api/select";
 import SolutionCard from "components/SolutionCard"
 import productLCard from "components/ProductLCard"
+import HeaderImage from "components/HeaderImage";
 export default {
   name: "ProjectList",
   data() {
     return {
       global: select.global,
-      videoSrc: "",
+      headerImageData: {
+        headerImage: "",
+        headerLabel: "",
+        subHeaderLabel: ""
+      },
       solutionCardData: [
         {
           title : "智能家居",
@@ -58,12 +59,13 @@ export default {
   components: {
     SolutionCard,
     productLCard,
+    HeaderImage
   },
   methods: {
     async getSolutionLists() {
       let res = await api.getSolutionLists(this.tab, this.subtab, this.current)
       if (res.data.code === 0 && res.status === 200) {
-        this.videoSrc = res.data.data.videoSrc
+        this.headerImageData = res.data.data.headerImageData
         this.solutionCardData = res.data.data.solutionCardData
       }
     },

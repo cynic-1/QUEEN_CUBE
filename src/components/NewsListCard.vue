@@ -33,9 +33,6 @@ export default {
     }
   },
 
-  created() {
-    this.getNewsListCard()
-  },
   methods: {
     async getNewsListCard() {
       let res = await api.getNewsListCard(this.id)
@@ -47,6 +44,11 @@ export default {
       }
     },
   },
+  watch: {
+    id() {
+      this.getNewsListCard()
+    }
+  }
 }
 </script>
 

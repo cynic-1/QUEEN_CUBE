@@ -140,7 +140,7 @@ export default {
   },
   methods: {
     async getDownload() {
-      let res = await api.getDownload(this.tab, this.subtab, this.current)
+      let res = await api.getDownload(this.tab.label[0], this.subtab.label[0], this.current)
       if (res.data.code === 0 && res.status === 200) {
         this.headerImageData = res.data.data.headerImageData
         this.productLittleCardData = res.data.data.productLittleCardData
