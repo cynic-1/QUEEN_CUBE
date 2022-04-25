@@ -5,32 +5,32 @@
     <div class="text-center">
       <h4>{{History}}</h4>
     </div>
-    <ul class="timeline">
-      <template v-for="item of timelines">
-        <li class="li complete">
-          <div class="timestamp">
-            <span class="date">{{item.year}}</span>
-          </div>
-          <div class="status">
-            {{item.event[global.isChinese]}}
-          </div>
-        </li>
-      </template>
-    </ul>
+<!--    <ul class="timeline">-->
+<!--      <template v-for="item of timelines">-->
+<!--        <li class="li complete">-->
+<!--          <div class="timestamp">-->
+<!--            <span class="date">{{item.year}}</span>-->
+<!--          </div>-->
+<!--          <div class="status">-->
+<!--            {{item.event[global.isChinese]}}-->
+<!--          </div>-->
+<!--        </li>-->
+<!--      </template>-->
+<!--    </ul>-->
   </div>
   <div class="xs time-line-block">
     <div class="text-center">
       <h4>{{ History }}</h4>
     </div>
-    <q-timeline layout="loose" color="secondary">
-      <template v-for="(item, idx) of timelines">
-        <q-timeline-entry
-          :title="item.event[global.isChinese]"
-          :subtitle="item.year"
-          :side="getSide(idx)"
-        />
-      </template>
-    </q-timeline>
+<!--    <q-timeline layout="loose" color="secondary">-->
+<!--      <template v-for="(item, idx) of timelines">-->
+<!--        <q-timeline-entry-->
+<!--          :title="item.event[global.isChinese]"-->
+<!--          :subtitle="item.year"-->
+<!--          :side="getSide(idx)"-->
+<!--        />-->
+<!--      </template>-->
+<!--    </q-timeline>-->
   </div>
   <div class="certificate-block">
     <div class="text-center">
@@ -48,7 +48,7 @@
         @mouseleave="autoplay = true"
       >
         <template v-for="(item,idx) of certificates">
-          <q-carousel-slide :name="idx" :img-src="item"/>
+          <q-carousel-slide :name="idx+1" :img-src="item"/>
         </template>
       </q-carousel>
     </q-responsive>
@@ -74,18 +74,18 @@
       <h4>{{Architecture}}</h4>
     </div>
     <div class="architect-content">
-      <template v-for="x in 5">
+      <template v-for="item of architecture">
         <q-responsive :ratio="1.778">
           <div>
             <q-avatar size="16vw">
               <img src="https://cdn.quasar.dev/img/mountains.jpg" alt="头像">
             </q-avatar>
             <p class="text-h6" style="width: 100%;margin: auto;">
-              张三
-              <span class="float-right">CEO</span>
+              {{item.name[global.isChinese]}}
+              <span class="float-right">{{item.title[global.isChinese]}}</span>
             </p>
             <p class="text-h6" style="max-height: 200px;overflow-y: hidden;">
-              个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人……
+              {{item.description[global.isChinese]}}
             </p>
           </div>
         </q-responsive>
@@ -130,7 +130,21 @@ export default {
       "headerImage": "http://47.103.152.187:8000/media/information/RE4wB6x.jpg",
         "headerLabel": ["title", "\u6807\u9898"],
         "subHeaderLabel": ["slogan", "\u6807\u8bed"]
-      }
+      },
+      architecture: [
+        {
+          name: ['Andy', '安迪'],
+          title: ['CEO', 'CEO'], // 职称
+          img: '',
+          description: ['description description', '介绍介绍']
+        },
+        {
+          name: ['Andy', '安迪'],
+          title: ['CEO', 'CEO'], // 职称
+          img: '',
+          description: ['description description', '介绍介绍']
+        },
+      ]
     }
   },
   methods: {
