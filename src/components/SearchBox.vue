@@ -21,12 +21,29 @@ export default {
   methods: {
     search() {
       // console.log('search!')
-      this.$emit('search', this.text)
+      this.$router.push({
+        path: '/searchResults',
+        query: {
+          'word': this.text
+        }
+      })
+    },
+    getText() {
+      this.text = this.$route.query.word
     }
   },
   data() {
     return {
-      text: '',
+      text: "",
+    }
+  },
+  mounted() {
+    this.getText()
+  },
+  watch: {
+    '$route': function () {
+      this.text = this.$route.query.word
+      console.log(this.text)
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="q-pt-xl col text-center">
     <div class="text-center text-h5 q-pb-md">搜 索 结 果</div>
-    <SearchBox @search="changeWord($event)"/>
+    <SearchBox/>
   </div>
 
   <div class="page-width">
@@ -73,7 +73,7 @@ export default {
       panel: 'all',
       current: 1,
       maxPage: 3,
-      word: "",
+      word: this.$route.query.word,
       // 需要请求
       productLittleCardData: [
         {
@@ -169,6 +169,9 @@ export default {
     },
     word() {
       this.getSearchResults()
+    },
+    '$route': function () {
+      this.word = this.$route.query.word
     }
   }
 }
