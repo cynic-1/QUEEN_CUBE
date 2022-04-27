@@ -52,7 +52,7 @@
         <q-list>
 
           <template v-for="(menuItem, index) in headers" :key="index">
-            <q-item  clickable v-ripple>
+            <q-item  clickable v-ripple @click="jumpTo(menuItem.link)">
               <q-item-section>
                 {{ menuItem.label[global.isChinese] }}
               </q-item-section>
