@@ -35,7 +35,7 @@
           <ProductLCard :is-download="true" class="grid__item" :product-little-card-data="item"/>
         </template>
       </div>
-      <div class="xs q-gutter-y-md">
+      <div class="xs q-gutter-y-md flex flex-center">
         <template v-for="item in productLittleCardData">
           <ProductLCard :is-mobile="true" :is-download="true" :product-little-card-data="item"/>
         </template>
