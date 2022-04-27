@@ -5,7 +5,7 @@
       <SolutionCard :left="idx%2===0" :solution-card-data="item"/>
     </template>
   </div>
-  <div class="xs q-gutter-y-sm">
+  <div class="xs q-gutter-y-md">
     <template v-for="(item,idx) of solutionCardData">
       <SolutionCard :left="idx%2===0" :solution-card-data="item"/>
     </template>

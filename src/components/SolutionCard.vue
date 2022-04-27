@@ -1,5 +1,5 @@
 <template>
-  <div class="justify-center">
+  <div class="gt-xs justify-center">
     <q-card class="raw my-card" flat>
       <q-responsive :ratio="2.568">
         <q-card-section horizontal>
@@ -35,6 +35,23 @@
         </q-card-section>
       </q-responsive>
     </q-card>
+  </div>
+  <div class="xs">
+    <q-responsive :ratio="1">
+      <q-img
+        class="col"
+        :src="solutionCardData.img"
+        img-class="img-hover"
+      >
+        <div class="q-px-xs q-my-xl q-gutter-y-md my-img-mobile">
+          <div class="text-h3"> {{ solutionCardData.title[global.isChinese] }}</div>
+          <div class="txt text-h4">{{ solutionCardData.content[global.isChinese] }}</div>
+          <q-btn class="my-btn" outline push size="md"
+                 :to="solutionCardData.btn.link" :label="solutionCardData.btn.label[global.isChinese]"/>
+        </div>
+      </q-img>
+      <!--        <ProductLCard />-->
+    </q-responsive>
   </div>
 </template>
 
@@ -84,5 +101,8 @@ export default {
   font-size: 2.5rem
 .my-btn
   margin-right: 50%
-
+.my-img-mobile
+  position: absolute
+  top: 4vw
+  background-color: unset
 </style>
