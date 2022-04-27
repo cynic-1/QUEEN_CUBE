@@ -39,16 +39,16 @@
     </q-responsive>
   </q-card>
   <div class="xs">
-    <q-responsive :ratio="8/9">
+    <q-responsive :ratio="1">
       <q-img
         class="col"
         :src="productCardData.img"
         img-class="img-hover"
       >
         <div class="q-px-xs q-my-xl q-gutter-y-md my-img-mobile">
-          <div class="text-h4"> {{ productCardData.title[global.isChinese] }}</div>
-          <div class="txt">{{ productCardData.subtitle[global.isChinese] }}</div>
-          <q-btn outline push size="xs">{{learnMore}}</q-btn>
+          <div class="text-h3"> {{ productCardData.title[global.isChinese] }}</div>
+          <div class="txt text-h4">{{ productCardData.subtitle[global.isChinese] }}</div>
+          <q-btn outline push size="md">{{learnMore}}</q-btn>
         </div>
       </q-img>
 <!--        <ProductLCard />-->
@@ -115,7 +115,7 @@ export default {
   -webkit-line-clamp: 2
   -webkit-box-orient: vertical
 .my-little-cards
-  margin: 10% 0 0 0
+  margin: 0
   width: -webkit-fill-available
 .no-shrink
   flex-shrink: 0
