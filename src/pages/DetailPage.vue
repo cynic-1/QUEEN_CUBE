@@ -34,7 +34,7 @@ export default {
     async getDetailData() {
       let res = await api.getDetailData(this.type, this.id)
       if (res.data.code === 0 && res.status === 200) {
-        this.headerImageData.headerImage = res.data.data.headerImg
+        this.headerImageData.headerImage = res.data.data.headerImage
         this.title = res.data.data.title
         this.date = res.data.data.date
         this.content = res.data.data.content
@@ -45,7 +45,10 @@ export default {
     '$route': function () {
       this.type = this.$route.query.type
       this.id = this.$route.query.id
-    }
+    },
+    type() {
+      this.getDetailData()
+    },
   },
   created() {
     this.getDetailData()

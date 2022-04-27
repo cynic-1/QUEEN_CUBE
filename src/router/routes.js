@@ -34,7 +34,7 @@ const routes = [
         component: () => import('pages/AboutPage.vue')
       },
       {
-        path: 'detail/:id',
+        path: 'detail',
         component: () => import('pages/DetailPage.vue')
       },
     ]
