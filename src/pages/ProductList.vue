@@ -2,7 +2,7 @@
   <HeaderImage :header-image-data="headerImageData"/>
   <div class="q-ml-lg q-mt-lg q-gutter-lg">
     <template v-for="item of productLines">
-      <q-btn outline :label="item.label[global.isChinese]" size="1.25rem" padding="0 40px" @click="tab=item"
+      <q-btn outline :label="item.label[global.isChinese]" size="1.25rem" padding="0 40px" @click="jumpTo(item)"
       :class="{'bg-grey': tab===item}"/>
     </template>
     <q-tabs
@@ -130,6 +130,10 @@ export default {
         this.tab = this.productLines[0]
         this.subtab = this.tab.categories[0]
       }
+    },
+    jumpTo(item) {
+      this.$router.push('/productCenter/'+item.label[0])
+      this.tab = item
     }
   },
   watch: {
@@ -141,7 +145,7 @@ export default {
     },
     subtab(newSubtab) {
       this.getProductList()
-    }
+    },
   }
 }
 </script>
