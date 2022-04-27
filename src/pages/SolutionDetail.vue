@@ -19,7 +19,7 @@
           <HomeNewsCard class="grid__item" :home-news-card-data="item"/>
         </template>
       </div>
-      <div class="xs q-gutter-y-md">
+      <div class="xs flex flex-center q-gutter-y-md">
         <template v-for="item of homeNewsCardData">
           <HomeNewsCard :is-mobile="true" :home-news-card-data="item"/>
         </template>
