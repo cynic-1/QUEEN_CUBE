@@ -78,7 +78,7 @@
         <q-responsive :ratio="1.778">
           <div>
             <q-avatar size="16vw">
-              <img src="https://cdn.quasar.dev/img/mountains.jpg" alt="头像">
+              <img :src="item.img" alt="头像">
             </q-avatar>
             <p class="text-h6" style="width: 100%;margin: auto;">
               {{item.name[global.isChinese]}}
@@ -107,9 +107,7 @@ export default {
     SeparatorBlock
   },
   created() {
-    console.log("fuck you")
-    // this.getAbout()
-    console.log("wtf!")
+    this.getAbout()
   },
   data() {
     return {
