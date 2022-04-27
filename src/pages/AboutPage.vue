@@ -5,32 +5,32 @@
     <div class="text-center">
       <h4>{{History}}</h4>
     </div>
-<!--    <ul class="timeline">-->
-<!--      <template v-for="item of timelines">-->
-<!--        <li class="li complete">-->
-<!--          <div class="timestamp">-->
-<!--            <span class="date">{{item.year}}</span>-->
-<!--          </div>-->
-<!--          <div class="status">-->
-<!--            {{item.event[global.isChinese]}}-->
-<!--          </div>-->
-<!--        </li>-->
-<!--      </template>-->
-<!--    </ul>-->
+    <ul class="timeline">
+      <template v-for="item of timelines">
+        <li class="li complete">
+          <div class="timestamp">
+            <span class="date">{{item.year}}</span>
+          </div>
+          <div class="status">
+            {{item.events[global.isChinese]}}
+          </div>
+        </li>
+      </template>
+    </ul>
   </div>
   <div class="xs time-line-block">
     <div class="text-center">
       <h4>{{ History }}</h4>
     </div>
-<!--    <q-timeline layout="loose" color="secondary">-->
-<!--      <template v-for="(item, idx) of timelines">-->
-<!--        <q-timeline-entry-->
-<!--          :title="item.event[global.isChinese]"-->
-<!--          :subtitle="item.year"-->
-<!--          :side="getSide(idx)"-->
-<!--        />-->
-<!--      </template>-->
-<!--    </q-timeline>-->
+    <q-timeline layout="loose" color="secondary">
+      <template v-for="(item, idx) of timelines">
+        <q-timeline-entry
+          :title="item.events[global.isChinese]"
+          :subtitle="item.year"
+          :side="getSide(idx)"
+        />
+      </template>
+    </q-timeline>
   </div>
   <div class="certificate-block">
     <div class="text-center">
@@ -119,7 +119,7 @@ export default {
         {
           "year": 2012,
           "events": ["English", "\u4e2d\u6587"]
-        }
+        },
       ],
       "certificates": ["http://47.103.152.187:8000/media/certificate/RE4wB6x.jpg"],
       "honors": [{"img": "http://47.103.152.187:8000/media/honour/RE4wB6x.jpg",
