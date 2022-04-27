@@ -13,7 +13,7 @@
               <q-btn stretch flat :label="item.label[global.isChinese]" :to="item.link"/>
               <div class="childMenu" v-if="item.child.length">
                 <template v-for="it of item.child">
-                  <div class="sub-menu">
+                  <div class="sub-menu" @click="jumpTo(it.link)">
                     {{it.label[global.isChinese]}}
                   </div>
                 </template>
@@ -132,6 +132,9 @@ export default defineComponent({
         this.headers = res.data.data.headers
         this.logo = res.data.data.logo
       }
+    },
+    jumpTo(l) {
+      this.$router.push(l)
     }
   },
   created() {

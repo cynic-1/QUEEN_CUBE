@@ -18,11 +18,11 @@ const routes = [
         component: () => import('pages/SearchResults.vue')
       },
       {
-        path: 'download',
+        path: 'download/:name',
         component: () => import('pages/DownloadPage.vue')
       },
       {
-        path: 'productCenter',
+        path: 'productCenter/:id',
         component: () => import('pages/ProductList.vue')
       },
       {
