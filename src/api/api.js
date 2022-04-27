@@ -103,5 +103,16 @@ export default {
         'panel': panel
       }
     }))
+  },
+  // TODO
+  getDetailData(type, id) {
+    return request({
+      url: baseURL+"/getDetailData",
+      method: 'get',
+      params: {
+        type: type,
+        id: id
+      }
+    })
   }
 }
