@@ -118,7 +118,6 @@ export default {
     },
     jumpTo(item) {
       this.$router.push('/productCenter/'+item.label[0])
-      this.tab = item
     },
   },
   watch: {
@@ -126,11 +125,14 @@ export default {
       this.getProductList()
     },
     tab(newTab) {
-      this.subtab = newTab.categories[0]
+      this.subtab = this.$route.params.product || newTab.categories[0]
     },
     subtab(newSubtab) {
       this.getProductList()
     },
+    '$route': function () {
+      this.tab = this.productLines.find(ele => ele.label[0] === this.$route.params.productLine) || this.productLines[0]
+    }
   }
 }
 </script>
