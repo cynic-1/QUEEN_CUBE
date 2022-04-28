@@ -115,7 +115,7 @@ export default {
   -webkit-line-clamp: 2
   -webkit-box-orient: vertical
 .my-little-cards
-  margin: 0
+  margin: 3vw 0
   width: -webkit-fill-available
 .no-shrink
   flex-shrink: 0
