@@ -1,6 +1,6 @@
 <template>
   <div class="q-pt-xl col text-center">
-    <div class="text-center text-h5 q-pb-md">搜 索 结 果</div>
+    <div class="text-center text-h5 q-pb-md">{{SearchResults}}</div>
     <SearchBox/>
   </div>
 
@@ -8,23 +8,23 @@
     <div class="q-pt-md q-gutter-y-lg">
 
       <div class="gt-xs q-gutter-lg q-mb-xl" style="padding-left: 0.75rem;">
-        <q-btn outline label="所有" padding="0 40px" @click="panel='all'"
+        <q-btn outline :label="All" padding="0 40px" @click="panel='all'"
                :class="{'bg-grey': panel==='all'}"/>
-        <q-btn outline label="产品" padding="0 40px" @click="panel='product'"
+        <q-btn outline :label="Product" padding="0 40px" @click="panel='product'"
                :class="{'bg-grey': panel==='product'}"/>
-        <q-btn outline label="案例" padding="0 40px" @click="panel='solution'"
+        <q-btn outline :label="Solution" padding="0 40px" @click="panel='solution'"
                :class="{'bg-grey': panel==='solution'}"/>
-        <q-btn outline label="新闻" padding="0 40px" @click="panel='news'"
+        <q-btn outline :label="News" padding="0 40px" @click="panel='news'"
                :class="{'bg-grey': panel==='news'}"/>
       </div>
       <div class="xs flex justify-around q-mb-lg">
-        <q-btn outline label="所有" padding="0 20px" @click="panel='all'"
+        <q-btn outline :label="All" padding="0 20px" @click="panel='all'"
                :class="{'bg-grey': panel==='all'}"/>
-        <q-btn outline label="产品" padding="0 20px" @click="panel='product'"
+        <q-btn outline :label="Product" padding="0 20px" @click="panel='product'"
                :class="{'bg-grey': panel==='product'}"/>
-        <q-btn outline label="案例" padding="0 20px" @click="panel='solution'"
+        <q-btn outline :label="Solution" padding="0 20px" @click="panel='solution'"
                :class="{'bg-grey': panel==='solution'}"/>
-        <q-btn outline label="新闻" padding="0 20px" @click="panel='news'"
+        <q-btn outline :label="News" padding="0 20px" @click="panel='news'"
                :class="{'bg-grey': panel==='news'}"/>
       </div>
       <div class="gt-xs grid">
@@ -60,6 +60,7 @@
 import ProductLCard from "components/ProductLCard";
 import SearchBox from "components/SearchBox";
 import api from "src/api/api";
+import select from "src/api/select"
 import HomeNewsCard from "components/HomeNewsCard";
 export default {
   name: "SearchResult",
@@ -70,10 +71,11 @@ export default {
   },
   data() {
     return {
+      global: select.global,
       panel: 'all',
       current: 1,
       maxPage: 3,
-      word: this.$route.query.word,
+      word: this.$route.query.word || "",
       // 需要请求
       productLittleCardData: [
         {
@@ -156,9 +158,6 @@ export default {
         this.maxPage = res.data.data.maxPage
       }
     },
-    changeWord(word) {
-      this.word = word
-    }
   },
   watch: {
     current() {
@@ -172,6 +171,23 @@ export default {
     },
     '$route': function () {
       this.word = this.$route.query.word
+    }
+  },
+  computed: {
+    SearchResults() {
+      return this.global.isChinese ? "搜 索 结 果" : "Search Results"
+    },
+    All() {
+      return this.global.isChinese ? "所有" : "All"
+    },
+    Product() {
+      return this.global.isChinese ? "产品" : "Product"
+    },
+    Solution() {
+      return this.global.isChinese ? "案例" : "Solution"
+    },
+    News() {
+      return this.global.isChinese ? "新闻" : "News"
     }
   }
 }
