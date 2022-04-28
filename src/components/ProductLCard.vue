@@ -18,15 +18,15 @@
           <template v-if="isDownload">
             <template v-if="productLittleCardData.handbook.length && productLittleCardData.driver.length">
               <q-btn-group outline push class="justify-center text-weight-bold" style="width: 90%;">
-                <q-btn no-wrap outline push :label="guidebook" :to="productLittleCardData.handbook" padding="10px 20%"/>
-                <q-btn no-wrap outline push :label="driver" :to="productLittleCardData.driver" padding="10px 20%"/>
+                <q-btn no-wrap outline push :label="guidebook" @click="download(productLittleCardData.handbook)" padding="10px 20%"/>
+                <q-btn no-wrap outline push :label="driver" @click="download(productLittleCardData.driver)" padding="10px 20%"/>
               </q-btn-group>
             </template>
             <template v-else-if="productLittleCardData.handbook.length">
-              <q-btn no-wrap outline push :label="guidebookDownload" :to="productLittleCardData.handbook" style="width: 90%"/>
+              <q-btn no-wrap outline push :label="guidebookDownload" @click="download(productLittleCardData.handbook)" style="width: 90%"/>
             </template>
             <template v-else-if="productLittleCardData.driver.length">
-              <q-btn no-wrap outline push :label="driverDownload" :to="productLittleCardData.driver" style="width: 90%"/>
+              <q-btn no-wrap outline push :label="driverDownload" @click="download(productLittleCardData.driver)" style="width: 90%"/>
             </template>
           </template>
           <template v-else>
@@ -67,6 +67,14 @@ export default {
   methods: {
     jumpTo() {
       this.$router.push(this.link)
+    },
+    download(l) {
+      const url = window.URL.createObjectURL(new Blob([l]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', this.title); //or any other extension
+      document.body.appendChild(link);
+      link.click();
     }
   },
   computed: {
