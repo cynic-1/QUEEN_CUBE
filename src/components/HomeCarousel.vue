@@ -20,7 +20,7 @@
             {{item.subtitle[global.isChinese]}}
           </div>
           <div class="q-pt-lg text-white q-gutter-md">
-            <template v-for="it of item.btns">
+            <template v-for="it of item.btnLabels">
               <q-btn outline :label="it.label[global.isChinese]" :to="it.link"/>
             </template>
           </div>
