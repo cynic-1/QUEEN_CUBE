@@ -2,16 +2,23 @@
   <HeaderImage :header-image-data="headerImageData"/>
   <div class="q-gutter-y-xl q-mt-xl">
 
-    <NewsListCard :id="newsListIds[0]"/>
-    <div class="gt-xs" style="display: flex; width: 80vw; margin: 48px auto">
-      <NewsListCard :is-small="true" :id="newsListIds[1]"/>
-      <NewsListCard :is-small="true" :id="newsListIds[2]"/>
-    </div>
-    <div class="xs">
-      <NewsListCard :id="newsListIds[1]"/>
-      <NewsListCard :id="newsListIds[2]"/>
-    </div>
-    <NewsListCard :id="newsListIds[3]"/>
+    <template v-if="newsListIds.length === 4">
+      <NewsListCard :id="newsListIds[0]"/>
+      <div class="gt-xs" style="display: flex; width: 80vw; margin: 48px auto">
+        <NewsListCard :is-small="true" :id="newsListIds[1]"/>
+        <NewsListCard :is-small="true" :id="newsListIds[2]"/>
+      </div>
+      <div class="xs">
+        <NewsListCard :id="newsListIds[1]"/>
+        <NewsListCard :id="newsListIds[2]"/>
+      </div>
+      <NewsListCard :id="newsListIds[3]"/>
+    </template>
+    <template v-else>
+      <template v-for="id of newsListIds">
+        <NewsListCard :id="id" />
+      </template>
+    </template>
 
     <div class="q-pa-lg flex flex-center">
       <q-pagination
@@ -65,7 +72,7 @@ export default {
   },
   watch: {
     current() {
-      this.getSearchResults()
+      this.getNewsListIds()
     },
   }
 }
