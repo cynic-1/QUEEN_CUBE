@@ -2,7 +2,12 @@
   <HeaderImage :header-image-data="headerImageData"/>
   <div class="q-gutter-y-xl q-mt-xl">
 
-    <template v-if="newsListIds.length === 4">
+    <template v-if="newsListIds.length < 4">
+      <template v-for="id of newsListIds">
+        <NewsListCard :id="id" />
+      </template>
+    </template>
+    <template v-else>
       <NewsListCard :id="newsListIds[0]"/>
       <div class="gt-xs" style="display: flex; width: 80vw; margin: 48px auto">
         <NewsListCard :is-small="true" :id="newsListIds[1]"/>
@@ -14,11 +19,7 @@
       </div>
       <NewsListCard :id="newsListIds[3]"/>
     </template>
-    <template v-else>
-      <template v-for="id of newsListIds">
-        <NewsListCard :id="id" />
-      </template>
-    </template>
+
 
     <div class="q-pa-lg flex flex-center">
       <q-pagination

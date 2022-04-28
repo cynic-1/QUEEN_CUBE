@@ -16,7 +16,10 @@ import select from "src/api/select";
 export default {
   name: "NewsListCard",
   props: {
-    id: Number,
+    id: {
+      type: Number,
+      default: 1
+    },
     isSmall: {
       type: Boolean,
       default: false
@@ -48,6 +51,9 @@ export default {
     id() {
       this.getNewsListCard()
     }
+  },
+  created() {
+    this.getNewsListCard()
   }
 }
 </script>
