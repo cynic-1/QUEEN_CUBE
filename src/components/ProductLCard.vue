@@ -5,6 +5,7 @@
         :src="productLittleCardData.img"
         style="border-radius: 8px 8px 0 0"
         img-class="img-hover"
+        ratio="1.778"
       />
 
       <q-card-section class="items-center my-text-1vw">

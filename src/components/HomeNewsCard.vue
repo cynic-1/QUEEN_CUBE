@@ -5,6 +5,7 @@
       :src="homeNewsCardData.img"
       style="border-radius: 8px 8px 0 0"
       img-class="img-hover"
+      ratio="1.778"
     />
     <div class="q-gutter-y-md q-px-lg">
       <div class="l-title q-pt-lg">
