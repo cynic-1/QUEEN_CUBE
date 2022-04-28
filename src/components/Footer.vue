@@ -38,12 +38,12 @@
     <div class="flex justify-center">
       <div class="xs q-py-sm flex justify-around">
         <template v-for="coop of cooperators">
-          <img :src="coop.logo" height="13px" style="margin-left: 5px; margin-top: 5px;">
+          <img :src="coop.logo" height="13" style="margin-left: 5px; margin-top: 5px;" alt="coop">
         </template>
       </div>
       <div class="gt-xs q-pt-md q-pb-xl flex justify-around">
         <template v-for="coop of cooperators">
-          <img :src="coop.logo" height="30px" style="margin-left: 20px; margin-top: 10px;">
+          <img :src="coop.logo" height="30" style="margin-left: 20px; margin-top: 10px;" alt="coop">
         </template>
       </div>
     </div>
