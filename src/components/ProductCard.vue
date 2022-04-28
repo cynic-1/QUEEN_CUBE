@@ -17,7 +17,7 @@
               <div class="txt">
                 {{ productCardData.subtitle[global.isChinese] }}
               </div>
-              <q-btn size="1.25em" class="my-btn" outline push>{{learnMore}}</q-btn>
+              <q-btn size="1.25em" class="my-btn" outline push :to="'/productCenter/'+productCardData.title[0]">{{learnMore}}</q-btn>
             </div>
             <div class="my-little-cards x-scroll">
               <template v-for="item of productCardData.productLittleCardData">
@@ -48,7 +48,7 @@
         <div class="q-px-xs q-my-xl q-gutter-y-md my-img-mobile">
           <div class="text-h3"> {{ productCardData.title[global.isChinese] }}</div>
           <div class="txt text-h4">{{ productCardData.subtitle[global.isChinese] }}</div>
-          <q-btn outline push size="md">{{learnMore}}</q-btn>
+          <q-btn outline push size="md" :to="'/productCenter/'+productCardData.title[0]">{{learnMore}}</q-btn>
         </div>
       </q-img>
 <!--        <ProductLCard />-->

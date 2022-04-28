@@ -54,27 +54,12 @@ export default {
           categories: [
             {
               label: ["software", "软件",],
-              link: ""
             },
             {
               label: ["软件","software"],
-              link: ""
             },
           ],
         },
-        {
-          label: ["Productline2", "产品线2"],
-          categories: [
-            {
-              label: ["软件","software"],
-              link: ""
-            },
-            {
-              label: ["软件","software"],
-              link: ""
-            },
-          ],
-        }
       ],
       headerImageData: {
         headerImage: "https://cdn.quasar.dev/img/parallax2.jpg",
@@ -127,14 +112,14 @@ export default {
       let res = await api.getProductLines()
       if (res.data.code === 0 && res.status === 200) {
         this.productLines = res.data.data.productLines
-        this.tab = this.productLines[0]
-        this.subtab = this.tab.categories[0]
+        this.tab = this.productLines.find(ele => ele.label[0] === this.$route.params.productLine) || this.productLines[0]
+        this.subtab = this.tab.categories.find(ele => ele.label[0] === this.$route.params.product) || this.tab.categories[0]
       }
     },
     jumpTo(item) {
       this.$router.push('/productCenter/'+item.label[0])
       this.tab = item
-    }
+    },
   },
   watch: {
     current() {
