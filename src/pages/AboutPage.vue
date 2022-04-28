@@ -61,7 +61,7 @@
         <template v-for="item of honors">
           <q-responsive :ratio="1.778">
             <div class="text-center">
-              <q-img :src="item.img"/>
+              <q-img :src="item.img" height="100%"/>
               <span>{{item.label[global.isChinese]}}</span>
             </div>
           </q-responsive>

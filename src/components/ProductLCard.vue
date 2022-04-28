@@ -56,12 +56,6 @@ export default {
   data () {
     return {
       global: select.global,
-      title: "KNX毅系列面板",
-      content: "3 种颜色可选（深空灰/玫瑰金...)",
-      image: "https://cdn.quasar.dev/img/mountains.jpg",
-      link: "",
-      handbook: "撒旦发射点发射点",
-      driver: "123"
     }
   },
   methods: {
