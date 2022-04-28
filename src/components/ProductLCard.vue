@@ -1,5 +1,5 @@
 <template>
-    <q-card class="my-card cursor-pointer" :class="{'my-card-mobile': isMobile}" bordered flat @click="jumpTo">
+    <q-card class="my-card cursor-pointer" :class="{'my-card-mobile': isMobile}" bordered flat>
       <q-img
         class="col"
         :src="productLittleCardData.img"
@@ -66,7 +66,7 @@ export default {
       const url = window.URL.createObjectURL(new Blob([l]));
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', this.title); //or any other extension
+      link.setAttribute('download', this.productLittleCardData.title[0]); //or any other extension
       document.body.appendChild(link);
       link.click();
     }
