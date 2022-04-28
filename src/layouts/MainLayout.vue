@@ -5,7 +5,7 @@
       <q-toolbar>
         <div class="q-pr-lg">
           <q-avatar>
-            <img alt="logo" :src="logo">
+            <img alt="logo" src="QUEEN_CUBE_LOGO.png">
           </q-avatar>
         </div>
           <template v-for="item of headers">

@@ -10,18 +10,18 @@
         </template>
       </div>
 
-      <div class="row q-pl-md xs">
-        <template v-for="x in 2">
-          <div class="q-pr-sm">
-            <img alt="Official_Account_QR"  src="Official_Accounts_QR.jpg" width="30">
-          </div>
-        </template>
+      <div class="row xs">
+        <div style="margin: auto;">
+          <template v-for="x in 2">
+            <img alt="Official_Account_QR"  src="Official_Accounts_QR.jpg" width="60">
+          </template>
+        </div>
       </div>
       <div class="q-pr-xl gt-xs text-h6">
         {{Address}}: {{address[global.isChinese]}} <br>
         Email: <span>{{email}}</span>
       </div>
-      <div class="q-pr-sm xs" style="font-size: xx-small">
+      <div class="q-pa-sm xs" style="font-size: xx-small; white-space: pre-line;">
         {{Address}}: {{address[global.isChinese]}} <br>
         Email: <span>{{email}}</span>
       </div>
@@ -81,7 +81,7 @@ export default {
           logo: 'BGY_LOGO.png',
         },
       ],
-      address: ['Huaxin Tiandi, No. 200 Tianlin Road, Xuhui District, Shanghai', '上海市徐汇区田林路200号华鑫天地'],
+      address: ['Huaxin Tiandi, No. 200 Tianlin Road\n, Xuhui District, Shanghai', '上海市徐汇区田林路200号华鑫天地'],
       email: 'Info@queencube.cn',
     }
   },
