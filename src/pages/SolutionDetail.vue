@@ -1,16 +1,15 @@
 <template>
   <q-tabs align="left" class="q-px-xl q-py-md" v-model="tab">
     <template v-for="item of solutionTabs">
-      <q-route-tab :to="item.link" :name="item.label[0]" class="tabs">
+      <q-tab :name="item.label[0]" class="tabs" @click="jumpTo(item.label[0])">
         {{item.label[global.isChinese]}}
-      </q-route-tab>
+      </q-tab>
     </template>
   </q-tabs>
-  <div>
-    <video controls>
-      <source :src="videoSrc" type="video/mp4">
-    </video>
-  </div>
+  <video controls>
+    <source :src="videoSrc" type="video/mp4">
+  </video>
+<!--  <video controls="" autoplay="" name="media"><source src="http://47.103.152.187:8000/media/resolution_video/7a349e9843896981ea1fda8172071f24_jOud2d4.mp4" type="video/mp4"></video>-->
   <SeparatorBlock/>
   <div class="page-width">
     <div class="q-pt-md">
@@ -102,6 +101,7 @@ export default {
         // this.solutions = res.data.data.solutions
         this.videoSrc = res.data.data.videoSrc
         this.homeNewsCardData = res.data.data.homeNewsCardData
+        document.querySelector('video').load()
       }
     },
     async getSolutionTabs() {
@@ -110,7 +110,11 @@ export default {
         this.solutionTabs = res.data.data.solutionTabs
         this.tab = this.solutionTabs[0].label[0]
       }
-    }
+    },
+    jumpTo(item) {
+      this.$router.push('/solutions/'+item)
+      this.tab = item
+    },
   },
   watch:{
     tab() {
