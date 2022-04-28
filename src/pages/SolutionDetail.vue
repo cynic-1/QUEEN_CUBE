@@ -108,17 +108,19 @@ export default {
       let res = await api.getSolutionTabs()
       if (res.data.code === 0 && res.status === 200) {
         this.solutionTabs = res.data.data.solutionTabs
-        this.tab = this.solutionTabs[0].label[0]
+        this.tab = this.$route.params.name || this.solutionTabs[0].label[0]
       }
     },
     jumpTo(item) {
       this.$router.push('/solutions/'+item)
-      this.tab = item
     },
   },
   watch:{
     tab() {
       this.getSolutionDetail()
+    },
+    '$route': function () {
+      this.tab = this.$route.params.name
     }
   }
 }
