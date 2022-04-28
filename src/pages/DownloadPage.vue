@@ -162,10 +162,13 @@ export default {
       this.getDownload()
     },
     tab(newTab) {
-      this.subtab = newTab.categories[0]
+      this.subtab = this.$route.params.product || newTab.categories[0]
     },
     subtab() {
       this.getDownload()
+    },
+    '$route': function () {
+      this.tab = this.productLines.find(ele => ele.label[0] === this.$route.params.productLine) || this.productLines[0]
     }
   }
 }

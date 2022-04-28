@@ -18,7 +18,7 @@ const routes = [
         component: () => import('pages/SearchResults.vue')
       },
       {
-        path: 'download/:name',
+        path: 'download/:productLine?/:product?',
         component: () => import('pages/DownloadPage.vue')
       },
       {
