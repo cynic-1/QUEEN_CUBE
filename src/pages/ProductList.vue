@@ -6,11 +6,12 @@
       :class="{'bg-grey': tab===item}"/>
     </template>
     <q-tabs
-      v-model="subtab"
       align="left"
     >
       <template v-for="it of tab.categories">
-        <q-tab :name="it" :label="it.label[global.isChinese]"/>
+        <q-route-tab :to="'/productCenter/'+tab.label[0]+'/'+it.label[0]">
+          {{it.label[global.isChinese]}}
+        </q-route-tab>
       </template>
     </q-tabs>
     <div class="q-gutter-y-lg" style="overflow-x: auto">
@@ -96,11 +97,11 @@ export default {
   },
   created() {
     this.getProductLines()
-    this.getProductList()
+    // this.getProductList()
   },
   methods: {
     async getProductList() {
-      let res = await api.getProductList(this.tab.label[0], this.subtab.label[0], this.current)
+      let res = await api.getProductList(this.tab.label[0], this.subtab, this.current)
       if (res.data.code === 0 && res.status === 200) {
         // this.categories = res.data.data.categories
         this.headerImageData = res.data.data.headerImageData
@@ -113,11 +114,11 @@ export default {
       if (res.data.code === 0 && res.status === 200) {
         this.productLines = res.data.data.productLines
         this.tab = this.productLines.find(ele => ele.label[0] === this.$route.params.productLine) || this.productLines[0]
-        this.subtab = this.tab.categories.find(ele => ele.label[0] === this.$route.params.product) || this.tab.categories[0]
+        this.subtab = this.$route.params.product || this.tab.categories[0].label[0]
       }
     },
     jumpTo(item) {
-      this.$router.push('/productCenter/'+item.label[0])
+      this.$router.push('/productCenter/'+item.label[0]+'/'+item.categories[0].label[0])
     },
   },
   watch: {
@@ -125,13 +126,14 @@ export default {
       this.getProductList()
     },
     tab(newTab) {
-      this.subtab = this.$route.params.product || newTab.categories[0]
+      this.subtab = this.$route.params.product || newTab.categories[0].label[0]
     },
-    subtab(newSubtab) {
+    subtab() {
       this.getProductList()
     },
     '$route': function () {
       this.tab = this.productLines.find(ele => ele.label[0] === this.$route.params.productLine) || this.productLines[0]
+      this.subtab = this.$route.params.product || this.tab.categories[0].label[0]
     }
   }
 }
