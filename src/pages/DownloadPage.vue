@@ -7,11 +7,12 @@
                :class="{'bg-grey': tab===item}"/>
       </template>
       <q-tabs
-        v-model="subtab"
         align="left"
       >
         <template v-for="it of tab.categories">
-          <q-tab :name="it" :label="it.label[global.isChinese]"/>
+          <q-route-tab :to="'/download/'+tab.label[0]+'/'+it.label[0]">
+            {{it.label[global.isChinese]}}
+          </q-route-tab>
         </template>
       </q-tabs>
     </div>
@@ -21,11 +22,12 @@
                :class="{'bg-grey': tab===item}"/>
       </template>
       <q-tabs
-        v-model="subtab"
         align="left"
       >
         <template v-for="it of tab.categories">
-          <q-tab :name="it" :label="it.label[global.isChinese]"/>
+          <q-route-tab :to="'/download/'+tab.label[0]+'/'+it.label[0]">
+            {{it.label[global.isChinese]}}
+          </q-route-tab>
         </template>
       </q-tabs>
     </div>
@@ -136,11 +138,11 @@ export default {
   },
   created() {
     this.getProductLines()
-    this.getDownload()
+    // this.getProductList()
   },
   methods: {
     async getDownload() {
-      let res = await api.getDownload(this.tab.label[0], this.subtab.label[0], this.current)
+      let res = await api.getDownload(this.tab.label[0], this.subtab, this.current)
       if (res.data.code === 0 && res.status === 200) {
         this.headerImageData = res.data.data.headerImageData
         this.productLittleCardData = res.data.data.productLittleCardData
@@ -152,23 +154,27 @@ export default {
       let res = await api.getProductLines()
       if (res.data.code === 0 && res.status === 200) {
         this.productLines = res.data.data.productLines
-        this.tab = this.productLines[0]
-        this.subtab = this.tab.categories[0]
+        this.tab = this.productLines.find(ele => ele.label[0] === this.$route.params.productLine) || this.productLines[0]
+        this.subtab = this.$route.params.product || this.tab.categories[0].label[0]
       }
-    }
+    },
+    jumpTo(item) {
+      this.$router.push('/download/'+item.label[0]+'/'+item.categories[0].label[0])
+    },
   },
   watch: {
     current() {
       this.getDownload()
     },
     tab(newTab) {
-      this.subtab = this.$route.params.product || newTab.categories[0]
+      this.subtab = this.$route.params.product || newTab.categories[0].label[0]
     },
     subtab() {
       this.getDownload()
     },
     '$route': function () {
       this.tab = this.productLines.find(ele => ele.label[0] === this.$route.params.productLine) || this.productLines[0]
+      this.subtab = this.$route.params.product || this.tab.categories[0].label[0]
     }
   }
 }
