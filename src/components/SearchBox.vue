@@ -1,13 +1,13 @@
 <template>
   <div class="xs q-pb-sm" style="width: 60%; display: inline-block;">
-    <q-input dense outlined color="black" placeholder="键入内容" v-model="text" @keyup.enter="search">
+    <q-input dense outlined color="black" :placeholder="PlaceHolder" v-model="text" @keyup.enter="search">
       <template v-slot:append>
         <q-icon class="cursor-pointer" name="search" @click="search"/>
       </template>
     </q-input>
   </div>
   <div class="gt-xs q-pb-md" style="width: 30%; display: inline-block;">
-    <q-input dense outlined color="black" placeholder="键入内容" v-model="text" @keyup.enter="search">
+    <q-input dense outlined color="black" :placeholder="PlaceHolder" v-model="text" @keyup.enter="search">
       <template v-slot:append>
         <q-icon class="cursor-pointer" name="search" @click="search"/>
       </template>
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import select from "../api/select"
+
 export default {
   name: "SearchBox",
   methods: {
@@ -35,6 +37,7 @@ export default {
   data() {
     return {
       text: "",
+      global: select.global
     }
   },
   mounted() {
@@ -44,6 +47,11 @@ export default {
     '$route': function () {
       this.text = this.$route.query.word
       console.log(this.text)
+    }
+  },
+  computed: {
+    PlaceHolder() {
+      return this.global.isChinese ? "键入内容" : "Input Content"
     }
   }
 }

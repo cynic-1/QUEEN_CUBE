@@ -1,10 +1,10 @@
 <template>
   <div style="background-color: #ADB0AF;" class="col text-center">
     <div class="gt-xs q-py-md text-white text-h5">
-      在此搜索您感兴趣的内容
+      {{PlaceHolder}}
     </div>
     <div class="xs q-py-sm text-white text-h6">
-      在此搜索您感兴趣的内容
+      {{PlaceHolder}}
     </div>
     <SearchBox/>
   </div>
@@ -12,6 +12,7 @@
 
 <script>
 import SearchBox from "components/SearchBox";
+import select from "../api/select"
 export default {
   name: "HomeSearch",
   components: {
@@ -20,11 +21,14 @@ export default {
   data() {
     return {
       text: '',
+      global: select.global
     }
   },
   methods: {
-    search() {
-      console.log('search!')
+  },
+  computed: {
+    PlaceHolder() {
+      return this.global.isChinese ? "在此搜索您感兴趣的内容" : "Search Here"
     }
   }
 }
