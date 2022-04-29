@@ -1,15 +1,16 @@
 <template>
   <HeaderImage :header-image-data="headerImageData"/>
   <div class="page-width">
-    <h4>{{title}}</h4>
-    <h6>{{date}}</h6>
-    <div v-html="content" class="htmlBox"></div>
+    <h4>{{title[global.isChinese]}}</h4>
+    <h6>{{date[global.isChinese]}}</h6>
+    <div v-html="content[global.isChinese]" class="htmlBox"></div>
   </div>
 </template>
 
 <script>
 import HeaderImage from "components/HeaderImage";
 import api from "../api/api.js"
+import select from "../api/select"
 export default {
   name: "DetailPage",
   components: {
@@ -17,6 +18,7 @@ export default {
   },
   data() {
     return {
+      global: select.global,
       type: this.$route.query.type,
       id: this.$route.query.id,
       // 需请求
@@ -25,9 +27,9 @@ export default {
         headerLabel: "",
         subHeaderLabel: ""
       },
-      title: "标题标题",
-      date: "2022年5月1日",
-      content: ""
+      title: ["",""],
+      date: ["", ""],
+      content: ["", ""]
     }
   },
   methods: {
