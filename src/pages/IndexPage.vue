@@ -59,156 +59,53 @@ export default defineComponent({
   data() {
     return {
       global: select.global,
-      solutionText: ['description', "简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要" +
-      "介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍"],
+      solutionText: ['', ''],
       homeCarouselData: [{
-        title: ['title', "主标题"],
-        subtitle: ['subtitle', "副标题"],
+        title: ['', ""],
+        subtitle: ['', ""],
         img: "",
         btns: [
           {
-            label: ["btn1", '按钮1'],
-            link: ""
-          },
-          {
-            label: ["btn1", '按钮1'],
-            link: ""
-          },
-          {
-            label: ["btn1", '按钮1'],
+            label: ["", ''],
             link: ""
           },
         ]
       },],
       productCardData: [
         {
-          title : "智能家居",
-          subtitle : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
-            "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
-          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+          title : "",
+          subtitle : "",
+          img: "",
           productLittleCardData: [
             {
-              title: "KNX毅系列面板",
-              content: "3 种颜色可选（深空灰/玫瑰金...)",
-              img: "https://cdn.quasar.dev/img/mountains.jpg",
+              title: "",
+              content: "",
+              img: "",
               link: "",
-              handbook: "撒旦发射点发射点",
-              driver: "123"
-            },
-            {
-              title: "KNX毅系列面板",
-              content: "3 种颜色可选（深空灰/玫瑰金...)",
-              img: "https://cdn.quasar.dev/img/mountains.jpg",
-              link: "",
-              handbook: "撒旦发射点发射点",
-              driver: "123"
-            },
-            {
-              title: "KNX毅系列面板",
-              content: "3 种颜色可选（深空灰/玫瑰金...)",
-              img: "https://cdn.quasar.dev/img/mountains.jpg",
-              link: "",
-              handbook: "撒旦发射点发射点",
-              driver: "123"
-            },
-          ]
-        },
-        {
-          title : "智能家居",
-          subtitle : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
-            "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
-          img: "https://cdn.quasar.dev/img/parallax2.jpg",
-          productLittleCardData: [
-            {
-              title: "KNX毅系列面板",
-              content: "3 种颜色可选（深空灰/玫瑰金...)",
-              img: "https://cdn.quasar.dev/img/mountains.jpg",
-              link: "",
-              handbook: "撒旦发射点发射点",
-              driver: "123"
-            },
-            {
-              title: "KNX毅系列面板",
-              content: "3 种颜色可选（深空灰/玫瑰金...)",
-              img: "https://cdn.quasar.dev/img/mountains.jpg",
-              link: "",
-              handbook: "撒旦发射点发射点",
-              driver: "123"
-            },
-            {
-              title: "KNX毅系列面板",
-              content: "3 种颜色可选（深空灰/玫瑰金...)",
-              img: "https://cdn.quasar.dev/img/mountains.jpg",
-              link: "",
-              handbook: "撒旦发射点发射点",
-              driver: "123"
+              handbook: "",
+              driver: ""
             },
           ]
         },
       ],
       solutionCardData: [
         {
-          label: "智能家居",
-          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+          label: "",
+          img: "",
           btn: {
-            label: "进入了解",
+            label: "",
             link: ""
           }
         },
-        {
-          label: "智能家居",
-          img: "https://cdn.quasar.dev/img/parallax2.jpg",
-          btn: {
-            label: "进入了解",
-            link: ""
-          }
-        },
-        {
-          label: "智能家居",
-          img: "https://cdn.quasar.dev/img/parallax2.jpg",
-          btn: {
-            label: "进入了解",
-            link: ""
-          }
-        }
       ],
       homeNewsCardData: [
         {
-          title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
-          content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
-            "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
-            "既有住宅和社区配套设施…",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          date: "2022年4月3日",
+          title: "",
+          content: "",
+          img: "",
+          date: "",
           link: ""
         },
-        {
-          title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
-          content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
-            "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
-            "既有住宅和社区配套设施…",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          date: "2022年4月3日",
-          link: ""
-        },
-        {
-          title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
-          content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
-            "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
-            "既有住宅和社区配套设施…",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          date: "2022年4月3日",
-          link: ""
-        },
-        {
-          title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
-          content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
-            "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
-            "既有住宅和社区配套设施…",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          date: "2022年4月3日",
-          link: ""
-        }
       ]
     }
   },

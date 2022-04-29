@@ -70,69 +70,40 @@ export default {
   data() {
     return {
       global: select.global,
-      tab: "line1",
-      subtab: "software",
+      tab: "",
+      subtab: "",
       current: 1,
       // 需请求
       maxPage: 3,
       headerImageData: {
-        headerImage: "https://cdn.quasar.dev/img/parallax2.jpg",
-        headerLabel: "栏目标题",
-        subHeaderLabel: "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题"
+        headerImage: "",
+        headerLabel: "",
+        subHeaderLabel: ""
       },
       productLittleCardData: [
         {
-          title: "KNX毅系列面板",
-          content: "3 种颜色可选（深空灰/玫瑰金...)",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
+          title: "",
+          content: "",
+          img: "",
           link: "",
-          handbook: "撒旦发射点发射点",
-          driver: "123"
-        },
-        {
-          title: "KNX毅系列面板",
-          content: "3 种颜色可选（深空灰/玫瑰金...)",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          link: "",
-          handbook: "撒旦发射点发射点",
-          driver: "123"
-        },
-        {
-          title: "KNX毅系列面板",
-          content: "3 种颜色可选（深空灰/玫瑰金...)",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          link: "",
-          handbook: "撒旦发射点发射点",
-          driver: "123"
+          handbook: "",
+          driver: ""
         },
       ],
       productLines: [
         {
-          label: ["Productline1", "产品线1"],
+          label: ["", ""],
           categories: [
             {
-              label: ["software", "软件",],
+              label: ["", "",],
               link: ""
             },
             {
-              label: ["软件","software"],
+              label: ["",""],
               link: ""
             },
           ],
         },
-        {
-          label: ["Productline2", "产品线2"],
-          categories: [
-            {
-              label: ["软件","software"],
-              link: ""
-            },
-            {
-              label: ["软件","software"],
-              link: ""
-            },
-          ],
-        }
       ],
     }
   },

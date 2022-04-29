@@ -51,38 +51,33 @@ export default {
       maxPage: 3,
       productLines: [
         {
-          label: ["Productline1", "产品线1"],
+          label: ["", ""],
           categories: [
             {
-              label: ["software", "软件",],
+              label: ["", "",],
             },
             {
-              label: ["软件","software"],
+              label: ["",""],
             },
           ],
         },
       ],
       headerImageData: {
-        headerImage: "https://cdn.quasar.dev/img/parallax2.jpg",
-        headerLabel: "栏目标题",
-        subHeaderLabel: "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题"
+        headerImage: "",
+        headerLabel: "",
+        subHeaderLabel: ""
       },
       productListCardData: [
         {
           index: 0,
           name: '产品名称',
           content: '型号型号',
-          describe: '- 产品参数\n' +
-            '- 产品参数\n' +
-            '- 产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数\n' +
-            ' 产品参数产品参数产品参数',
-          imgs: ['https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg",
-            'https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg",
-            'https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg"],
+          describe: '- 产品参数\n',
+          imgs: [''],
         },
       ],
-      tab: "software",
-      subtab: "software",
+      tab: "",
+      subtab: "",
     }
   },
   created() {

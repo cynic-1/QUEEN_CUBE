@@ -121,11 +121,11 @@ export default {
           "events": ["English", "\u4e2d\u6587"]
         },
       ],
-      "certificates": ["http://47.103.152.187:8000/media/certificate/RE4wB6x.jpg"],
-      "honors": [{"img": "http://47.103.152.187:8000/media/honour/RE4wB6x.jpg",
+      "certificates": [""],
+      "honors": [{"img": "",
         "label": ["honour", "\u8363\u8a89"]}],
       "headerImageData": {
-      "headerImage": "http://47.103.152.187:8000/media/information/RE4wB6x.jpg",
+      "headerImage": "",
         "headerLabel": ["title", "\u6807\u9898"],
         "subHeaderLabel": ["slogan", "\u6807\u8bed"]
       },

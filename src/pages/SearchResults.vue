@@ -79,69 +79,24 @@ export default {
       // 需要请求
       productLittleCardData: [
         {
-          title: "KNX毅系列面板",
-          content: "3 种颜色可选（深空灰/玫瑰金...)",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
+          title: "",
+          content: "",
+          img: "",
           link: "",
-          handbook: "撒旦发射点发射点",
-          driver: "123"
-        },
-        {
-          title: "KNX毅系列面板",
-          content: "3 种颜色可选（深空灰/玫瑰金...)",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          link: "",
-          handbook: "撒旦发射点发射点",
-          driver: "123"
-        },
-        {
-          title: "KNX毅系列面板",
-          content: "3 种颜色可选（深空灰/玫瑰金...)",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          link: "",
-          handbook: "撒旦发射点发射点",
-          driver: "123"
+          handbook: "",
+          driver: ""
         },
       ],
       // 新闻和案例都是一样的数据，不区分
       // 在搜索页里，如果选择所有，则会同时出现两种小卡，加起来8个
       homeNewsCardData: [
         {
-          title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
-          content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
-            "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
-            "既有住宅和社区配套设施…",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          date: "2022年4月3日",
+          title: "",
+          content: "",
+          img: "",
+          date: "",
           link: ""
         },
-        {
-          title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
-          content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
-            "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
-            "既有住宅和社区配套设施…",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          date: "2022年4月3日",
-          link: ""
-        },
-        {
-          title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
-          content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
-            "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
-            "既有住宅和社区配套设施…",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          date: "2022年4月3日",
-          link: ""
-        },
-        {
-          title: "华为推出新一代全屋智能解决方案,智能家居行业PK再升级",
-          content: "据住建部等部门此前发布的《关于加快发展数字家庭 提高居住品质的指导意见》，到2025年底，" +
-            "构建比较完备的数字家庭标准体系；新建全装修住宅和社区配套设施，全面具备通信连接能力，拥有必要的智能产品；" +
-            "既有住宅和社区配套设施…",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          date: "2022年4月3日",
-          link: ""
-        }
       ]
     }
   },

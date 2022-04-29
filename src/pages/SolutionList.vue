@@ -30,19 +30,18 @@ export default {
       },
       solutionCardData: [
         {
-          title : "智能家居",
-          content : "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题" +
-            "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题",
-          img: "https://cdn.quasar.dev/img/parallax2.jpg",
+          title : "",
+          content : "",
+          img: "",
           btn: {
-            label: ['Show Details', '进入了解'],
+            label: ['', ''],
             link: ""
           }
         },
       ],
       solutionTabs: [
         {
-          label: ["智能家家具", "fsdfasf"],
+          label: ["", ""],
         }
       ]
     }

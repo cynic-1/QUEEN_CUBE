@@ -48,9 +48,9 @@ export default {
       current: 1,
       maxPage: 3,
       headerImageData: {
-        headerImage: "https://cdn.quasar.dev/img/parallax2.jpg",
-        headerLabel: "栏目标题",
-        subHeaderLabel: "副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题副标题"
+        headerImage: "",
+        headerLabel: "",
+        subHeaderLabel: ""
       }
     }
   },
