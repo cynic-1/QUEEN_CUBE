@@ -17,7 +17,7 @@
         <q-card-section class="col-8">
           <div class="my-card-content">
             <div class="my-title text-weight-bolder text-h6" style="margin-top: 1%">{{ productListCardData.name[global.isChinese] }}</div>
-            <q-btn no-wrap class="justify-center" outline push style="width: 20%;margin-top: 3%" size="xs">型号型号</q-btn>
+            <q-btn no-wrap class="justify-center" outline push style="width: 20%;margin-top: 3%" size="xs">{{productListCardData.content[global.isChinese]}}</q-btn>
             <div style="white-space: pre-wrap; margin-top: 3%" >
               {{ productListCardData.describe[global.isChinese] }}
             </div>
@@ -63,7 +63,7 @@
           <q-card-section class="col-8">
             <div class="my-card-content">
               <div class="my-title text-weight-bolder text-h6" style="margin-top: 1%">{{ productListCardData.name[global.isChinese] }}</div>
-              <q-btn no-wrap class="justify-center" outline push style="width: 60%;margin-top: 10%" size="xs">型号型号</q-btn>
+              <q-btn no-wrap class="justify-center" outline push style="width: 60%;margin-top: 10%" size="xs">{{productListCardData.content[global.isChinese]}}</q-btn>
               <div style="white-space: pre-wrap; margin-top: 10%" >
                 {{ productListCardData.describe[global.isChinese] }}
               </div>
