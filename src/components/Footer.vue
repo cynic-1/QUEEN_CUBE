@@ -3,18 +3,21 @@
     <q-separator color="#979797" spaced/>
     <div class="flex justify-between q-py-lg">
       <div class="row q-pl-xl gt-xs">
-        <template v-for="x in 2">
-          <div class="q-pr-md">
-            <img alt="Official_Account_QR"  src="Official_Accounts_QR.jpg" width="80">
-          </div>
-        </template>
+        <div class="q-pr-md">
+          <img alt="Official_Account_QR"  src="Official_Accounts_QR.jpg" width="80">
+        </div>
+        <div class="q-pr-md">
+          <img alt="Official_Account_QR"  src="tiktok.jpg" width="80">
+        </div>
       </div>
 
       <div class="row xs">
         <div style="margin: auto;">
-          <template v-for="x in 2">
+          <div style="margin: 10px;">
             <img alt="Official_Account_QR"  src="Official_Accounts_QR.jpg" width="60">
-          </template>
+            <img alt="TikTok_QR"  src="tiktok.jpg" width="60">
+          </div>
+
         </div>
       </div>
       <div class="q-pr-xl gt-xs text-h6">
