@@ -11,8 +11,8 @@
   </video>
 <!--  <video controls="" autoplay="" name="media"><source src="http://47.103.152.187:8000/media/resolution_video/7a349e9843896981ea1fda8172071f24_jOud2d4.mp4" type="video/mp4"></video>-->
   <SeparatorBlock/>
-  <div class="text-center text-h4 text-weight-bolder" style="margin-bottom: 30px;">
-    经 典 案 例
+  <div class="text-center text-h4 text-weight-bolder q-mb-xl">
+    {{Solution}}
   </div>
   <div class="page-width">
     <div class="q-pt-md">
@@ -95,6 +95,11 @@ export default {
     },
     '$route': function () {
       this.tab = this.$route.params.name
+    }
+  },
+  computed: {
+    Solution() {
+      return this.global.isChinese ? "经 典 案 例" : "Classic Solutions"
     }
   }
 }
