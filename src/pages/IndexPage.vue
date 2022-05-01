@@ -7,7 +7,7 @@
           <ProductCard :left="idx % 2 === 0" :product-card-data="item"/>
         </template>
         <HomeSearch/>
-        <div class="text-center text-h4 text-weight-bolder">解决方案</div>
+        <div class="text-center text-h4 text-weight-bolder">{{solution}}</div>
         <div class="text-center text-h6" style="margin: 2em 10vw;">{{solutionText[global.isChinese]}}</div>
         <div class="gt-xs flex justify-around">
           <template v-for="item of solutionCardData">
@@ -127,6 +127,9 @@ export default defineComponent({
   computed: {
     viewAll() {
       return this.global.isChinese ? "查 看 所 有" : "View All"
+    },
+    solution() {
+      return this.global.isChinese ? "解 决 方 案" : "Solutions"
     }
   }
 })
