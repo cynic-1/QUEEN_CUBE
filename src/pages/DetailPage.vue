@@ -1,5 +1,5 @@
 <template>
-  <HeaderImage :header-image-data="headerImageData"/>
+  <HeaderImage :header-image-data="headerImageData" style="height: 640px;"/>
   <div class="page-width">
     <h4>{{title[global.isChinese]}}</h4>
     <h6>{{date[global.isChinese]}}</h6>
@@ -36,7 +36,7 @@ export default {
     async getDetailData() {
       let res = await api.getDetailData(this.type, this.id)
       if (res.data.code === 0 && res.status === 200) {
-        this.headerImageData.headerImage = res.data.data.headerImage
+        this.headerImageData = res.data.data.headerImg
         this.title = res.data.data.title
         this.date = res.data.data.date
         this.content = res.data.data.content
