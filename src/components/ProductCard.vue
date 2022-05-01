@@ -136,7 +136,7 @@ export default {
   &::-webkit-scrollbar
     width: 8px
   &::-webkit-scrollbar-thumb
-    background: linear-gradient(90deg,#FF00D1 0%,#B653FF 80%)
+    background: linear-gradient(90deg,#A1E7ED 0%,#DD889E 80%)
     border-radius: 4px
     -webkit-box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%)
   &::-webkit-scrollbar-track
