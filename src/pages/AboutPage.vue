@@ -80,7 +80,7 @@
             <q-avatar size="16vw">
               <img :src="item.img" alt="头像">
             </q-avatar>
-            <p class="text-h6" style="width: 100%;margin: auto;">
+            <p class="text-h6 text-weight-bold" style="width: 100%;margin: auto;">
               {{item.name[global.isChinese]}}
               <span class="float-right">{{item.title[global.isChinese]}}</span>
             </p>

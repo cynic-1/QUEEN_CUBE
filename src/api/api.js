@@ -104,7 +104,7 @@ export default {
       }
     }))
   },
-  // TODO
+
   getDetailData(type, id) {
     return request({
       url: baseURL+"/getDetailData",

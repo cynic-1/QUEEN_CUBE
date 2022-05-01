@@ -1,6 +1,6 @@
 <template>
-  <q-card class="my-card" :class="{'my-card-small': isSmall}" @click="jumpTo">
-    <q-img :src="image" style="max-height: 25vw;" img-class="img-hover"/>
+  <q-card class="my-card" :class="{'my-card-small': isSmall}" @click="jumpTo" style="border-radius: 12px;">
+    <q-img :src="image" style="height: 25vw; border-radius: 12px 12px 0 0 ;" img-class="img-hover"/>
     <div class="my-card-content">
       <div class="my-title">{{title[global.isChinese]}}</div>
       <div>{{date}}</div>

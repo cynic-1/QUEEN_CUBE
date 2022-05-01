@@ -102,7 +102,7 @@ export default {
   font-size: 1.25rem
 video
   width: 100%
-  height: 40vh
+  height: 640px
   object-fit: fill
 @media (min-device-width: 600px)
   .page-width
