@@ -9,6 +9,7 @@
     @mouseenter="autoplay = false"
     @mouseleave="autoplay = true"
     class="carousel-block"
+    :autoplay="autoplay"
   >
     <template v-for="(item, idx) of homeCarouselData">
       <q-carousel-slide :name="idx+1" :img-src="item.img">
