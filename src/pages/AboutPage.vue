@@ -2,9 +2,7 @@
   <HeaderImage :header-image-data="headerImageData" :is-center="true"/>
   <q-card class="company-des">{{description[global.isChinese]}}</q-card>
   <div class="gt-xs time-line-block">
-    <div class="text-center">
-      <h4>{{History}}</h4>
-    </div>
+    <div class="text-center text-h4 text-weight-bolder q-mb-xl">{{History}}</div>
     <ul class="timeline">
       <template v-for="item of timelines">
         <li class="li complete">
@@ -19,9 +17,8 @@
     </ul>
   </div>
   <div class="xs time-line-block">
-    <div class="text-center">
-      <h4>{{ History }}</h4>
-    </div>
+    <div class="text-center text-h4 text-weight-bolder q-mb-xl">{{History}}</div>
+
     <q-timeline layout="loose" color="secondary">
       <template v-for="(item, idx) of timelines">
         <q-timeline-entry
@@ -33,9 +30,8 @@
     </q-timeline>
   </div>
   <div class="certificate-block">
-    <div class="text-center">
-      <h4>{{Certificates}}</h4>
-    </div>
+    <div class="text-center text-h4 text-weight-bolder q-mb-xl">{{Certificates}}</div>
+
     <q-responsive :ratio="1.778">
       <q-carousel
         animated
@@ -54,9 +50,8 @@
     </q-responsive>
   </div>
   <div class="honor-block">
-    <div class="text-center">
-      <h4>{{ Honors }}</h4>
-    </div>
+    <div class="text-center text-h4 text-weight-bolder q-mb-xl">{{Honors}}</div>
+
     <div class="honor-content">
         <template v-for="item of honors">
           <q-responsive :ratio="1.778">
@@ -70,9 +65,8 @@
   </div>
   <SeparatorBlock/>
   <div class="architect-block">
-    <div class="text-center">
-      <h4>{{Architecture}}</h4>
-    </div>
+    <div class="text-center text-h4 text-weight-bolder q-mb-xl">{{Architecture}}</div>
+
     <div class="architect-content">
       <template v-for="item of architecture">
         <q-responsive :ratio="1.778">
