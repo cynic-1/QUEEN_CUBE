@@ -3,10 +3,16 @@
     <q-separator color="#979797" spaced/>
     <div class="flex justify-between q-py-lg">
       <div class="row q-pl-xl gt-xs">
-        <div class="q-pr-md">
+        <div class="q-pr-md qr-block">
+          <q-avatar class="cursor-pointer" square>
+            <img alt="wechat" src="wechat.png">
+          </q-avatar>
           <img alt="Official_Account_QR"  src="Official_Accounts_QR.jpg" width="80">
         </div>
-        <div class="q-pr-md">
+        <div class="q-pr-md qr-block">
+          <q-avatar class="cursor-pointer" square>
+            <img alt="wechat" src="tiktok_icon.png">
+          </q-avatar>
           <img alt="Official_Account_QR"  src="tiktok.jpg" width="80">
         </div>
       </div>
@@ -109,5 +115,15 @@ export default {
 </script>
 
 <style scoped>
-
+.qr-block > img {
+  display: none;
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  z-index: 22;
+  border: 2px solid black;
+}
+.qr-block:hover > img {
+  display: block;
+}
 </style>
