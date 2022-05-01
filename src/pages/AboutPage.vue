@@ -201,6 +201,9 @@ export default {
   border-top: 2px solid #D6DCE0
   position: relative
   transition: all 200ms ease-in
+  &:hover
+    transform: scale(1.3, 1.3)
+
   h4
     font-weight: 600
   &:before
@@ -216,13 +219,13 @@ export default {
     transition: all 200ms ease-in
 .li.complete
   .status
-    border-top: 2px solid #66DC71
+    border-top: 2px solid #DD889E
     &:before
-      background-color: #66DC71
+      background-color: #A1E7ED
       border: none
       transition: all 200ms ease-in
     h4
-      color: #66DC71
+      color: #000000
 
 @media (min-device-width: 320px) and (max-device-width: 700px)
   .timeline
