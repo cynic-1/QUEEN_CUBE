@@ -4,7 +4,7 @@
     <q-header reveal elevated style="color: black">
       <q-toolbar>
         <div class="q-pr-lg">
-            <img alt="logo" src="LOGO1.jpg" height="60">
+            <img alt="logo" src="LOGO2.png" height="60">
         </div>
           <template v-for="item of headers">
             <div class="menu-item gt-xs" :class="{'hasChild': item.child.length}">
