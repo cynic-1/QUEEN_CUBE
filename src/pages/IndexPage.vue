@@ -11,7 +11,7 @@
         <div class="text-center text-h6" style="margin: 2em 10vw;">{{solutionText[global.isChinese]}}</div>
         <div class="gt-xs flex justify-around">
           <template v-for="item of solutionCardData">
-            <HomeSolutionCard :solution-card-data="item"/>
+            <HomeSolutionCard :solution-card-data="item" class="q-pb-lg"/>
           </template>
         </div>
         <div class="xs x-scroll">
@@ -19,11 +19,14 @@
             <HomeSolutionCard :is-mobile="true" :solution-card-data="item"/>
           </template>
         </div>
+        <div class="text-center text-h4 text-weight-bolder">{{news}}</div>
+
         <div class="gt-xs flex justify-around q-pt-xl">
           <template v-for="item of homeNewsCardData">
             <HomeNewsCard :home-news-card-data="item"/>
           </template>
         </div>
+
         <div class="xs x-scroll">
           <template v-for="item of homeNewsCardData">
             <HomeNewsCard :is-mobile="true" :home-news-card-data="item" style="margin: auto 20px;"/>
@@ -130,6 +133,9 @@ export default defineComponent({
     },
     solution() {
       return this.global.isChinese ? "解 决 方 案" : "Solutions"
+    },
+    news() {
+      return this.global.isChinese ? "新 闻 资 讯" : "News"
     }
   }
 })
