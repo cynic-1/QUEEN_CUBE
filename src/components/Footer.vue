@@ -2,29 +2,26 @@
   <div class="text-black q-pt-md">
     <q-separator color="#979797" spaced/>
     <div class="flex justify-between q-py-lg">
-      <div class="row q-pl-xl gt-xs">
+      <div class="row" style="padding-left: 5%;">
         <div class="q-pr-md qr-block">
           <q-avatar class="cursor-pointer" square>
             <img alt="wechat" src="wechat.png">
           </q-avatar>
-          <img alt="Official_Account_QR"  src="Official_Accounts_QR.jpg" width="80">
+          <div class="qr-content">
+            <img alt="Official_Account_QR"  src="gzh.jpg">
+            <img alt="Official_Account_QR"  src="sph.jpg">
+          </div>
         </div>
         <div class="q-pr-md qr-block">
           <q-avatar class="cursor-pointer" square>
             <img alt="wechat" src="tiktok_icon.png">
           </q-avatar>
-          <img alt="Official_Account_QR"  src="tiktok.jpg" width="80">
+          <img alt="Official_Account_QR"  src="tiktok.jpg">
         </div>
       </div>
 
       <div class="row xs">
-        <div style="margin: auto;">
-          <div style="margin: 10px;">
-            <img alt="Official_Account_QR"  src="Official_Accounts_QR.jpg" width="60">
-            <img alt="TikTok_QR"  src="tiktok.jpg" width="60">
-          </div>
 
-        </div>
       </div>
       <div class="q-pr-xl gt-xs text-h6">
         {{Address}}: {{address[global.isChinese]}} <br>
@@ -69,26 +66,8 @@ export default {
       global: select.global,
       cooperators: [
         {
-          logo: 'JHJT_LOGO.png',
-        },
-        {
-          logo: 'MULI_LOGO.png',
-        },
-        {
-          logo: 'NEW_HOPE_LOGO.png',
-        },
-        {
-          logo: 'GEMDALE_LOGO_CUT.png',
-        },
-        {
-          logo: 'JINKE_LOGO.png',
-        },
-        {
-          logo: 'YUZHOU_LOGO.png',
-        },
-        {
-          logo: 'BGY_LOGO.png',
-        },
+          logo: '',
+        }
       ],
       address: ['Huaxin Tiandi, No. 200 Tianlin Road\n, Xuhui District, Shanghai', '上海市徐汇区田林路200号华鑫天地'],
       email: 'Info@queencube.cn',
@@ -125,5 +104,18 @@ export default {
 }
 .qr-block:hover > img {
   display: block;
+}
+.qr-block > .qr-content {
+  display: none;
+  position: absolute;
+  z-index: 22;
+  border: 2px solid black;
+}
+.qr-block:hover > .qr-content {
+  display: block;
+}
+.qr-content > img {
+  width: 160px;
+  height: 160px;
 }
 </style>
