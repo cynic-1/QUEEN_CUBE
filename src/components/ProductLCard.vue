@@ -63,9 +63,8 @@ export default {
       this.$router.push(this.link)
     },
     download(l) {
-      const url = window.URL.createObjectURL(new Blob([l]));
       const link = document.createElement('a');
-      link.href = url;
+      link.href = l;
       link.setAttribute('download', this.productLittleCardData.title[0]); //or any other extension
       document.body.appendChild(link);
       link.click();
