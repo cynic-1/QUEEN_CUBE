@@ -109,8 +109,8 @@ export default {
 .tabs
   font-size: 1.25rem
 video
-  width: 100%
-  height: 640px
+  width: 100vw
+  height: 56.25vw
   object-fit: fill
 @media (min-device-width: 600px)
   .page-width
