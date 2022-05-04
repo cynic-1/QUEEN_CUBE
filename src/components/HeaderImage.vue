@@ -30,7 +30,7 @@ export default {
 <style lang="sass" scoped>
 .header-image
   width: 100%
-  height: 56.25vw
+  height: 260px
 .my-header-content
   background-color: unset
   width: 100%
