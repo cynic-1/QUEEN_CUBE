@@ -6,7 +6,7 @@
       </q-tab>
     </template>
   </q-tabs>
-  <template v-if="videoSrc.length">
+  <template v-if="videoSrc.length>33">
     <video controls autoplay>
       <source :src="videoSrc" type="video/mp4">
     </video>
@@ -77,7 +77,7 @@ export default {
         // this.solutions = res.data.data.solutions
         this.videoSrc = res.data.data.videoSrc
         this.homeNewsCardData = res.data.data.homeNewsCardData
-        document.querySelector('video').load()
+        if (this.videoSrc.length > 33) document.querySelector('video').load()
       }
     },
     async getSolutionTabs() {
