@@ -7,10 +7,13 @@
           <q-avatar class="cursor-pointer" square>
             <img alt="wechat" src="wechat.png">
           </q-avatar>
-          <div class="qr-content">
-            <img alt="Official_Account_QR"  src="gzh.jpg">
-            <img alt="Official_Account_QR"  src="sph.jpg">
-          </div>
+          <img alt="Official_Account_QR"  src="gzh.jpg">
+        </div>
+        <div class="q-pr-md qr-block">
+          <q-avatar class="cursor-pointer" square>
+            <img alt="wechat" src="video.png">
+          </q-avatar>
+          <img alt="video_Account_QR"  src="sph.jpg">
         </div>
         <div class="q-pr-md qr-block">
           <q-avatar class="cursor-pointer" square>
@@ -109,18 +112,5 @@ export default {
 }
 .qr-block:hover > img {
   display: block;
-}
-.qr-block > .qr-content {
-  display: none;
-  position: absolute;
-  z-index: 22;
-  border: 2px solid black;
-}
-.qr-block:hover > .qr-content {
-  display: block;
-}
-.qr-content > img {
-  width: 160px;
-  height: 160px;
 }
 </style>
