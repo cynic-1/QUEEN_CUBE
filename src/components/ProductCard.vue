@@ -1,5 +1,5 @@
 <template>
-  <q-card class="raw gt-xs my-product-card"  flat>
+  <q-card class="raw gt-xs my-product-card" flat>
     <q-responsive :ratio="1.7778">
       <q-card-section horizontal>
         <template v-if="left">

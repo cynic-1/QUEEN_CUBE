@@ -24,7 +24,7 @@
             <div style="margin-top: 3%;margin-left: -11%;" >
 
               <q-btn @click="clickLeft" icon="fa-solid fa-arrow-left" style="float:left;margin-top:5%" flat/>
-              <q-btn @click="clickRight" icon="fa-solid fa-arrow-right" style="float:right;margin-top:5%;margin-right: 1%" flat></q-btn>
+              <q-btn @click="clickRight" icon="fa-solid fa-arrow-right" style="float:right;margin-top:5%;margin-right: 1%" flat />
 
               <span v-for="(im, idx) in shownImages" :key="idx" class="q-gutter-md">
                 <q-img
@@ -73,16 +73,17 @@
       </q-responsive>
     </q-card>
     <div class="column no-wrap my-mobile-images" style="margin: 0 15px;">
-      <q-btn icon="fa-solid fa-arrow-up" flat></q-btn>
+      <q-btn icon="fa-solid fa-arrow-up" flat/>
 
-        <template v-for="(im, index) in shownImages" :key="index" >
+        <template v-for="(im, idx) in shownImages" :key="idx" >
           <q-img
             class="img-responsive"
             :src="im"
             :ratio="1"
             img-class="img-hover"
-            @click="changeImage(index)"
+            @click="changeImage(idx)"
             style="width: 100%; margin: 10px 0;"
+            :class="{'selected-img': index+idx === slide-1}"
           />
         </template>
 
@@ -114,9 +115,7 @@ export default {
         '- 产品参数\n' +
         '- 产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数\n' +
         ' 产品参数产品参数产品参数',
-      images: ['https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg",
-        'https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg",
-        'https://cdn.quasar.dev/img/parallax2.jpg', "https://cdn.quasar.dev/img/mountains.jpg"],
+      images: [''],
       isHover: false
     }
   },
