@@ -6,10 +6,12 @@
       </q-tab>
     </template>
   </q-tabs>
-  <video controls autoplay>
-    <source :src="videoSrc" type="video/mp4">
-  </video>
-<!--  <video controls="" autoplay="" name="media"><source src="http://47.103.152.187:8000/media/resolution_video/7a349e9843896981ea1fda8172071f24_jOud2d4.mp4" type="video/mp4"></video>-->
+  <template v-if="videoSrc.length">
+    <video controls autoplay>
+      <source :src="videoSrc" type="video/mp4">
+    </video>
+  </template>
+
   <SeparatorBlock/>
   <div class="text-center text-h4 text-weight-bolder q-mb-xl">
     {{Solution}}
