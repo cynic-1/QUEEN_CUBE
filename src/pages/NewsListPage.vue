@@ -14,7 +14,7 @@
         <NewsListCard :is-small="true" :id="newsListIds[2]"/>
       </div>
       <div class="xs">
-        <NewsListCard :id="newsListIds[1]"/>
+        <NewsListCard :id="newsListIds[1]" style="margin:0 auto 48px auto"/>
         <NewsListCard :id="newsListIds[2]"/>
       </div>
       <NewsListCard :id="newsListIds[3]"/>
