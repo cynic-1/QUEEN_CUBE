@@ -1,5 +1,5 @@
 <template>
-  <HeaderImage :header-image-data="headerImageData" style="height: 640px;"/>
+  <HeaderImage :header-image-data="headerImageData"/>
   <div class="page-width">
     <h4>{{title[global.isChinese]}}</h4>
     <h6>{{date[global.isChinese]}}</h6>
