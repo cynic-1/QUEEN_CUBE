@@ -86,21 +86,31 @@ export default {
   },
   methods: {
     async getProductList() {
-      let res = await api.getProductList(this.tab.label[0], this.subtab, this.current)
-      if (res.data.code === 0 && res.status === 200) {
-        // this.categories = res.data.data.categories
-        this.headerImageData = res.data.data.headerImageData
-        this.productListCardData = res.data.data.productListCardData
-        this.maxPage = res.data.data.maxPage
+      try {
+        let res = await api.getProductList(this.tab.label[0], this.subtab, this.current)
+        if (res.data.code === 0 && res.status === 200) {
+          // this.categories = res.data.data.categories
+          this.headerImageData = res.data.data.headerImageData
+          this.productListCardData = res.data.data.productListCardData
+          this.maxPage = res.data.data.maxPage
+        }
+      } catch (e) {
+        console.log(e)
       }
+
     },
     async getProductLines() {
-      let res = await api.getProductLines()
-      if (res.data.code === 0 && res.status === 200) {
-        this.productLines = res.data.data.productLines
-        this.tab = this.productLines.find(ele => ele.label[0] === this.$route.params.productLine) || this.productLines[0]
-        this.subtab = this.$route.params.product || this.tab.categories[0].label[0]
+      try {
+        let res = await api.getProductLines()
+        if (res.data.code === 0 && res.status === 200) {
+          this.productLines = res.data.data.productLines
+          this.tab = this.productLines.find(ele => ele.label[0] === this.$route.params.productLine) || this.productLines[0]
+          this.subtab = this.$route.params.product || this.tab.categories[0].label[0]
+        }
+      } catch (e) {
+        console.log(e)
       }
+
     },
     jumpTo(item) {
       this.$router.push('/productCenter/'+item.label[0]+'/'+item.categories[0].label[0])

@@ -113,21 +113,31 @@ export default {
   },
   methods: {
     async getDownload() {
-      let res = await api.getDownload(this.tab.label[0], this.subtab, this.current)
-      if (res.data.code === 0 && res.status === 200) {
-        this.headerImageData = res.data.data.headerImageData
-        this.productLittleCardData = res.data.data.productLittleCardData
-        this.maxPage = res.data.data.maxPage
-        // this.productLines = res.data.data.productLines
+      try {
+        let res = await api.getDownload(this.tab.label[0], this.subtab, this.current)
+        if (res.data.code === 0 && res.status === 200) {
+          this.headerImageData = res.data.data.headerImageData
+          this.productLittleCardData = res.data.data.productLittleCardData
+          this.maxPage = res.data.data.maxPage
+          // this.productLines = res.data.data.productLines
+        }
+      } catch (e) {
+        console.log(e)
       }
+
     },
     async getProductLines() {
-      let res = await api.getProductLines()
-      if (res.data.code === 0 && res.status === 200) {
-        this.productLines = res.data.data.productLines
-        this.tab = this.productLines.find(ele => ele.label[0] === this.$route.params.productLine) || this.productLines[0]
-        this.subtab = this.$route.params.product || this.tab.categories[0].label[0]
+      try {
+        let res = await api.getProductLines()
+        if (res.data.code === 0 && res.status === 200) {
+          this.productLines = res.data.data.productLines
+          this.tab = this.productLines.find(ele => ele.label[0] === this.$route.params.productLine) || this.productLines[0]
+          this.subtab = this.$route.params.product || this.tab.categories[0].label[0]
+        }
+      } catch (e) {
+        console.log(e)
       }
+
     },
     jumpTo(item) {
       this.$router.push('/download/'+item.label[0]+'/'+item.categories[0].label[0])

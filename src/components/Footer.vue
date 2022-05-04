@@ -78,10 +78,15 @@ export default {
   },
   methods: {
     async getCooperators() {
-      let res = await api.getCooperators()
-      if (res.data.code === 0 && res.status === 200) {
-        this.cooperators = res.data.data.cooperators
+      try {
+        let res = await api.getCooperators()
+        if (res.data.code === 0 && res.status === 200) {
+          this.cooperators = res.data.data.cooperators
+        }
+      } catch (e) {
+        console.log(e)
       }
+
     },
   },
   computed: {

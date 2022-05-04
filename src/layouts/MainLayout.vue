@@ -121,15 +121,20 @@ export default defineComponent({
        return this.global.isChinese ? chinese : english
     },
     search(){
-      console.log(this.searchValue)
+      // console.log(this.searchValue)
       this.$router.push('/searchResults')
     },
     async getHeaderData() {
-      let res = await api.getHeaderData()
-      if (res.data.code === 0 && res.status === 200) {
-        this.headers = res.data.data.headers
-        this.logo = res.data.data.logo
+      try {
+        let res = await api.getHeaderData()
+        if (res.data.code === 0 && res.status === 200) {
+          this.headers = res.data.data.headers
+          this.logo = res.data.data.logo
+        }
+      } catch (e) {
+        console.log(e)
       }
+
     },
     jumpTo(l) {
       this.$router.push(l)

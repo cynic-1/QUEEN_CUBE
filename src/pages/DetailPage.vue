@@ -34,13 +34,18 @@ export default {
   },
   methods: {
     async getDetailData() {
-      let res = await api.getDetailData(this.type, this.id)
-      if (res.data.code === 0 && res.status === 200) {
-        this.headerImageData = res.data.data.headerImg
-        this.title = res.data.data.title
-        this.date = res.data.data.date
-        this.content = res.data.data.content
+      try {
+        let res = await api.getDetailData(this.type, this.id)
+        if (res.data.code === 0 && res.status === 200) {
+          this.headerImageData = res.data.data.headerImg
+          this.title = res.data.data.title
+          this.date = res.data.data.date
+          this.content = res.data.data.content
+        }
+      } catch (e) {
+        console.log(e)
       }
+
     }
   },
   watch: {

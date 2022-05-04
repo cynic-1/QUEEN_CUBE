@@ -106,12 +106,17 @@ export default {
   methods: {
     // category: 'all', 'product', 'solution', 'news'
     async getSearchResults() {
-      let res = await api.getSearchResults(this.word, this.panel, this.current)
-      if (res.data.code === 0 && res.status === 200) {
-        this.productLittleCardData = res.data.data.productLittleCardData
-        this.homeNewsCardData = res.data.data.homeNewsCardData
-        this.maxPage = res.data.data.maxPage
+      try {
+        let res = await api.getSearchResults(this.word, this.panel, this.current)
+        if (res.data.code === 0 && res.status === 200) {
+          this.productLittleCardData = res.data.data.productLittleCardData
+          this.homeNewsCardData = res.data.data.homeNewsCardData
+          this.maxPage = res.data.data.maxPage
+        }
+      } catch (e) {
+        console.log(e)
       }
+
     },
   },
   watch: {

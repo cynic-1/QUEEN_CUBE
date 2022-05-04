@@ -117,14 +117,19 @@ export default defineComponent({
   },
   methods: {
     async getIndexPage() {
-      let res = await api.getIndexPage()
-      if (res.data.code === 0 && res.status === 200) {
-        this.solutionText = res.data.data.solutionText
-        this.homeCarouselData = res.data.data.homeCarouselData
-        this.productCardData = res.data.data.productCardData
-        this.solutionCardData = res.data.data.solutionCardData
-        this.homeNewsCardData = res.data.data.homeNewsCardData
+      try {
+        let res = await api.getIndexPage()
+        if (res.data.code === 0 && res.status === 200) {
+          this.solutionText = res.data.data.solutionText
+          this.homeCarouselData = res.data.data.homeCarouselData
+          this.productCardData = res.data.data.productCardData
+          this.solutionCardData = res.data.data.solutionCardData
+          this.homeNewsCardData = res.data.data.homeNewsCardData
+        }
+      } catch (e) {
+        console.log(e)
       }
+
     },
   },
   computed: {

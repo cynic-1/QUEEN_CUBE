@@ -33,13 +33,5 @@ service.interceptors.response.use(
 
 export default service
 
-// res.data.code === 0 && res.status === 200
-/*
-else if (res.status===200){
-  alert(res.data.message);
-} else {
-  alert("再处理你的请求时，出现致命错误！")
-}
-*/
 
 

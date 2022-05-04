@@ -53,11 +53,16 @@ export default {
   },
   methods: {
     async getSolutionLists() {
-      let res = await api.getSolutionLists()
-      if (res.data.code === 0 && res.status === 200) {
-        this.headerImageData = res.data.data.headerImageData
-        this.solutionCardData = res.data.data.solutionCardData
+      try {
+        let res = await api.getSolutionLists()
+        if (res.data.code === 0 && res.status === 200) {
+          this.headerImageData = res.data.data.headerImageData
+          this.solutionCardData = res.data.data.solutionCardData
+        }
+      } catch (e) {
+        console.log(e)
       }
+
     },
   },
   created() {

@@ -59,12 +59,17 @@ export default {
   },
   methods: {
     async getNewsListIds() {
-      let res = await api.getNewsListIds(this.current)
-      if (res.data.code === 0 && res.status === 200) {
-        this.newsListIds = res.data.data.newsListIds
-        this.headerImageData = res.data.data.headerImageData
-        this.maxPage = res.data.data.maxPage
+      try {
+        let res = await api.getNewsListIds(this.current)
+        if (res.data.code === 0 && res.status === 200) {
+          this.newsListIds = res.data.data.newsListIds
+          this.headerImageData = res.data.data.headerImageData
+          this.maxPage = res.data.data.maxPage
+        }
+      } catch (e) {
+        console.log(e)
       }
+
     },
   },
   components: {

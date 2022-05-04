@@ -141,18 +141,23 @@ export default {
   },
   methods: {
     async getAbout() {
-      let res = await api.getAbout()
-      if (res.data.code === 0 && res.status === 200) {
-        // this.title = res.data.data.title
-        // this.slogan = res.data.data.slogan
-        this.description = res.data.data.description
-        this.timelines = res.data.data.timelines
-        this.certificates = res.data.data.certificates
-        this.honors = res.data.data.honors
-        this.headerImageData = res.data.data.headerImageData
-        this.architecture = res.data.data.architecture
-        console.log(this.timelines)
-      } else console.log(res)
+      try {
+        let res = await api.getAbout()
+        if (res.data.code === 0 && res.status === 200) {
+          // this.title = res.data.data.title
+          // this.slogan = res.data.data.slogan
+          this.description = res.data.data.description
+          this.timelines = res.data.data.timelines
+          this.certificates = res.data.data.certificates
+          this.honors = res.data.data.honors
+          this.headerImageData = res.data.data.headerImageData
+          this.architecture = res.data.data.architecture
+          console.log(this.timelines)
+        }
+      } catch (e) {
+        console.log(e)
+      }
+
     },
     getSide(idx) {
       return idx % 2 ? "left" : "right"

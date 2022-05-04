@@ -72,20 +72,30 @@ export default {
   },
   methods: {
     async getSolutionDetail() {
-      let res = await api.getSolutionDetail(this.tab)
-      if (res.data.code === 0 && res.status === 200) {
-        // this.solutions = res.data.data.solutions
-        this.videoSrc = res.data.data.videoSrc
-        this.homeNewsCardData = res.data.data.homeNewsCardData
-        if (this.videoSrc.length > 33) document.querySelector('video').load()
+      try {
+        let res = await api.getSolutionDetail(this.tab)
+        if (res.data.code === 0 && res.status === 200) {
+          // this.solutions = res.data.data.solutions
+          this.videoSrc = res.data.data.videoSrc
+          this.homeNewsCardData = res.data.data.homeNewsCardData
+          if (this.videoSrc.length > 33) document.querySelector('video').load()
+        }
+      } catch (e) {
+        console.log(e)
       }
+
     },
     async getSolutionTabs() {
-      let res = await api.getSolutionTabs()
-      if (res.data.code === 0 && res.status === 200) {
-        this.solutionTabs = res.data.data.solutionTabs
-        this.tab = this.$route.params.name || this.solutionTabs[0].label[0]
+      try {
+        let res = await api.getSolutionTabs()
+        if (res.data.code === 0 && res.status === 200) {
+          this.solutionTabs = res.data.data.solutionTabs
+          this.tab = this.$route.params.name || this.solutionTabs[0].label[0]
+        }
+      } catch (e) {
+        console.log(e)
       }
+
     },
     jumpTo(item) {
       this.$router.push('/solutions/'+item)
