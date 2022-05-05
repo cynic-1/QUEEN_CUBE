@@ -1,7 +1,7 @@
 <template>
   <div class="text-black q-pt-md">
     <q-separator color="#979797" spaced/>
-    <div class="flex justify-between q-py-lg">
+    <div class="flex justify-between q-pt-lg">
       <div class="row" style="padding-left: 5%;">
         <div class="q-pr-md qr-block">
           <q-avatar class="cursor-pointer" square>
@@ -30,6 +30,10 @@
       <div class="q-pa-sm xs" style="font-size: xx-small; white-space: pre-line;">
         {{Address}}: {{address[global.isChinese]}} <br>
         Email: <span>{{email}}</span>
+      </div>
+      <div class="text-center" style="width: 100%; margin-top: 20px;">
+        Copyright © 2014-2022 QUEENCUBE All Rights Reserved. 备案号：沪ICP备
+        200113155
       </div>
     </div>
     <q-separator inset color="#979797" spaced/>
