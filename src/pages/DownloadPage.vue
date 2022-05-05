@@ -3,7 +3,7 @@
   <div class="q-mt-lg q-gutter-lg page-width">
     <div class="gt-xs q-gutter-lg">
       <template v-for="item of productLines">
-        <q-btn outline :label="item.label[global.isChinese]" size="1.25rem" padding="0 40px" @click="tab=item"
+        <q-btn outline :label="item.label[global.isChinese]" size="1.25rem" padding="0 40px" @click="jumpTo(item)"
                :class="{'bg-grey': tab===item}"/>
       </template>
       <q-tabs
