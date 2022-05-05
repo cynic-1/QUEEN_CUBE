@@ -16,16 +16,16 @@
             <div style="margin: auto">{{productLittleCardData.content[global.isChinese]}}</div>
           </q-chip>
           <template v-if="isDownload">
-            <template v-if="productLittleCardData.handbook.length && productLittleCardData.driver.length">
+            <template v-if="productLittleCardData.handbook.length > 49 && productLittleCardData.driver.length > 49">
               <q-btn-group outline push class="justify-center text-weight-bold" style="width: 90%;">
                 <q-btn no-wrap outline push :label="guidebook" @click="download(productLittleCardData.handbook)" padding="10px 20%"/>
                 <q-btn no-wrap outline push :label="driver" @click="download(productLittleCardData.driver)" padding="10px 20%"/>
               </q-btn-group>
             </template>
-            <template v-else-if="productLittleCardData.handbook.length">
+            <template v-else-if="productLittleCardData.handbook.length > 49">
               <q-btn no-wrap outline push :label="guidebookDownload" @click="download(productLittleCardData.handbook)" style="width: 90%"/>
             </template>
-            <template v-else-if="productLittleCardData.driver.length">
+            <template v-else-if="productLittleCardData.driver.length > 49">
               <q-btn no-wrap outline push :label="driverDownload" @click="download(productLittleCardData.driver)" style="width: 90%"/>
             </template>
           </template>
