@@ -21,12 +21,12 @@ service.interceptors.request.use(
 
 service.interceptors.response.use(
   response => {
-    console.log(response)
+    // console.log(response)
     return response
   },
 
   error => {
-    console.log('err' + error)
+    // console.log('err' + error)
     return Promise.reject(error)
   }
 )
