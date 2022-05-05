@@ -23,9 +23,6 @@
         </div>
       </div>
 
-      <div class="row xs">
-
-      </div>
       <div class="q-pr-xl gt-xs text-h6">
         {{Address}}: {{address[global.isChinese]}} <br>
         Email: <span>{{email}}</span>
@@ -113,4 +110,17 @@ export default {
 .qr-block:hover > img {
   display: block;
 }
+.q-avatar {
+  margin-top: 12px;
+}
+@media (max-device-width: 600px) {
+  .qr-block {
+    width: 40px;
+    height: 40px;
+  }
+  .q-avatar {
+    font-size: 30px !important;
+  }
+}
+
 </style>
